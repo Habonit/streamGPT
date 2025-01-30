@@ -38,6 +38,7 @@ streamlit run home.py
 ---
 
 ## 파일 구조
+```bash
 
 SpartaGPTPortfolio/
 │── home.py  # 메인 실행 파일
@@ -64,3 +65,4 @@ SpartaGPTPortfolio/
 │   ├── basic_summary.json # citationlinker.py의 논문에 대한 기본 요약
 │   ├── reference_count.json # citationlinker.py의 citation_score를 내기 위한 자료
 │   ├── reference_qna.json # citationlinker.py의 참고문헌에 근거한 요약
+```
