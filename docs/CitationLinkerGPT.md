@@ -270,7 +270,7 @@ References:
 ---
 ## 결과
 1) citation score
-![Citation Score](image/citation_image.png)
+![Citation Score](../image/citation_image.png)
 
 2) basic_summary
 
