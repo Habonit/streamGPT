@@ -5,7 +5,7 @@
 
 소스코드는 home.py와 pages 내부의 script에서 확인 가능합니다.
 
-영상은 week6_basic_ImageGPT.mp4에서 확인 가능합니다.
+영상은 **week6_basic_ImageGPT.mp4**에서 확인 가능합니다. 116mb이므로 raw 파일로 다운 받아야 합니다.
 
 ## 주요 기능
 - 사용자가 업로드한 이미지에 대한 질문 응답 기능 제공
