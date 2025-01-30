@@ -1,0 +1,6 @@
+.env
+reference/
+result/
+.cache/
+__pycache__/
+venv/
