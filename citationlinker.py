@@ -30,8 +30,8 @@ class CitationLinker():
 
         self.essay_dir = Path(config['essay_dir'])
         self.result_dir = Path(config['result_dir'])
-        CitationLinker.create_directory_if_not_exists(self.essay_dir)
-        CitationLinker.create_directory_if_not_exists(self.result_dir)
+        # CitationLinker._create_directory_if_not_exists(self.essay_dir)
+        # CitationLinker._create_directory_if_not_exists(self.result_dir)
 
         self.title = None
         self.authors = None
@@ -49,8 +49,11 @@ class CitationLinker():
         # self.reference_count_keys = [key for key in self.content_keys if key not in set(self.basic_keys + self.references)]
     
     @staticmethod
-    def create_directory_if_not_exists(directory_path):
-        if not os.path.exists(directory_path):
+    def _create_directory_if_not_exists(directory_path):
+        if directory_path.split("/")[-1] == "target-id":
+            pass
+
+        elif not os.path.exists(directory_path):
             os.makedirs(directory_path)
             print(f"디렉토리 '{directory_path}'가 생성되었습니다.")
         else:
@@ -96,7 +99,24 @@ class CitationLinker():
                 })
             
         return None 
-
+    
+    ## forward에 직접 포함되는 함수
+    @staticmethod
+    def _message_to_openai(message, model):
+        response = client.chat.completions.create(
+            model=model,
+            store=True,
+            messages=[{"role": "user", "content": message}],
+            temperature=0
+        )
+        return response
+    
+    def _search_and_download_essay(self, arxiv_id):
+        self._search_arxiv_pdf(arxiv_id=arxiv_id)
+        self._download_arxiv_pdf(
+            pdf_url=self.pdf_url, 
+            save_path=self.essay_dir / f"0-{self.title}.pdf"
+        )
     def _preprocess(self, save_path):
         # 데이터를 불러와 섹션 별로 나눕니다.
         loader = UnstructuredPDFLoader(save_path)
@@ -137,33 +157,8 @@ class CitationLinker():
             processed_output[key] = documents
 
         return processed_output
-    
-    @staticmethod
-    def _message_to_openai(message, model):
-        response = client.chat.completions.create(
-            model=model,
-            store=True,
-            messages=[{"role": "user", "content": message}],
-            temperature=0
-        )
-        return response
 
-    def forward(self):
-
-        # 논문 id를 받아서 논문을 다운 받습니다.
-        self._search_arxiv_pdf(arxiv_id=self.target_id)
-        title = self.title
-        save_path = self.essay_dir / f"0-{title[:15]}.pdf"
-        self._download_arxiv_pdf(
-            pdf_url=self.pdf_url, 
-            save_path=save_path
-        )
-
-        # 텍스트 전처리
-        processed_output = self._preprocess(
-            save_path=save_path
-        )
-
+    def _basic_summarize(self, basic_summarize_template, processed_output):
         # 기본 요약
         essay = ""
         for key in self.content_keys:
@@ -172,10 +167,9 @@ class CitationLinker():
                     essay += doc.page_content + "\n\n"
         basic_summarize_message = basic_summarize_template.format(essay=essay)
         response = CitationLinker._message_to_openai(message=basic_summarize_message, model=self.model)
-        with open(self.result_dir/"basic_summary.json", 'w', encoding="utf-8") as f:
-            json.dump(response.choices[0].message.content, f, ensure_ascii=False, indent=4)
-
-        # 참고문헌 목록화
+        return response.choices[0].message.content
+    
+    def _reference_preprocess(self, reference_extraction_template, processed_output):
         reference_extraction_message = reference_extraction_template.format(references=processed_output['References'])
         flag = True
         while flag:
@@ -192,8 +186,9 @@ class CitationLinker():
             dict_data['Context'] = []
             reference_dict[key] = dict_data
         processed_output['References'] = deepcopy(reference_dict)
-
-        # 인용횟수 counting
+        return processed_output, reference_dict
+    
+    def _reference_counting(self, reference_count_template_dict, processed_output, reference_dict):
         for index in range(len(reference_count_template_dict)):
             result = []
             for key in self.content_keys:
@@ -215,8 +210,9 @@ class CitationLinker():
                 for key, value_dict in data.items():
                     processed_output["References"][key]['Counter'] += value_dict['Counter']
                     processed_output["References"][key]['Context'].extend(value_dict['Context'])
-
-        # reference 논문 다운 받아오기
+        return processed_output
+    
+    def _download_reference(self, processed_output):
         for index in range(len(processed_output['References'])):
             title = processed_output['References'][str(index+1)]['Title']
             try :
@@ -235,7 +231,7 @@ class CitationLinker():
                 abstract = paper_info['abstract']
                 processed_output['References'][str(index+1)]['abstract'] = abstract
                 processed_output['References'][str(index+1)]['pdf_url'] = pdf_url
-                save_path = self.essay_dir / (str(index+1)+ "-" + paper_info['title'][:15]+".pdf")
+                save_path = self.essay_dir / (str(index+1)+ "-" + paper_info['title']+".pdf")
                 self._download_arxiv_pdf(pdf_url, save_path)
                 print(index+1,"번째 논문 다운로드 완료")
             
@@ -248,22 +244,22 @@ class CitationLinker():
                 print(f"    {processed_output['References'][str(index+1)]['Title']}")
 
         # 논문 다운로드 후, 질문 축소
+        # 이렇게 하는 이유는 동일 질문을 여러개 갖고 있을 수 있기 때문입니다.
         filtered_reference_dict = { key: value for key, value in processed_output['References'].items() if value['pdf_url'] is not None}
         nums = int(round(len(processed_output['References'])*self.reference_ratio, 0))
         related_reference = dict(sorted(filtered_reference_dict.items(), key=lambda x:x[1]['Counter'], reverse=True)[:nums])
         total_related_reference = dict(sorted(filtered_reference_dict.items(), key=lambda x:x[1]['Counter'], reverse=True))
-        # print(total_related_reference)
-        # result['total_reference_result_dict'] = total_related_reference
-        with open(self.result_dir/"reference_count.json", 'w', encoding="utf-8") as f:
-            json.dump(total_related_reference, f, ensure_ascii=False, indent=4)
-
+        return related_reference, total_related_reference, processed_output
+    
+    def _reduce_questions(self, question_reduction_template, related_reference):
         for index in related_reference.keys():
             query_list = related_reference[index]['Context']
             user_message = question_reduction_template.format(text_list=query_list)
             response = CitationLinker._message_to_openai(user_message, model=self.model)
             related_reference[index]['Questions'] = response.choices[0].message.content
-
-        # reference와의 접점을 찾기 위한 요약
+        return related_reference
+    
+    def _find_connection_from_reference(self, reference_qna_template, research_progress_template, processed_output, related_reference):
         main_essay = ""
         for key in self.basic_keys:
             for doc in processed_output[key]:
@@ -290,6 +286,65 @@ class CitationLinker():
             response = CitationLinker._message_to_openai(research_progress_message,model=self.model)
             summary_qna = response.choices[0].message.content
             related_reference[index]['Summary_QnA'] = summary_qna
+        return related_reference
+    
+    def forward(self):
+
+        # 논문 id를 받아서 논문을 다운 받습니다.
+        # 추후에 논문 pdf를 drag and drop 방식으로 바꿀 수도 있습니다
+        self._search_and_download_essay(
+            arxiv_id=self.target_id,
+        )
+
+        # 텍스트 전처리
+        processed_output = self._preprocess(
+            save_path=self.essay_dir / f"0-{self.title}.pdf"
+        )
+
+        # 기본 요약
+        response=self._basic_summarize(
+            basic_summarize_template=basic_summarize_template,
+            processed_output=processed_output
+        )
+        with open(self.result_dir/"basic_summary.json", 'w', encoding="utf-8") as f:
+            json.dump(response, f, ensure_ascii=False, indent=4)
+
+        # 참고문헌 목록화
+        processed_output, reference_dict = self._reference_preprocess(
+            reference_extraction_template=reference_extraction_template,
+            processed_output=processed_output
+        )
+        # 인용횟수 counting
+        # reference_count_template_dict / processed_output / reference_dict
+        processed_output = self._reference_counting(
+            reference_count_template_dict=reference_count_template_dict, 
+            processed_output=processed_output, 
+            reference_dict=reference_dict
+            )
+        # reference 논문 다운 받아오기
+        # 전략 처음엔 30개 중에 다운을 받습니다.
+        # 그 다음 150개를 받습니다. 
+        # 그 다음 default 값으로 받습니다.
+        # 그럼에도 없으면 None으로 채워넣습니다. 
+        related_reference, total_related_reference, processed_output = self._download_reference(processed_output=processed_output)
+        with open(self.result_dir/"reference_count.json", 'w', encoding="utf-8") as f:
+            json.dump(total_related_reference, f, ensure_ascii=False, indent=4)
+
+        # # 논문 다운로드 후, 질문 축소
+        # # 이렇게 하는 이유는 동일 질문을 여러개 갖고 있을 수 있기 때문입니다.
+        related_reference = self._reduce_questions(
+            question_reduction_template=question_reduction_template,
+            related_reference=related_reference
+        )
+        # reference와의 접점을 찾기 위한 요약
+        # 인용 논문과 원래 논문의 접점을 찾고 정리합니다.
+        # 원래 논문이 어떻게 연구를 발전시키는지까지 정리합니다. 
+        related_reference=self._find_connection_from_reference(
+            reference_qna_template=reference_qna_template,
+            research_progress_template=research_progress_template,
+            processed_output=processed_output,
+            related_reference=related_reference
+        )
 
         with open(self.result_dir/"reference_qna.json", 'w', encoding="utf-8") as f:
             json.dump(related_reference, f, ensure_ascii=False, indent=4)

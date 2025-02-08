@@ -1,11 +1,11 @@
 {
     "arxiv_id": "2406.11813",
-    "essay_dir": "reference/target-id",
+    "essay_dir": "reference/240611813",
     "model": "gpt-4o-mini",
     "preprocess_threhsold": 25,
     "reference_ratio": 0.2,
     "reference_condition": "- 인용 표시: 논문 본문에서 참고문헌이 **[숫자]** 형식 (`[5]`, `[27]` 등)으로 인용된 경우만 추출하세요",
-    "result_dir": "result/target-id",
+    "result_dir": "result/240611813",
     "content_keys": {
         "1": {
             "name": "Title",
