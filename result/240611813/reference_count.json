@@ -2,55 +2,62 @@
     "27": {
         "Title": "Scaling laws for neural language models",
         "Authors": "Jared Kaplan, Sam McCandlish, T. J. Henighan, Tom B. Brown, Benjamin Chess, Rewon Child, Scott Gray, Alec Radford, Jeff Wu, Dario Amodei",
-        "Counter": 22,
+        "Counter": 14,
         "Context": [
-            "Recently, there has been a surge in interest in LLMs [9, 13, 21, 23, 49]. [23] and [27] reported that the performance of LLMs adheres to a scaling law, correlating positively with both the model size and the size of the pretraining corpus.",
-            "These works have mainly focused on investigating the factual knowledge encoded in LLMs after pretraining is complete.",
-            "Next, we define a metric to quantify the immediate improvement in the model’s log probability of factual knowledge after it is presented with the knowledge for the i-th time.",
+            "[23] and [27] reported that the performance of LLMs adheres to a scaling law, correlating positively with both the model size and the size of the pretraining corpus.",
+            "We use the window size tw = 50.23 Next, we define a metric to quantify the immediate improvement in the model’s log probability of factual knowledge after it is presented with the knowledge for the i-th time.",
             "The measurement of the defined metrics are illustrated in Figure 1. For the measurement of effectivity and retainability, we apply outlier detection using the IQR method with a factor of 1.5.",
             "Results are shown for duplicate (Top), paraphrase (Center), and once (Bottom) injection scenarios.",
-            "Regardless of the acquisition depths (memorization, semantic generalization, and compositional generalization), the model’s log probability measured on the probes shows an immediate and distinctive increase, after the model is updated with the batch containing the injected knowledge.",
+            "This observation directly demonstrates the mechanism of factual knowledge acquisition: LLMs acquire factual knowledge by accumulating micro-acquisitions with subsequent forgetting each time the model encounters the knowledge during pretraining.",
             "These patterns are consistent across all pretraining stages of OLMo-7B we investigate (§E.1).",
             "While our finding that effectivity remains unchanged for different stages of pretraining may seem contradictory to the widely known observation that the amount of pretraining data is a critical factor in the performance of LLMs.",
             "The estimated x-intercepts in Figure 5 represent the number of additional training tokens that would lead to the complete loss of the factual knowledge acquired by training.",
             "There is a power-law relationship between training steps and forgetting of acquired factual knowledge, in terms of both memorization and generalization.",
-            "We hypothesize that LLMs struggle to acquire unpopular knowledge because they need sufficient exposure to factual knowledge with intervals shorter than the learnability threshold to increase the probability.",
+            "Overall, we demonstrate the importance of understanding the factual knowledge acquisition dynamics of LLMs to understand the behavior of LLMs, opening up a promising avenue for future research.",
             "[23] and [27] reported that the performance of LLMs adheres to a scaling law, correlating positively with both the model size and the size of the pretraining corpus.",
+            "This x-intercept of R(p, t) is crucial for interpreting the behaviors of LLMs, as will be discussed in detail in § 4.4.",
             "While our finding that effectivity remains unchanged for different stages of pretraining may seem contradictory to the widely known observation that the amount of pretraining data is a critical factor in the performance of LLMs [23, 27], we suggest a plausible hypothesis based on further observations in §4.3.",
-            "The estimated x-intercepts in Figure 5 represent the number of additional training tokens that would lead to the complete loss of the factual knowledge acquired by training.",
-            "However, while the amount of immediate improvement in log probability upon observation of the knowledge increases for larger models, the amount does not significantly increase throughout the progress of pretraining.",
-            "While our finding that effectivity remains unchanged for different stages of pretraining may seem contradictory to the widely known observation that the amount of pretraining data is a critical factor in the performance of LLMs.",
-            "We propose that the improved performance of LLMs through data scaling results from consistent improvements rather than an emergent ability to acquire factual knowledge more quickly during pretraining.",
-            "We use the window size tw = 50.23 Next, we define a metric to quantify the immediate improvement in the model’s log probability of factual knowledge after it is presented with the knowledge for the i-th time.",
-            "In such cases, tw should be 1 and tLAM will reduce to t + 1.",
-            "While our finding that effectivity remains unchanged for different stages of pretraining may seem contradictory to the widely known observation that the amount of pretraining data is a critical factor in the performance of LLMs.",
-            "However, while the amount of immediate improvement in log probability upon observation of the knowledge increases for larger models, the amount does not significantly increase throughout the progress of pretraining. This finding suggests that the benefits of scaling the model size and pretraining tokens are qualitatively different.",
-            "There is a power-law relationship between training steps and forgetting of acquired factual knowledge, in terms of both memorization and generalization."
+            "Specifically, we suggest that the high performance of LLMs trained with larger and more diverse datasets is not primarily due to an emergent ability from the sheer amount of tokens observed during training [50], but rather because the model encounters a wider variety of knowledge more times."
         ],
         "abstract": "We study empirical scaling laws for language model performance on the\ncross-entropy loss. The loss scales as a power-law with model size, dataset\nsize, and the amount of compute used for training, with some trends spanning\nmore than seven orders of magnitude. Other architectural details such as\nnetwork width or depth have minimal effects within a wide range. Simple\nequations govern the dependence of overfitting on model/dataset size and the\ndependence of training speed on model size. These relationships allow us to\ndetermine the optimal allocation of a fixed compute budget. Larger models are\nsignificantly more sample-efficient, such that optimally compute-efficient\ntraining involves training very large models on a relatively modest amount of\ndata and stopping significantly before convergence.",
         "pdf_url": "http://arxiv.org/pdf/2001.08361v1"
     },
+    "21": {
+        "Title": "Olmo: Accelerating the science of language models",
+        "Authors": "Dirk Groeneveld, Iz Beltagy, Pete Walsh, Akshita Bhagia, Rodney Kinney, Oyvind Tafjord, A. Jha, Hamish Ivison, Ian Magnusson, Yizhong Wang, Shane Arora, David Atkinson, Russell Authur, Khyathi Raghavi Chandu, Arman Cohan, Jennifer Dumas, Yanai Elazar, Yuling Gu, Jack Hessel, Tushar Khot, William Merrill, Jacob Daniel Morrison, Niklas Muennighoff, Aakanksha Naik, Crystal Nam, Matthew E. Peters, Valentina Pyatkin, Abhilasha Ravichander, Dustin Schwenk, Saurabh Shah, Will Smith, Emma Strubell, Nishant Subramani, Mitchell Wortsman, Pradeep Dasigi, Nathan Lambert, Kyle Richardson, Luke Zettlemoyer, Jesse Dodge, Kyle Lo, Luca Soldaini, Noah A. Smith, Hanna Hajishirzi",
+        "Counter": 11,
+        "Context": [
+            "To this end, we resume pretraining OLMo [21] intermediate checkpoints restoring the optimizer and scheduler states the same way OLMo is pretrained, using the pretraining data of OLMo (Dolma v1.5 [43])...",
+            "Pretraining with a larger batch size helps LLMs acquire more knowledge It is a common practice to pretrain LLMs with a very large batch size to leverage parallel computing.",
+            "To this end, we resume pretraining OLMo [21] intermediate checkpoints restoring the optimizer and scheduler states the same way OLMo is pretrained...",
+            "These patterns are consistent across all pretraining stages of OLMo-7B we investigate (§E.1).",
+            "It is a common practice to pretrain LLMs with a very large batch size to leverage parallel computing [21].",
+            "The results suggest that pretraining with a small batch size reduces the set of learnable knowledge due to accelerated forgetting, and leads to worse compositional generalization performance of learned factual knowledge.",
+            "To this end, we resume pretraining OLMo [21] intermediate checkpoints restoring the optimizer and scheduler states the same way OLMo is pretrained, using the pretraining data of OLMo (Dolma v1.5 [43])...",
+            "Next, we measure effectivity (Eq. 2) to quantify the improvement of the LLMs’ log probability after being trained with the injected knowledge, averaged across all probes (q) and encounters (i).",
+            "It is a common practice to pretrain LLMs with a very large batch size to leverage parallel computing.",
+            "Figure 5 compares the forgetting dynamics of OLMo-7B mid checkpoint between pretraining and training with the reduced batch size.",
+            "This implies that the models trained with smaller batch sizes have shorter learnability threshold, the point such that an LLM cannot learn the knowledge presented with intervals longer than that threshold."
+        ],
+        "abstract": null,
+        "pdf_url": null
+    },
     "29": {
         "Title": "Deduplicating training data makes language models better",
         "Authors": "Katherine Lee, Daphne Ippolito, Andrew Nystrom, Chiyuan Zhang, Douglas Eck, Chris Callison-Burch, Nicholas Carlini",
-        "Counter": 16,
+        "Counter": 11,
         "Context": [
-            "...the importance of dataset deduplication [29, 52] can be explained.",
+            "...the failure to acquire long-tail knowledge [26, 34], and the importance of dataset deduplication [29, 52] can be explained.",
+            "LLMs memorize a significant amount of training data [10, 29], and the tendency to memorize training data increases as the size of the model gets larger, without harming the ability to generalize the knowledge [7, 11].",
             "...it is widely observed that deduplication of pretraining data is an important factor in improving model performance [29, 52].",
-            "...the importance of dataset deduplication [29, 52] can be explained.",
+            "Our findings suggest that deduplicating the pretraining corpus improves LLM performance by preventing the model from assigning a higher probability to duplicated sequences and helping it retain acquired generalization longer.",
+            "the importance of dataset deduplication",
             "LLMs memorize a significant amount of training data [10, 29], and the tendency to memorize training data increases as the size of the model gets larger, without harming the ability to generalize the knowledge [7, 11].",
             "it is widely observed that deduplication of pretraining data is an important factor in improving model performance [29, 52].",
-            "Also, pretraining LLMs with deduplicated data and larger batch sizes enhances the acquisition of factual knowledge, making them more robust against forgetting the learned factual knowledge.",
-            "Third, our findings suggest that deduplicating the pretraining corpus improves LLM performance by preventing the model from assigning a higher probability to duplicated sequences and helping it retain acquired generalization longer.",
-            "...the importance of dataset deduplication [29, 52] can be explained.",
-            "...it is widely observed that deduplication of pretraining data is an important factor in improving model performance [29, 52].",
+            "pretraining LLMs with deduplicated data and larger batch sizes enhances the acquisition of factual knowledge, making them more robust against forgetting the learned factual knowledge.",
             "...the importance of dataset deduplication [29, 52] can be explained.",
             "LLMs memorize a significant amount of training data [10, 29], and the tendency to memorize training data increases as the size of the model gets larger, without harming the ability to generalize the knowledge [7, 11].",
-            "It is widely observed that deduplication of pretraining data is an important factor in improving model performance.",
-            "Our findings suggest that deduplicating the pretraining corpus improves LLM performance by preventing the model from assigning a higher probability to duplicated sequences and helping it retain acquired generalization longer.",
-            "...the importance of dataset deduplication [29, 52] can be explained.",
-            "...it is widely observed that deduplication of pretraining data is an important factor in improving model performance [29, 52].",
-            "Our findings suggest that deduplicating the pretraining corpus improves LLM performance by preventing the model from assigning a higher probability to duplicated sequences."
+            "...it is widely observed that deduplication of pretraining data is an important factor in improving model performance [29, 52]."
         ],
         "abstract": "We find that existing language modeling datasets contain many near-duplicate\nexamples and long repetitive substrings. As a result, over 1% of the unprompted\noutput of language models trained on these datasets is copied verbatim from the\ntraining data. We develop two tools that allow us to deduplicate training\ndatasets -- for example removing from C4 a single 61 word English sentence that\nis repeated over 60,000 times. Deduplication allows us to train models that\nemit memorized text ten times less frequently and require fewer train steps to\nachieve the same or better accuracy. We can also reduce train-test overlap,\nwhich affects over 4% of the validation set of standard datasets, thus allowing\nfor more accurate evaluation. We release code for reproducing our work and\nperforming dataset deduplication at\nhttps://github.com/google-research/deduplicate-text-datasets.",
         "pdf_url": "http://arxiv.org/pdf/2107.06499v2"
@@ -58,41 +65,49 @@
     "46": {
         "Title": "Memorization without overfitting: Analyzing the training dynamics of large language models",
         "Authors": "Kushal Tirumala, Aram Markosyan, Luke Zettlemoyer, Armen Aghajanyan",
-        "Counter": 14,
+        "Counter": 9,
         "Context": [
+            "Notably, [46] conducted an extensive analysis of the behavior of LLMs on memorization and forgetting across various pretraining conditions.",
             "[44] and [46] focused on the dynamics of memorization in language model pretraining.",
-            "The exponential trend of forgetting has been reported in various aspects of LLM training, including memorization in pretraining [46] and task performances in continual learning [33, 39].",
+            "Training steps and the forgetting of acquired factual knowledge have a power-law relationship The exponential trend of forgetting has been reported in various aspects of LLM training, including memorization in pretraining [46] and task performances in continual learning [33, 39].",
             "Notably, [46] conducted an extensive analysis of the behavior of LLMs on memorization and forgetting across various pretraining conditions.",
             "[44] and [46] focused on the dynamics of memorization in language model pretraining.",
             "The exponential trend of forgetting has been reported in various aspects of LLM training, including memorization in pretraining [46] and task performances in continual learning [33, 39].",
             "Notably, [46] conducted an extensive analysis of the behavior of LLMs on memorization and forgetting across various pretraining conditions.",
             "[44] and [46] focused on the dynamics of memorization in language model pretraining.",
-            "The exponential trend of forgetting has been reported in various aspects of LLM training, including memorization in pretraining [46] and task performances in continual learning [33, 39].",
-            "Notably, [46] conducted an extensive analysis of the behavior of LLMs on memorization and forgetting across various pretraining conditions.",
-            "[44] and [46] focused on the dynamics of memorization in language model pretraining.",
-            "Training steps and the forgetting of acquired factual knowledge have a power-law relationship. The exponential trend of forgetting has been reported in various aspects of LLM training, including memorization in pretraining.",
-            "Notably, [46] conducted an extensive analysis of the behavior of LLMs on memorization and forgetting across various pretraining conditions.",
-            "[44] and [46] focused on the dynamics of memorization in language model pretraining.",
-            "The exponential trend of forgetting has been reported in various aspects of LLM training, including memorization in pretraining."
+            "The exponential trend of forgetting has been reported in various aspects of LLM training, including memorization in pretraining [46] and task performances in continual learning [33, 39]."
         ],
         "abstract": "Despite their wide adoption, the underlying training and memorization\ndynamics of very large language models is not well understood. We empirically\nstudy exact memorization in causal and masked language modeling, across model\nsizes and throughout the training process. We measure the effects of dataset\nsize, learning rate, and model size on memorization, finding that larger\nlanguage models memorize training data faster across all settings.\nSurprisingly, we show that larger models can memorize a larger portion of the\ndata before over-fitting and tend to forget less throughout the training\nprocess. We also analyze the memorization dynamics of different parts of speech\nand find that models memorize nouns and numbers first; we hypothesize and\nprovide empirical evidence that nouns and numbers act as a unique identifier\nfor memorizing individual training examples. Together, these findings present\nanother piece of the broader puzzle of trying to understand what actually\nimproves as models get bigger.",
         "pdf_url": "http://arxiv.org/pdf/2205.10770v2"
     },
+    "23": {
+        "Title": "Training compute-optimal large language models",
+        "Authors": "Jordan Hoffmann, Sebastian Borgeaud, Arthur Mensch, Elena Buchatskaya, Trevor Cai, Eliza Rutherford, Diego de Las Casas, Lisa Anne Hendricks, Johannes Welbl, Aidan Clark, Tom Hennigan, Eric Noland, Katie Millican, George van den Driessche, Bogdan Damoc, Aurelia Guy, Simon Osindero, Karen Simonyan, Erich Elsen, Jack W. Rae, Oriol Vinyals, L. Sifre",
+        "Counter": 8,
+        "Context": [
+            "[23] and [27] reported that the performance of LLMs adheres to a scaling law, correlating positively with both the model size and the size of the pretraining corpus.",
+            "Recently, there has been a surge in interest in LLMs [9, 13, 21, 23, 49].",
+            "We use the window size tw = 50.23 Next, we define a metric to quantify the immediate improvement in the model’s log probability of factual knowledge after it is presented with the knowledge for the i-th time.",
+            "While our finding that effectivity remains unchanged for different stages of pretraining may seem contradictory to the widely known observation that the amount of pretraining data is a critical factor in the performance of LLMs [23, 27], we suggest a plausible hypothesis based on further observations in §4.3.",
+            "[23] and [27] reported that the performance of LLMs adheres to a scaling law, correlating positively with both the model size and the size of the pretraining corpus.",
+            "In addition, LLMs cannot manipulate knowledge from pretraining data effectively [5].",
+            "In Eq.1, the definition of the local acquisition maxima is also dependent on the injected knowledge k and the window size tw, but we write tLAM(q, i) for brevity.",
+            "While our finding that effectivity remains unchanged for different stages of pretraining may seem contradictory to the widely known observation that the amount of pretraining data is a critical factor in the performance of LLMs [23, 27], we suggest a plausible hypothesis based on further observations in §4.3."
+        ],
+        "abstract": null,
+        "pdf_url": null
+    },
     "41": {
         "Title": "Are emergent abilities of large language models a mirage?",
         "Authors": "Rylan Schaeffer, Brando Miranda, Oluwasanmi Koyejo",
-        "Counter": 10,
+        "Counter": 6,
         "Context": [
             "To conduct a detailed analysis of the LLMs’ acquisition of factual knowledge during pretraining, we evaluate the model’s state by examining log probabilities to obtain fine-grained information.",
-            "Most well-known facts are likely to be presented to the model with an interval of the training steps shorter than this learnability threshold.",
-            "To conduct a detailed analysis of the LLMs’ acquisition of factual knowledge during pretraining, we evaluate the model’s state by examining log probabilities to obtain fine-grained information [41].",
-            "...the accumulated log probability of the knowledge will be high enough to generate the knowledge as the decoding output of the model [41].",
-            "To conduct a detailed analysis of the LLMs’ acquisition of factual knowledge during pretraining, we evaluate the model’s state by examining log probabilities to obtain fine-grained information [41].",
-            "...the accumulated log probability of the knowledge will be high enough to generate the knowledge as the decoding output of the model [41].",
+            "In such a case, the model will accumulate the increased log probability of the knowledge upon each encounter of the knowledge as the pretraining progresses, and at some point, the accumulated log probability of the knowledge will be high enough to generate the knowledge as the decoding output of the model.",
             "To conduct a detailed analysis of the LLMs’ acquisition of factual knowledge during pretraining, we evaluate the model’s state by examining log probabilities to obtain fine-grained information [41].",
             "...the acquisition of such knowledge will be reflected in the model’s top-k output sequence generation in a relatively earlier pretraining stage, as demonstrated in [41].",
             "To conduct a detailed analysis of the LLMs’ acquisition of factual knowledge during pretraining, we evaluate the model’s state by examining log probabilities to obtain fine-grained information [41].",
-            "...the acquisition of such knowledge will be reflected in the model’s top-k output sequence generation in a relatively earlier pretraining stage, as demonstrated in [8]."
+            "...the accumulated log probability of the knowledge will be high enough to generate the knowledge as the decoding output of the model [41]."
         ],
         "abstract": "Recent work claims that large language models display emergent abilities,\nabilities not present in smaller-scale models that are present in larger-scale\nmodels. What makes emergent abilities intriguing is two-fold: their sharpness,\ntransitioning seemingly instantaneously from not present to present, and their\nunpredictability, appearing at seemingly unforeseeable model scales. Here, we\npresent an alternative explanation for emergent abilities: that for a\nparticular task and model family, when analyzing fixed model outputs, emergent\nabilities appear due to the researcher's choice of metric rather than due to\nfundamental changes in model behavior with scale. Specifically, nonlinear or\ndiscontinuous metrics produce apparent emergent abilities, whereas linear or\ncontinuous metrics produce smooth, continuous predictable changes in model\nperformance. We present our alternative explanation in a simple mathematical\nmodel, then test it in three complementary ways: we (1) make, test and confirm\nthree predictions on the effect of metric choice using the InstructGPT/GPT-3\nfamily on tasks with claimed emergent abilities; (2) make, test and confirm two\npredictions about metric choices in a meta-analysis of emergent abilities on\nBIG-Bench; and (3) show to choose metrics to produce never-before-seen\nseemingly emergent abilities in multiple vision tasks across diverse deep\nnetworks. Via all three analyses, we provide evidence that alleged emergent\nabilities evaporate with different metrics or with better statistics, and may\nnot be a fundamental property of scaling AI models.",
         "pdf_url": "http://arxiv.org/pdf/2304.15004v2"
@@ -100,16 +115,12 @@
     "52": {
         "Title": "To repeat or not to repeat: Insights from scaling llm under token-crisis",
         "Authors": "Fuzhao Xue, Yao Fu, Wangchunshu Zhou, Zangwei Zheng, Yang You",
-        "Counter": 10,
+        "Counter": 6,
         "Context": [
-            "...the importance of dataset deduplication [29, 52] can be explained.",
+            "...the failure to acquire long-tail knowledge [26, 34], and the importance of dataset deduplication [29, 52] can be explained.",
             "...it is widely observed that deduplication of pretraining data is an important factor in improving model performance [29, 52].",
-            "...the importance of dataset deduplication [29, 52] can be explained.",
+            "the importance of dataset deduplication",
             "it is widely observed that deduplication of pretraining data is an important factor in improving model performance [29, 52].",
-            "...the importance of dataset deduplication [29, 52] can be explained.",
-            "...it is widely observed that deduplication of pretraining data is an important factor in improving model performance [29, 52].",
-            "...the importance of dataset deduplication [29, 52] can be explained.",
-            "The models exhibit faster forgetting in generalizing factual knowledge when presented with duplicated texts.",
             "...the importance of dataset deduplication [29, 52] can be explained.",
             "...it is widely observed that deduplication of pretraining data is an important factor in improving model performance [29, 52]."
         ],
@@ -119,293 +130,84 @@
     "9": {
         "Title": "Language models are few-shot learners",
         "Authors": "Tom Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared D Kaplan, Prafulla Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda Askell, et al.",
-        "Counter": 9,
+        "Counter": 5,
         "Context": [
-            "Recent pretraining corpora are thoroughly deduplicated [9, 28, 38, 43, 47, 48], as it is widely observed that data deduplication can improve model performance [1, 29, 42, 52].",
-            "Recently, there has been a surge in interest in LLMs [9, 13, 21, 23, 49].",
-            "Recent pretraining corpora are thoroughly deduplicated [9, 28, 38, 43, 47, 48], as it is widely observed that data deduplication can improve model performance [1, 29, 42, 52].",
-            "Recently, there has been a surge in interest in LLMs [9, 13, 21, 23, 49].",
-            "Recent pretraining corpora are thoroughly deduplicated [9, 28, 38, 43, 47, 48], as it is widely observed that data deduplication can improve model performance [1, 29, 42, 52].",
-            "Recently, there has been a surge in interest in LLMs [9, 13, 21, 23, 49].",
             "Recent pretraining corpora are thoroughly deduplicated [9, 28, 38, 43, 47, 48], as it is widely observed that data deduplication can improve model performance.",
             "Recently, there has been a surge in interest in LLMs [9, 13, 21, 23, 49].",
-            "...as it is widely observed that data deduplication can improve model performance [1, 29, 42, 52]."
-        ],
-        "abstract": "CLIP has shown a remarkable zero-shot capability on a wide range of vision\ntasks. Previously, CLIP is only regarded as a powerful visual encoder. However,\nafter being pre-trained by language supervision from a large amount of\nimage-caption pairs, CLIP itself should also have acquired some few-shot\nabilities for vision-language tasks. In this work, we empirically show that\nCLIP can be a strong vision-language few-shot learner by leveraging the power\nof language. We first evaluate CLIP's zero-shot performance on a typical visual\nquestion answering task and demonstrate a zero-shot cross-modality transfer\ncapability of CLIP on the visual entailment task. Then we propose a\nparameter-efficient fine-tuning strategy to boost the few-shot performance on\nthe vqa task. We achieve competitive zero/few-shot results on the visual\nquestion answering and visual entailment tasks without introducing any\nadditional pre-training procedure.",
-        "pdf_url": "http://arxiv.org/pdf/2203.07190v1"
-    },
-    "36": {
-        "Title": "Language models as knowledge bases?",
-        "Authors": "Fabio Petroni, Tim Rocktäschel, Sebastian Riedel, Patrick Lewis, Anton Bakhtin, Yuxiang Wu, Alexander Miller",
-        "Counter": 9,
-        "Context": [
-            "Recent studies on LLMs have shown their ability to capture substantial factual knowledge from the pretraining data [14, 36, 40].",
-            "Recent studies on LLMs have shown their ability to capture substantial factual knowledge from the pretraining data [14, 36, 40].",
-            "Extensive studies have examined the knowledge encoded in the parameters of LLMs [36, 40].",
-            "Recent studies on LLMs have shown their ability to capture substantial factual knowledge from the pretraining data [14, 36, 40].",
-            "Extensive studies have examined the knowledge encoded in the parameters of LLMs [36, 40].",
-            "Recent studies on LLMs have shown their ability to capture substantial factual knowledge from the pretraining data [14, 36, 40].",
-            "Extensive studies have examined the knowledge encoded in the parameters of LLMs [36, 40].",
-            "Recent studies on LLMs have shown their ability to capture substantial factual knowledge from the pretraining data [14, 36, 40].",
-            "Extensive studies have examined the knowledge encoded in the parameters of LLMs [36, 40]."
-        ],
-        "abstract": "Large language models (LLMs) outperform information retrieval techniques for\ndownstream knowledge-intensive tasks when being prompted to generate world\nknowledge. However, community concerns abound regarding the factuality and\npotential implications of using this uncensored knowledge. In light of this, we\nintroduce CONNER, a COmpreheNsive kNowledge Evaluation fRamework, designed to\nsystematically and automatically evaluate generated knowledge from six\nimportant perspectives -- Factuality, Relevance, Coherence, Informativeness,\nHelpfulness and Validity. We conduct an extensive empirical analysis of the\ngenerated knowledge from three different types of LLMs on two widely studied\nknowledge-intensive tasks, i.e., open-domain question answering and\nknowledge-grounded dialogue. Surprisingly, our study reveals that the\nfactuality of generated knowledge, even if lower, does not significantly hinder\ndownstream tasks. Instead, the relevance and coherence of the outputs are more\nimportant than small factual mistakes. Further, we show how to use CONNER to\nimprove knowledge-intensive tasks by designing two strategies: Prompt\nEngineering and Knowledge Selection. Our evaluation code and LLM-generated\nknowledge with human annotations will be released to facilitate future\nresearch.",
-        "pdf_url": "http://arxiv.org/pdf/2310.07289v1"
-    },
-    "5": {
-        "Title": "Physics of language models: Part 3.2, knowledge manipulation",
-        "Authors": "Zeyuan Allen-Zhu, Yuanzhi Li",
-        "Counter": 8,
-        "Context": [
-            "In addition, LLMs cannot manipulate knowledge from pretraining data effectively [5].",
-            "In all injection scenarios, there is an improvement in effectivity when the model size is scaled from 1B to 7B (as shown on the right side of Figure 3).",
-            "In addition, LLMs cannot manipulate knowledge from pretraining data effectively [5].",
-            "In addition, LLMs cannot manipulate knowledge from pretraining data effectively [5].",
-            "This observation directly demonstrates the mechanism of factual knowledge acquisition: LLMs acquire factual knowledge by accumulating micro-acquisitions with subsequent forgetting each time the model encounters the knowledge during pretraining.",
-            "In addition, LLMs cannot manipulate knowledge from pretraining data effectively [5].",
-            "In addition, LLMs cannot manipulate knowledge from pretraining data effectively [5].",
-            "In all injection scenarios, there is an improvement in effectivity when the model size is scaled from 1B to 7B (as shown on the right side of Figure 3)."
-        ],
-        "abstract": "Language models can store vast factual knowledge, yet their ability to\nflexibly use this knowledge for downstream tasks (e.g., via instruction\nfinetuning) remains questionable. This paper investigates four fundamental\nknowledge manipulation tasks: retrieval (e.g., \"What is person A's attribute\nX?\"), classification (e.g., \"Is A's attribute X even or odd?\"), comparison\n(e.g., \"Is A greater than B in attribute X?\"), and inverse search (e.g., \"Which\nperson's attribute X equals T?\").\n  We show that language models excel in knowledge retrieval but struggle even\nin the simplest classification or comparison tasks unless Chain of Thoughts\n(CoTs) are employed during both training and inference. Moreover, their\nperformance in inverse knowledge search is virtually 0%, regardless of the\nprompts. Our primary contribution is a controlled, synthetic experiment that\nconfirms these weaknesses are inherent to language models: they cannot\nefficiently manipulate knowledge from pre-training data, even when such\nknowledge is perfectly stored in the models, despite adequate training and\nsufficient model size. Our findings also apply to modern pretrained language\nmodels such as GPT-4, thus giving rise to many Turing tests to distinguish\nHumans from contemporary AIs.",
-        "pdf_url": "http://arxiv.org/pdf/2309.14402v2"
-    },
-    "33": {
-        "Title": "An empirical study of catastrophic forgetting in large language models during continual fine-tuning",
-        "Authors": "Yun Luo, Zhen Yang, Fandong Meng, Yafu Li, Jie Zhou, Yuechen Zhang",
-        "Counter": 8,
-        "Context": [
-            "The exponential trend of forgetting has been reported in various aspects of LLM training, including memorization in pretraining [46] and task performances in continual learning [33, 39].",
-            "The exponential trend of forgetting has been reported in various aspects of LLM training, including memorization in pretraining [46] and task performances in continual learning [33, 39].",
-            "Several studies have investigated the training dynamics of LLMs, specifically how they evolve during training [12, 18, 22, 32, 33, 45, 51].",
-            "The exponential trend of forgetting has been reported in various aspects of LLM training, including memorization in pretraining [46] and task performances in continual learning [33, 39].",
-            "Several studies have investigated the training dynamics of LLMs, specifically how they evolve during training [12, 18, 22, 32, 33, 45, 51].",
-            "The exponential trend of forgetting has been reported in various aspects of LLM training, including task performances in continual learning.",
-            "Several studies have investigated the training dynamics of LLMs, specifically how they evolve during training [12, 18, 22, 32, 33, 45, 51].",
-            "Training steps and the forgetting of acquired factual knowledge have a power-law relationship."
-        ],
-        "abstract": "Catastrophic forgetting (CF) is a phenomenon that occurs in machine learning\nwhen a model forgets previously learned information while acquiring new\nknowledge for achieving a satisfactory performance in downstream tasks. As\nlarge language models (LLMs) have demonstrated remarkable performance, it is\nintriguing to investigate whether CF exists during the continual instruction\ntuning of LLMs. This study empirically evaluates the forgetting phenomenon in\nLLMs' knowledge during continual instruction tuning from the perspectives of\ndomain knowledge, reasoning, and reading comprehension. The experiments reveal\nthat catastrophic forgetting is generally observed in LLMs ranging from 1b to\n7b parameters. Surprisingly, as the model scale increases, the severity of\nforgetting intensifies in such a model sale range which may result from the\nmuch significant initial performance in the larger LLM. Comparing the\ndecoder-only model BLOOMZ with the encoder-decoder model mT0, BLOOMZ exhibits\nless forgetting and retains more knowledge. Interestingly, we also observe that\nLLMs can mitigate language biases, such as gender bias, during continual\nfine-tuning. Furthermore, our findings indicate that general instruction tuning\ncan help alleviate the forgetting phenomenon in LLMs during subsequent\nfine-tuning.",
-        "pdf_url": "http://arxiv.org/pdf/2308.08747v5"
-    },
-    "18": {
-        "Title": "Does fine-tuning llms on new knowledge encourage hallucinations?",
-        "Authors": "Zorik Gekhman, Gal Yona, Roee Aharoni, Matan Eyal, Amir Feder, Roi Reichart, Jonathan Herzig",
-        "Counter": 7,
-        "Context": [
-            "[44] and [46] focused on the dynamics of memorization in language model pretraining.",
-            "Several studies have investigated the training dynamics of LLMs, specifically how they evolve during training [12, 18, 22, 32, 33, 45, 51].",
-            "Recently, [53] explored the relationship between the data size and grokking [37].",
-            "Knowledge injection during pretraining We explore how LLMs acquire and retain factual knowledge in terms of memorization and generalization by examining the following factors: (i)",
-            "The results suggest that pretraining with a small batch size reduces the set of learnable knowledge due to accelerated forgetting, and leads to worse compositional generalization performance of learned factual knowledge.",
-            "However, while the amount of immediate improvement in log probability upon observation of the knowledge increases for larger models, the amount does not significantly increase throughout the progress of pretraining.",
-            "We hypothesize that LLMs struggle to acquire unpopular knowledge because they need sufficient exposure to factual knowledge with intervals shorter than the learnability threshold to increase the probability."
-        ],
-        "abstract": "When large language models are aligned via supervised fine-tuning, they may\nencounter new factual information that was not acquired through pre-training.\nIt is often conjectured that this can teach the model the behavior of\nhallucinating factually incorrect responses, as the model is trained to\ngenerate facts that are not grounded in its pre-existing knowledge. In this\nwork, we study the impact of such exposure to new knowledge on the capability\nof the fine-tuned model to utilize its pre-existing knowledge. To this end, we\ndesign a controlled setup, focused on closed-book QA, where we vary the\nproportion of the fine-tuning examples that introduce new knowledge. We\ndemonstrate that large language models struggle to acquire new factual\nknowledge through fine-tuning, as fine-tuning examples that introduce new\nknowledge are learned significantly slower than those consistent with the\nmodel's knowledge. However, we also find that as the examples with new\nknowledge are eventually learned, they linearly increase the model's tendency\nto hallucinate. Taken together, our results highlight the risk in introducing\nnew factual knowledge through fine-tuning, and support the view that large\nlanguage models mostly acquire factual knowledge through pre-training, whereas\nfine-tuning teaches them to use it more efficiently.",
-        "pdf_url": "http://arxiv.org/pdf/2405.05904v3"
+            "Recent pretraining corpora are thoroughly deduplicated [9, 28, 38, 43, 47, 48], as it is widely observed that data deduplication can improve model performance [1, 29, 42, 52].",
+            "Recently, there has been a surge in interest in LLMs [9, 13, 21, 23, 49].",
+            "Recent pretraining corpora are thoroughly deduplicated [9, 28, 38, 43, 47, 48], as it is widely observed that data deduplication can improve model performance [1, 29, 42, 52]."
+        ]
     },
     "26": {
         "Title": "Large language models struggle to learn long-tail knowledge",
         "Authors": "Nikhil Kandpal, H. Deng, Adam Roberts, Eric Wallace, Colin Raffel",
-        "Counter": 7,
+        "Counter": 5,
         "Context": [
             "...the failure to acquire long-tail knowledge [26, 34], and the importance of dataset deduplication...",
-            "...the failure to acquire long-tail knowledge [26, 34]...",
-            "...the failure to acquire long-tail knowledge [26, 34]...",
-            "...the failure to acquire long-tail knowledge [26, 34]...",
+            "the failure to acquire long-tail knowledge",
             "However, recent investigations on LLMs have revealed that LLMs show poor acquisition of long-tail knowledge [26, 34].",
             "...the failure to acquire long-tail knowledge [26, 34]...",
             "However, recent investigations on LLMs have revealed that LLMs show poor acquisition of long-tail knowledge [26, 34]."
-        ],
-        "abstract": "The Internet contains a wealth of knowledge -- from the birthdays of\nhistorical figures to tutorials on how to code -- all of which may be learned\nby language models. However, while certain pieces of information are ubiquitous\non the web, others appear extremely rarely. In this paper, we study the\nrelationship between the knowledge memorized by large language models and the\ninformation in pre-training datasets scraped from the web. In particular, we\nshow that a language model's ability to answer a fact-based question relates to\nhow many documents associated with that question were seen during pre-training.\nWe identify these relevant documents by entity linking pre-training datasets\nand counting documents that contain the same entities as a given\nquestion-answer pair. Our results demonstrate strong correlational and causal\nrelationships between accuracy and relevant document count for numerous\nquestion answering datasets (e.g., TriviaQA), pre-training corpora (e.g.,\nROOTS), and model sizes (e.g., 176B parameters). Moreover, while larger models\nare better at learning long-tail knowledge, we estimate that today's models\nmust be scaled by many orders of magnitude to reach competitive QA performance\non questions with little support in the pre-training data. Finally, we show\nthat retrieval-augmentation can reduce the dependence on relevant pre-training\ninformation, presenting a promising approach for capturing the long-tail.",
-        "pdf_url": "http://arxiv.org/pdf/2211.08411v2"
+        ]
+    },
+    "36": {
+        "Title": "Language models as knowledge bases?",
+        "Authors": "Fabio Petroni, Tim Rocktäschel, Sebastian Riedel, Patrick Lewis, Anton Bakhtin, Yuxiang Wu, Alexander Miller",
+        "Counter": 5,
+        "Context": [
+            "Recent studies on LLMs have shown their ability to capture substantial factual knowledge from the pretraining data [14, 36, 40].",
+            "Recent studies on LLMs have shown their ability to capture substantial factual knowledge from the pretraining data [14, 36, 40].",
+            "Extensive studies have examined the knowledge encoded in the parameters of LLMs [36, 40].",
+            "Recent studies on LLMs have shown their ability to capture substantial factual knowledge from the pretraining data [14, 36, 40].",
+            "Extensive studies have examined the knowledge encoded in the parameters of LLMs [36, 40]."
+        ]
     },
     "40": {
         "Title": "How much knowledge can you pack into the parameters of a language model?",
         "Authors": "Adam Roberts, Colin Raffel, Noam M. Shazeer",
-        "Counter": 7,
+        "Counter": 5,
         "Context": [
             "Recent studies on LLMs have shown their ability to capture substantial factual knowledge from the pretraining data [14, 36, 40].",
             "Recent studies on LLMs have shown their ability to capture substantial factual knowledge from the pretraining data [14, 36, 40].",
             "Extensive studies have examined the knowledge encoded in the parameters of LLMs [36, 40].",
             "Recent studies on LLMs have shown their ability to capture substantial factual knowledge from the pretraining data [14, 36, 40].",
-            "Recent studies on LLMs have shown their ability to capture substantial factual knowledge from the pretraining data [14, 36, 40].",
-            "Extensive studies have examined the knowledge encoded in the parameters of LLMs [36, 40].",
-            "Recent studies on LLMs have shown their ability to capture substantial factual knowledge from the pretraining data [14, 36, 40]."
-        ],
-        "abstract": "It has recently been observed that neural language models trained on\nunstructured text can implicitly store and retrieve knowledge using natural\nlanguage queries. In this short paper, we measure the practical utility of this\napproach by fine-tuning pre-trained models to answer questions without access\nto any external context or knowledge. We show that this approach scales with\nmodel size and performs competitively with open-domain systems that explicitly\nretrieve answers from an external knowledge source when answering questions. To\nfacilitate reproducibility and future work, we release our code and trained\nmodels at https://goo.gle/t5-cbqa.",
-        "pdf_url": "http://arxiv.org/pdf/2002.08910v4"
+            "Extensive studies have examined the knowledge encoded in the parameters of LLMs [36, 40]."
+        ]
     },
     "43": {
         "Title": "Dolma: An open corpus of three trillion tokens for language model pretraining research",
         "Authors": "Luca Soldaini, Rodney Kinney, Akshita Bhagia, Dustin Schwenk, David Atkinson, Russell Authur, Ben Bogin, Khyathi Chandu, Jennifer Dumas, Yanai Elazar, et al.",
-        "Counter": 7,
+        "Counter": 5,
         "Context": [
             "...using the pretraining data of OLMo (Dolma v1.5 [43]), except that we inject factual knowledge every 100 training steps...",
             "...using the pretraining data of OLMo (Dolma v1.5 [43]), except that we inject factual knowledge every 100 training steps...",
             "Recent pretraining corpora are thoroughly deduplicated [9, 28, 38, 43, 47, 48], as it is widely observed that data deduplication can improve model performance [1, 29, 42, 52].",
             "...using the pretraining data of OLMo (Dolma v1.5 [43]), except that we inject factual knowledge every 100 training steps...",
-            "Recent pretraining corpora are thoroughly deduplicated [9, 28, 38, 43, 47, 48], as it is widely observed that data deduplication can improve model performance [1, 29, 42, 52].",
-            "...using the pretraining data of OLMo (Dolma v1.5 [43]), except that we inject factual knowledge every 100 training steps...",
-            "...using the pretraining data of OLMo (Dolma v1.5 [43]), except that we inject factual knowledge every 100 training steps..."
-        ],
-        "abstract": "Information about pretraining corpora used to train the current\nbest-performing language models is seldom discussed: commercial models rarely\ndetail their data, and even open models are often released without accompanying\ntraining data or recipes to reproduce them. As a result, it is challenging to\nconduct and advance scientific research on language modeling, such as\nunderstanding how training data impacts model capabilities and limitations. To\nfacilitate scientific research on language model pretraining, we curate and\nrelease Dolma, a three-trillion-token English corpus, built from a diverse\nmixture of web content, scientific papers, code, public-domain books, social\nmedia, and encyclopedic materials. We extensively document Dolma, including its\ndesign principles, details about its construction, and a summary of its\ncontents. We present analyses and experimental results on intermediate states\nof Dolma to share what we have learned about important data curation practices.\nFinally, we open-source our data curation toolkit to enable reproduction of our\nwork as well as support further research in large-scale data curation.",
-        "pdf_url": "http://arxiv.org/pdf/2402.00159v2"
-    },
-    "49": {
-        "Title": "Llama 2: Open foundation and fine-tuned chat models",
-        "Authors": "Hugo Touvron, Louis Martin, Kevin R. Stone, Peter Albert, Amjad Almahairi, Yasmine Babaei, Nikolay Bashlykov, Soumya Batra, Prajjwal Bhargava, Shruti Bhosale, Daniel M. Bikel, Lukas Blecher, Cristian Cantón Ferrer, Moya Chen, Guillem Cucurull, David Esiobu, Jude Fernandes, Jeremy Fu, Wenyin Fu, Brian Fuller, Cynthia Gao, Vedanuj Goswami, Naman Goyal, Anthony S. Hartshorn, Saghar Hosseini, Rui Hou, Hakan Inan, Marcin Kardas, Viktor Kerkez, Madian Khabsa, Isabel M. Kloumann, A. V. Korenev, Punit Singh Koura, Marie-Anne Lachaux, Thibaut Lavril, Jenya Lee, Diana Liskovich, Yinghai Lu, Yuning Mao, Xavier Martinet, Todor Mihaylov, Pushkar Mishra, Igor Molybog, Yixin Nie, Andrew Poulton, Jeremy Reizenstein, Rashi Rungta, Kalyan Saladi, Alan Schelten, Ruan Silva, Eric Michael Smith, R. Subramanian, Xia Tan, Binh Tang, Ross Taylor, Adina Williams, Jian Xiang Kuan, Puxin Xu, Zhengxu Yan, Iliyan Zarov, Yuchen Zhang, Angela Fan, Melanie Kambadur, Sharan Narang, Aurelien Rodriguez, Robert Stojnic, Sergey Edunov, Thomas Scialom",
-        "Counter": 7,
-        "Context": [
-            "Pretraining with a larger batch size helps LLMs acquire more knowledge It is a common practice to pretrain LLMs with a very large batch size to leverage parallel computing [13, 21, 25, 30, 49].",
-            "It is a common practice to pretrain LLMs with a very large batch size to leverage parallel computing [49].",
-            "Recently, there has been a surge in interest in LLMs [9, 13, 21, 23, 49].",
-            "Pretraining with a larger batch size helps LLMs acquire more knowledge It is a common practice to pretrain LLMs with a very large batch size to leverage parallel computing [13, 21, 25, 30, 49].",
-            "Recently, there has been a surge in interest in LLMs [9, 13, 21, 23, 49].",
-            "Pretraining with a larger batch size helps LLMs acquire more knowledge. It is a common practice to pretrain LLMs with a very large batch size to leverage parallel computing [13, 21, 25, 30, 49].",
-            "Specifically, we continue training LLMs with a batch size reduced by a factor of 16 compared to the original pretraining batch size."
-        ],
-        "abstract": "In this work, we develop and release Llama 2, a collection of pretrained and\nfine-tuned large language models (LLMs) ranging in scale from 7 billion to 70\nbillion parameters. Our fine-tuned LLMs, called Llama 2-Chat, are optimized for\ndialogue use cases. Our models outperform open-source chat models on most\nbenchmarks we tested, and based on our human evaluations for helpfulness and\nsafety, may be a suitable substitute for closed-source models. We provide a\ndetailed description of our approach to fine-tuning and safety improvements of\nLlama 2-Chat in order to enable the community to build on our work and\ncontribute to the responsible development of LLMs.",
-        "pdf_url": "http://arxiv.org/pdf/2307.09288v2"
+            "Recent pretraining corpora are thoroughly deduplicated [9, 28, 38, 43, 47, 48], as it is widely observed that data deduplication can improve model performance [1, 29, 42, 52]."
+        ]
     },
     "4": {
         "Title": "Physics of language models: Part 3.1, knowledge storage and extraction",
         "Authors": "Zeyuan Allen-Zhu, Yuanzhi Li",
-        "Counter": 6,
+        "Counter": 4,
         "Context": [
-            "...but this gap diminishes at the end of the measurement. Moreover, since the model tends to provide a higher increased log probability to the memorization rather than generalization (Figure 2 and 3), presenting the model with duplicated texts with a short interval will result in the widening of the gap between memorization and generalization, which will drive the model to prefer generating memorized contexts compared to generalizing factual knowledge [4].",
-            "...but this gap diminishes at the end of the measurement. Moreover, since the model tends to provide a higher increased log probability to the memorization rather than generalization (Figure 2 and 3), presenting the model with duplicated texts with a short interval will result in the widening of the gap between memorization and generalization, which will drive the model to prefer generating memorized contexts compared to generalizing factual knowledge [4].",
+            "...which will drive the model to prefer generating memorized contexts compared to generalizing factual knowledge [4].",
+            "This observation directly demonstrates the mechanism of factual knowledge acquisition: LLMs acquire factual knowledge by accumulating micro-acquisitions with subsequent forgetting each time the model encounters the knowledge during pretraining.",
+            "...which will drive the model to prefer generating memorized contexts compared to generalizing factual knowledge [4].",
+            "This observation directly demonstrates the mechanism of factual knowledge acquisition: LLMs acquire factual knowledge by accumulating micro-acquisitions with subsequent forgetting each time the model encounters the knowledge during pretraining."
+        ]
+    },
+    "7": {
+        "Title": "Emergent and predictable memorization in large language models",
+        "Authors": "Stella Biderman, USVSN Sai Prashanth, Lintang Sutawika, Hailey Schoelkopf, Quentin G. Anthony, Shivanshu Purohit, Edward Raf",
+        "Counter": 4,
+        "Context": [
+            "First, when the model is updated after seeing the factual knowledge, the most significant improvement in log probability is observed for memorization, followed by semantic generalization, and the least improvement is seen in compositional generalization.",
+            "In addition, [17] theoretically demonstrated that a specific degree of memorization is essential for attaining high performance.",
             "Regardless of the acquisition depths (memorization, semantic generalization, and compositional generalization), the model’s log probability measured on the probes shows an immediate and distinctive increase, after the model is updated with the batch containing the injected knowledge.",
-            "...this gap diminishes at the end of the measurement. Moreover, since the model tends to provide a higher increased log probability to the memorization rather than generalization (Figure 2 and 3), presenting the model with duplicated texts with a short interval will result in the widening of the gap between memorization and generalization...",
-            "We use OLMo for the experiments since the intermediate checkpoints, optimizer states, and batch sequence data for pretraining the model are made publicly available.",
-            "...will drive the model to prefer generating memorized contexts compared to generalizing factual knowledge [4]."
-        ],
-        "abstract": "Large language models (LLMs) can store a vast amount of world knowledge,\noften extractable via question-answering (e.g., \"What is Abraham Lincoln's\nbirthday?\"). However, do they answer such questions based on exposure to\nsimilar questions during training (i.e., cheating), or by genuinely learning to\nextract knowledge from sources like Wikipedia?\n  In this paper, we investigate this issue using a controlled biography\ndataset. We find a strong correlation between the model's ability to extract\nknowledge and various diversity measures of the training data.\n$\\textbf{Essentially}$, for knowledge to be reliably extracted, it must be\nsufficiently augmented (e.g., through paraphrasing, sentence shuffling,\ntranslations) $\\textit{during pretraining}$. Without such augmentation,\nknowledge may be memorized but not extractable, leading to 0% accuracy,\nregardless of subsequent instruction fine-tuning.\n  To understand why this occurs, we employ (nearly) linear probing to\ndemonstrate a strong connection between the observed correlation and how the\nmodel internally encodes knowledge -- whether it is linearly encoded in the\nhidden embeddings of entity names or distributed across other token embeddings\nin the training text.\n  This paper provides $\\textbf{several key recommendations for LLM pretraining\nin the industry}$: (1) rewrite the pretraining data -- using small, auxiliary\nmodels -- to provide knowledge augmentation, and (2) incorporate more\ninstruction-finetuning data into the pretraining stage before it becomes too\nlate.",
-        "pdf_url": "http://arxiv.org/pdf/2309.14316v3"
-    },
-    "2": {
-        "Title": "Gpt-4 technical report",
-        "Authors": "Josh Achiam, Steven Adler, Sandhini Agarwal, Lama Ahmad, Ilge Akkaya, Florencia Leoni Aleman, Diogo Almeida, Janko Altenschmidt, Sam Altman, Shyamal Anadkat, et al.",
-        "Counter": 5,
-        "Context": [
-            "All instances for the injected knowledge and probes are generated by prompting GPT-4 [2] using the definitions from the ECBD dataset [35] as a template, and filtering out invalid cases.",
-            "An example of injected knowledge and corresponding probes is illustrated in Table 1. All instances for the injected knowledge and probes are generated by prompting GPT-4 [2] using the definitions from the ECBD dataset [35] as a template, and filtering out invalid cases.",
-            "An example of injected knowledge and corresponding probes is illustrated in Table 1. All instances for the injected knowledge and probes are generated by prompting GPT-4 [2] using the definitions from the ECBD dataset [35] as a template, and filtering out invalid cases.",
-            "All instances for the injected knowledge and probes are generated by prompting GPT-4 [2] using the definitions from the ECBD dataset [35] as a template, and filtering out invalid cases.",
-            "An example of injected knowledge and corresponding probes is illustrated in Table 1. All instances for the injected knowledge and probes are generated by prompting GPT-4 [2] using the definitions from the ECBD dataset [35] as a template, and filtering out invalid cases."
-        ],
-        "abstract": "This paper does not present a novel method. Instead, it delves into an\nessential, yet must-know baseline in light of the latest advancements in\nGenerative Artificial Intelligence (GenAI): the utilization of GPT-4 for visual\nunderstanding. Our study centers on the evaluation of GPT-4's linguistic and\nvisual capabilities in zero-shot visual recognition tasks: Firstly, we explore\nthe potential of its generated rich textual descriptions across various\ncategories to enhance recognition performance without any training. Secondly,\nwe evaluate GPT-4's visual proficiency in directly recognizing diverse visual\ncontent. We conducted extensive experiments to systematically evaluate GPT-4's\nperformance across images, videos, and point clouds, using 16 benchmark\ndatasets to measure top-1 and top-5 accuracy. Our findings show that GPT-4,\nenhanced with rich linguistic descriptions, significantly improves zero-shot\nrecognition, offering an average top-1 accuracy increase of 7% across all\ndatasets. GPT-4 excels in visual recognition, outshining OpenAI-CLIP's ViT-L\nand rivaling EVA-CLIP's ViT-E, particularly in video datasets HMDB-51 and\nUCF-101, where it leads by 22% and 9%, respectively. We hope this research\ncontributes valuable data points and experience for future studies. We release\nour code at https://github.com/whwu95/GPT4Vis.",
-        "pdf_url": "http://arxiv.org/pdf/2311.15732v2"
-    },
-    "8": {
-        "Title": "Pythia: A suite for analyzing large language models across training and scaling",
-        "Authors": "Stella Biderman, Hailey Schoelkopf, Quentin G. Anthony, Herbie Bradley, Kyle O’Brien, Eric Hallahan, Mohammad Aflah Khan, Shivanshu Purohit, USVSN Sai Prashanth, Edward Raff, Aviya Skowron, Lintang Sutawika, Oskar van der Wal",
-        "Counter": 5,
-        "Context": [
-            "the acquisition of such knowledge will be reflected in the model’s top-k output sequence generation in a relatively earlier pretraining stage, as demonstrated in [8].",
-            "...the acquisition of such knowledge will be reflected in the model’s top-k output sequence generation in a relatively earlier pretraining stage, as demonstrated in [8].",
-            "...the acquisition of such knowledge will be reflected in the model’s top-k output sequence generation in a relatively earlier pretraining stage, as demonstrated in [8].",
-            "...the popularity of the knowledge in the pretraining data influences how quickly this knowledge begins to be ‘revealed’ in the generated sequences during pretraining, except for the knowledge in the long-tail whose low popularity makes the encounter interval longer than the learnability threshold. Also, as briefly mentioned in §4.2, we hypothesize that the reason why larger and more diverse pretraining data helps the model performance is that the model can acquire a broader range of factual knowledge...",
-            "...the acquisition of such knowledge will be reflected in the model’s top-k output sequence generation in a relatively earlier pretraining stage, as demonstrated in [8]."
-        ],
-        "abstract": "How do large language models (LLMs) develop and evolve over the course of\ntraining? How do these patterns change as models scale? To answer these\nquestions, we introduce \\textit{Pythia}, a suite of 16 LLMs all trained on\npublic data seen in the exact same order and ranging in size from 70M to 12B\nparameters. We provide public access to 154 checkpoints for each one of the 16\nmodels, alongside tools to download and reconstruct their exact training\ndataloaders for further study. We intend \\textit{Pythia} to facilitate research\nin many areas, and we present several case studies including novel results in\nmemorization, term frequency effects on few-shot performance, and reducing\ngender bias. We demonstrate that this highly controlled setup can be used to\nyield novel insights toward LLMs and their training dynamics. Trained models,\nanalysis code, training code, and training data can be found at\n\\url{https://github.com/EleutherAI/pythia}.",
-        "pdf_url": "http://arxiv.org/pdf/2304.01373v2"
-    },
-    "12": {
-        "Title": "Sudden drops in the loss: Syntax acquisition, phase transitions, and simplicity bias in MLMs",
-        "Authors": "Angelica Chen, Ravid Shwartz-Ziv, Kyunghyun Cho, Matthew L Leavitt, Naomi Saphra",
-        "Counter": 5,
-        "Context": [
-            "Several studies have investigated the training dynamics of LLMs, specifically how they evolve during training [12, 18, 22, 32, 33, 45, 51].",
-            "Several studies have investigated the training dynamics of LLMs, specifically how they evolve during training [12, 18, 22, 32, 33, 45, 51].",
-            "Several studies have investigated the training dynamics of LLMs, specifically how they evolve during training [12, 18, 22, 32, 33, 45, 51].",
-            "Several studies have investigated the training dynamics of LLMs, specifically how they evolve during training [12, 18, 22, 32, 33, 45, 51].",
-            "Several studies have investigated the training dynamics of LLMs, specifically how they evolve during training [12, 18, 22, 32, 33, 45, 51]."
-        ],
-        "abstract": "Most interpretability research in NLP focuses on understanding the behavior\nand features of a fully trained model. However, certain insights into model\nbehavior may only be accessible by observing the trajectory of the training\nprocess. We present a case study of syntax acquisition in masked language\nmodels (MLMs) that demonstrates how analyzing the evolution of interpretable\nartifacts throughout training deepens our understanding of emergent behavior.\nIn particular, we study Syntactic Attention Structure (SAS), a naturally\nemerging property of MLMs wherein specific Transformer heads tend to focus on\nspecific syntactic relations. We identify a brief window in pretraining when\nmodels abruptly acquire SAS, concurrent with a steep drop in loss. This\nbreakthrough precipitates the subsequent acquisition of linguistic\ncapabilities. We then examine the causal role of SAS by manipulating SAS during\ntraining, and demonstrate that SAS is necessary for the development of\ngrammatical capabilities. We further find that SAS competes with other\nbeneficial traits during training, and that briefly suppressing SAS improves\nmodel quality. These findings offer an interpretation of a real-world example\nof both simplicity bias and breakthrough training dynamics.",
-        "pdf_url": "http://arxiv.org/pdf/2309.07311v5"
-    },
-    "13": {
-        "Title": "Palm: Scaling language modeling with pathways",
-        "Authors": "Aakanksha Chowdhery, Sharan Narang, Jacob Devlin, Maarten Bosma, Gaurav Mishra, Adam Roberts, Paul Barham, Hyung Won Chung, Charles Sutton, Sebastian Gehrmann, Parker Schuh, Kensen Shi, Sasha Tsvyashchenko, Joshua Maynez, Abhishek Rao, Parker Barnes, Yi Tay, Noam M. Shazeer, Vinodkumar Prabhakaran, Emily Reif, Nan Du, Benton C. Hutchinson, Reiner Pope, James Bradbury, Jacob Austin, Michael Isard, Guy Gur-Ari, Pengcheng Yin, Toju Duke, Anselm Levskaya, Sanjay Ghemawat, Sunipa Dev, Henryk Michalewski, Xavier García, Vedant Misra, Kevin Robinson, Liam Fedus, Denny Zhou, Daphne Ippolito, David Luan, Hyeontaek Lim, Barret Zoph, Alexander Spiridonov, Ryan Sepassi, David Dohan, Shivani Agrawal, Mark Omernick, Andrew M. Dai, Thanumalayan Sankaranarayana Pillai, Marie Pellat, Aitor Lewkowycz, Erica Moreira, Rewon Child, Oleksandr Polozov, Katherine Lee, Zongwei Zhou, Xuezhi Wang, Brennan Saeta, Mark Díaz, Orhan Firat, Michele Catasta, Jason Wei, Kathleen S. Meier-Hellstern, Douglas Eck, Jeff Dean, Slav Petrov, Noah Fiedel",
-        "Counter": 5,
-        "Context": [
-            "Pretraining with a larger batch size helps LLMs acquire more knowledge It is a common practice to pretrain LLMs with a very large batch size to leverage parallel computing [13, 21, 25, 30, 49].",
-            "It is a common practice to pretrain LLMs with a very large batch size to leverage parallel computing [13].",
-            "Pretraining with a larger batch size helps LLMs acquire more knowledge It is a common practice to pretrain LLMs with a very large batch size to leverage parallel computing [13, 21, 25, 30, 49].",
-            "Pretraining with a larger batch size helps LLMs acquire more knowledge. It is a common practice to pretrain LLMs with a very large batch size to leverage parallel computing [13, 21, 25, 30, 49].",
-            "Pretraining with a larger batch size helps LLMs acquire more knowledge."
-        ],
-        "abstract": "Large language models have been shown to achieve remarkable performance\nacross a variety of natural language tasks using few-shot learning, which\ndrastically reduces the number of task-specific training examples needed to\nadapt the model to a particular application. To further our understanding of\nthe impact of scale on few-shot learning, we trained a 540-billion parameter,\ndensely activated, Transformer language model, which we call Pathways Language\nModel PaLM. We trained PaLM on 6144 TPU v4 chips using Pathways, a new ML\nsystem which enables highly efficient training across multiple TPU Pods. We\ndemonstrate continued benefits of scaling by achieving state-of-the-art\nfew-shot learning results on hundreds of language understanding and generation\nbenchmarks. On a number of these tasks, PaLM 540B achieves breakthrough\nperformance, outperforming the finetuned state-of-the-art on a suite of\nmulti-step reasoning tasks, and outperforming average human performance on the\nrecently released BIG-bench benchmark. A significant number of BIG-bench tasks\nshowed discontinuous improvements from model scale, meaning that performance\nsteeply increased as we scaled to our largest model. PaLM also has strong\ncapabilities in multilingual tasks and source code generation, which we\ndemonstrate on a wide array of benchmarks. We additionally provide a\ncomprehensive analysis on bias and toxicity, and study the extent of training\ndata memorization with respect to model scale. Finally, we discuss the ethical\nconsiderations related to large language models and discuss potential\nmitigation strategies.",
-        "pdf_url": "http://arxiv.org/pdf/2204.02311v5"
-    },
-    "14": {
-        "Title": "Analyzing commonsense emergence in few-shot knowledge models",
-        "Authors": "Jeff Da, Ronan Le Bras, Ximing Lu, Yejin Choi, Antoine Bosselut",
-        "Counter": 5,
-        "Context": [
-            "Recent studies on LLMs have shown their ability to capture substantial factual knowledge from the pretraining data [14, 36, 40].",
-            "Recent studies on LLMs have shown their ability to capture substantial factual knowledge from the pretraining data [14, 36, 40].",
-            "Recent studies on LLMs have shown their ability to capture substantial factual knowledge from the pretraining data [14, 36, 40].",
-            "Recent studies on LLMs have shown their ability to capture substantial factual knowledge from the pretraining data [14, 36, 40].",
-            "Recent studies on LLMs have shown their ability to capture substantial factual knowledge from the pretraining data [14, 36, 40]."
-        ],
-        "abstract": "Recently, commonsense knowledge models - pretrained language models (LM)\nfine-tuned on knowledge graph (KG) tuples - showed that considerable amounts of\ncommonsense knowledge can be encoded in the parameters of large language\nmodels. However, as parallel studies show that LMs are poor hypothesizers of\ndeclarative commonsense relationships on their own, it remains unclear whether\nthis knowledge is learned during pretraining or from fine-tuning on KG\nexamples. To investigate this question, we train commonsense knowledge models\nin few-shot settings to study the emergence of their commonsense representation\nabilities. Our results show that commonsense knowledge models can rapidly adapt\nfrom limited examples, indicating that KG fine-tuning serves to learn an\ninterface to encoded knowledge learned during pretraining. Importantly, our\nanalysis of absolute, angular, and distributional parameter changes during\nfew-shot fine-tuning provides novel insights into how this interface is\nlearned.",
-        "pdf_url": "http://arxiv.org/pdf/2101.00297v3"
-    },
-    "35": {
-        "Title": "Entity cloze by date: What lms know about unseen entities",
-        "Authors": "Yasumasa Onoe, Michael J.Q. Zhang, Eunsol Choi, Greg Durrett",
-        "Counter": 5,
-        "Context": [
-            "All instances for the injected knowledge and probes are generated by prompting GPT-4 [2] using the definitions from the ECBD dataset [35] as a template, and filtering out invalid cases.",
-            "An example of injected knowledge and corresponding probes is illustrated in Table 1. All instances for the injected knowledge and probes are generated by prompting GPT-4 [2] using the definitions from the ECBD dataset [35] as a template, and filtering out invalid cases.",
-            "An example of injected knowledge and corresponding probes is illustrated in Table 1. All instances for the injected knowledge and probes are generated by prompting GPT-4 [2] using the definitions from the ECBD dataset [35] as a template, and filtering out invalid cases.",
-            "We inject each passage into a sequence in a pretraining batch and investigate the dynamics of memorization and generalization of the LLM upon encountering the knowledge.",
-            "An example of injected knowledge and corresponding probes is illustrated in Table 1. All instances for the injected knowledge and probes are generated by prompting GPT-4 [2] using the definitions from the ECBD dataset [35] as a template, and filtering out invalid cases."
-        ],
-        "abstract": "Language models (LMs) are typically trained once on a large-scale corpus and\nused for years without being updated. However, in a dynamic world, new entities\nconstantly arise. We propose a framework to analyze what LMs can infer about\nnew entities that did not exist when the LMs were pretrained. We derive a\ndataset of entities indexed by their origination date and paired with their\nEnglish Wikipedia articles, from which we can find sentences about each entity.\nWe evaluate LMs' perplexity on masked spans within these sentences. We show\nthat models more informed about the entities, such as those with access to a\ntextual definition of them, achieve lower perplexity on this benchmark. Our\nexperimental results demonstrate that making inferences about new entities\nremains difficult for LMs. Given its wide coverage on entity knowledge and\ntemporal indexing, our dataset can be used to evaluate LMs and techniques\ndesigned to modify or extend their knowledge. Our automatic data collection\npipeline can be easily used to continually update our benchmark.",
-        "pdf_url": "http://arxiv.org/pdf/2205.02832v1"
-    },
-    "44": {
-        "Title": "Memorisation versus generalisation in pre-trained language models",
-        "Authors": "Michael Tänzer, Sebastian Ruder, Marek Rei",
-        "Counter": 5,
-        "Context": [
-            "[44] and [46] focused on the dynamics of memorization in language model pretraining.",
-            "[44] and [46] focused on the dynamics of memorization in language model pretraining.",
-            "[44] and [46] focused on the dynamics of memorization in language model pretraining.",
-            "[44] and [46] focused on the dynamics of memorization in language model pretraining.",
-            "[44] and [46] focused on the dynamics of memorization in language model pretraining."
-        ],
-        "abstract": "State-of-the-art pre-trained language models have been shown to memorise\nfacts and perform well with limited amounts of training data. To gain a better\nunderstanding of how these models learn, we study their generalisation and\nmemorisation capabilities in noisy and low-resource scenarios. We find that the\ntraining of these models is almost unaffected by label noise and that it is\npossible to reach near-optimal results even on extremely noisy datasets.\nHowever, our experiments also show that they mainly learn from high-frequency\npatterns and largely fail when tested on low-resource tasks such as few-shot\nlearning and rare entity recognition. To mitigate such limitations, we propose\nan extension based on prototypical networks that improves performance in\nlow-resource named entity recognition tasks.",
-        "pdf_url": "http://arxiv.org/pdf/2105.00828v2"
-    },
-    "50": {
-        "Title": "Emergent abilities of large language models",
-        "Authors": "Jason Wei, Yi Tay, Rishi Bommasani, Colin Raffel, Barret Zoph, Sebastian Borgeaud, Dani Yogatama, Maarten Bosma, Denny Zhou, Donald Metzler, et al.",
-        "Counter": 5,
-        "Context": [
-            "We suggest a plausible hypothesis based on further observations in §4.3. Specifically, we suggest that the high performance of LLMs trained with larger and more diverse datasets is not primarily due to an emergent ability from the sheer amount of tokens observed during training.",
-            "We suggest a plausible hypothesis based on further observations in §4.3. Specifically, we suggest that the high performance of LLMs trained with larger and more diverse datasets is not primarily due to an emergent ability from the sheer amount of tokens observed during training [50], but rather because the model encounters a wider variety of knowledge more times...",
-            "We suggest a plausible hypothesis based on further observations in §4.3. Specifically, we suggest that the high performance of LLMs trained with larger and more diverse datasets is not primarily due to an emergent ability from the sheer amount of tokens observed during training.",
-            "We suggest that the high performance of LLMs trained with larger and more diverse datasets is not primarily due to an emergent ability from the sheer amount of tokens observed during training.",
-            "We suggest that the high performance of LLMs trained with larger and more diverse datasets is not primarily due to an emergent ability from the sheer amount of tokens observed during training."
-        ],
-        "abstract": "Recent work claims that large language models display emergent abilities,\nabilities not present in smaller-scale models that are present in larger-scale\nmodels. What makes emergent abilities intriguing is two-fold: their sharpness,\ntransitioning seemingly instantaneously from not present to present, and their\nunpredictability, appearing at seemingly unforeseeable model scales. Here, we\npresent an alternative explanation for emergent abilities: that for a\nparticular task and model family, when analyzing fixed model outputs, emergent\nabilities appear due to the researcher's choice of metric rather than due to\nfundamental changes in model behavior with scale. Specifically, nonlinear or\ndiscontinuous metrics produce apparent emergent abilities, whereas linear or\ncontinuous metrics produce smooth, continuous predictable changes in model\nperformance. We present our alternative explanation in a simple mathematical\nmodel, then test it in three complementary ways: we (1) make, test and confirm\nthree predictions on the effect of metric choice using the InstructGPT/GPT-3\nfamily on tasks with claimed emergent abilities; (2) make, test and confirm two\npredictions about metric choices in a meta-analysis of emergent abilities on\nBIG-Bench; and (3) show to choose metrics to produce never-before-seen\nseemingly emergent abilities in multiple vision tasks across diverse deep\nnetworks. Via all three analyses, we provide evidence that alleged emergent\nabilities evaporate with different metrics or with better statistics, and may\nnot be a fundamental property of scaling AI models.",
-        "pdf_url": "http://arxiv.org/pdf/2304.15004v2"
-    },
-    "53": {
-        "Title": "Critical data size of language models from a grokking perspective",
-        "Authors": "Xuekai Zhu, Yao Fu, Bowen Zhou, Zhouhan Lin",
-        "Counter": 5,
-        "Context": [
-            "Recently, [53] explored the relationship between the data size and grokking [37].",
-            "Recently, [53] explored the relationship between the data size and grokking [37].",
-            "Recently, [53] explored the relationship between the data size and grokking [37].",
-            "Recently, [53] explored the relationship between the data size and grokking [37].",
-            "Recently, [53] explored the relationship between the data size and grokking [37]."
-        ],
-        "abstract": "We explore the critical data size in language models, a threshold that marks\na fundamental shift from quick memorization to slow generalization. We\nformalize the phase transition under the grokking configuration into the Data\nEfficiency Hypothesis and identify data insufficiency, sufficiency, and surplus\nregimes in language models training dynamics. We develop a grokking\nconfiguration to reproduce grokking on simplistic language models stably by\nrescaling initialization and weight decay. We show that generalization occurs\nonly when language models reach a critical size. We analyze grokking across\nsample-wise and model-wise, verifying the proposed data efficiency hypothesis.\nOur experiments reveal smoother phase transitions occurring at the critical\ndataset size for language datasets. As the model size increases, this critical\npoint also becomes larger, indicating that larger models require more data. Our\nresults deepen the understanding of language model training, offering a novel\nperspective on the role of data in the learning mechanism of language models.",
-        "pdf_url": "http://arxiv.org/pdf/2401.10463v3"
+            "This theoretical threshold may not be equal to the estimated x-intercepts presented in Figure 5, as we estimate the threshold based on the controlled experiment of injecting factual knowledge."
+        ]
     },
     "10": {
         "Title": "Extracting training data from large language models",
@@ -413,64 +215,52 @@
         "Counter": 4,
         "Context": [
             "LLMs memorize a significant amount of training data [10, 29], and the tendency to memorize training data increases as the size of the model gets larger, without harming the ability to generalize the knowledge [7, 11].",
-            "Next, we measure effectivity (Eq. 2) to quantify the improvement of the LLMs’ log probability after being trained with the injected knowledge, averaged across all probes (q) and encounters (i).",
             "LLMs memorize a significant amount of training data [10, 29], and the tendency to memorize training data increases as the size of the model gets larger, without harming the ability to generalize the knowledge [7, 11].",
+            "The estimated x-intercepts in Figure 5 represent the number of additional training tokens that would lead to the complete loss of the factual knowledge acquired by training.",
             "LLMs memorize a significant amount of training data [10, 29], and the tendency to memorize training data increases as the size of the model gets larger, without harming the ability to generalize the knowledge [7, 11]."
-        ],
-        "abstract": "It has become common to publish large (billion parameter) language models\nthat have been trained on private datasets. This paper demonstrates that in\nsuch settings, an adversary can perform a training data extraction attack to\nrecover individual training examples by querying the language model.\n  We demonstrate our attack on GPT-2, a language model trained on scrapes of\nthe public Internet, and are able to extract hundreds of verbatim text\nsequences from the model's training data. These extracted examples include\n(public) personally identifiable information (names, phone numbers, and email\naddresses), IRC conversations, code, and 128-bit UUIDs. Our attack is possible\neven though each of the above sequences are included in just one document in\nthe training data.\n  We comprehensively evaluate our extraction attack to understand the factors\nthat contribute to its success. Worryingly, we find that larger models are more\nvulnerable than smaller models. We conclude by drawing lessons and discussing\npossible safeguards for training large language models.",
-        "pdf_url": "http://arxiv.org/pdf/2012.07805v2"
+        ]
     },
-    "25": {
-        "Title": "Mistral 7b",
-        "Authors": "Albert Qiaochu Jiang, Alexandre Sablayrolles, Arthur Mensch, Chris Bamford, Devendra Singh Chaplot, Diego de Las Casas, Florian Bressand, Gianna Lengyel, Guillaume Lample, Lucile Saulnier, L’elio Renard Lavaud, Marie-Anne Lachaux, Pierre Stock, Teven Le Scao, Thibaut Lavril, Thomas Wang, Timothée Lacroix, William El Sayed",
+    "33": {
+        "Title": "An empirical study of catastrophic forgetting in large language models during continual fine-tuning",
+        "Authors": "Yun Luo, Zhen Yang, Fandong Meng, Yafu Li, Jie Zhou, Yuechen Zhang",
         "Counter": 4,
         "Context": [
-            "Pretraining with a larger batch size helps LLMs acquire more knowledge It is a common practice to pretrain LLMs with a very large batch size to leverage parallel computing [13, 21, 25, 30, 49].",
-            "It is a common practice to pretrain LLMs with a very large batch size to leverage parallel computing [25].",
-            "Pretraining with a larger batch size helps LLMs acquire more knowledge It is a common practice to pretrain LLMs with a very large batch size to leverage parallel computing [13, 21, 25, 30, 49].",
-            "The effects of increasing training batch size in terms of the LLMs’ acquisition of factual knowledge remain underexplored."
-        ],
-        "abstract": "We introduce Mistral 7B v0.1, a 7-billion-parameter language model engineered\nfor superior performance and efficiency. Mistral 7B outperforms Llama 2 13B\nacross all evaluated benchmarks, and Llama 1 34B in reasoning, mathematics, and\ncode generation. Our model leverages grouped-query attention (GQA) for faster\ninference, coupled with sliding window attention (SWA) to effectively handle\nsequences of arbitrary length with a reduced inference cost. We also provide a\nmodel fine-tuned to follow instructions, Mistral 7B -- Instruct, that surpasses\nthe Llama 2 13B -- Chat model both on human and automated benchmarks. Our\nmodels are released under the Apache 2.0 license.",
-        "pdf_url": "http://arxiv.org/pdf/2310.06825v1"
+            "Training steps and the forgetting of acquired factual knowledge have a power-law relationship The exponential trend of forgetting has been reported in various aspects of LLM training, including memorization in pretraining [46] and task performances in continual learning [33, 39].",
+            "The exponential trend of forgetting has been reported in various aspects of LLM training, including memorization in pretraining [46] and task performances in continual learning [33, 39].",
+            "Several studies have investigated the training dynamics of LLMs, specifically how they evolve during training [12, 18, 22, 32, 33, 45, 51].",
+            "The exponential trend of forgetting has been reported in various aspects of LLM training, including memorization in pretraining [46] and task performances in continual learning [33, 39]."
+        ]
     },
-    "34": {
-        "Title": "When not to trust language models: Investigating effectiveness of parametric and non-parametric memories",
-        "Authors": "Alex Mallen, Akari Asai, Victor Zhong, Rajarshi Das, Hannaneh Hajishirzi, Daniel Khashabi",
+    "49": {
+        "Title": "Llama 2: Open foundation and fine-tuned chat models",
+        "Authors": "Hugo Touvron, Louis Martin, Kevin R. Stone, Peter Albert, Amjad Almahairi, Yasmine Babaei, Nikolay Bashlykov, Soumya Batra, Prajjwal Bhargava, Shruti Bhosale, Daniel M. Bikel, Lukas Blecher, Cristian Cantón Ferrer, Moya Chen, Guillem Cucurull, David Esiobu, Jude Fernandes, Jeremy Fu, Wenyin Fu, Brian Fuller, Cynthia Gao, Vedanuj Goswami, Naman Goyal, Anthony S. Hartshorn, Saghar Hosseini, Rui Hou, Hakan Inan, Marcin Kardas, Viktor Kerkez, Madian Khabsa, Isabel M. Kloumann, A. V. Korenev, Punit Singh Koura, Marie-Anne Lachaux, Thibaut Lavril, Jenya Lee, Diana Liskovich, Yinghai Lu, Yuning Mao, Xavier Martinet, Todor Mihaylov, Pushkar Mishra, Igor Molybog, Yixin Nie, Andrew Poulton, Jeremy Reizenstein, Rashi Rungta, Kalyan Saladi, Alan Schelten, Ruan Silva, Eric Michael Smith, R. Subramanian, Xia Tan, Binh Tang, Ross Taylor, Adina Williams, Jian Xiang Kuan, Puxin Xu, Zhengxu Yan, Iliyan Zarov, Yuchen Zhang, Angela Fan, Melanie Kambadur, Sharan Narang, Aurelien Rodriguez, Robert Stojnic, Sergey Edunov, Thomas Scialom",
         "Counter": 4,
         "Context": [
-            "...the failure to acquire long-tail knowledge [26, 34]...",
-            "...the failure to acquire long-tail knowledge [26, 34]...",
-            "...the failure to acquire long-tail knowledge [26, 34]...",
-            "...the failure to acquire long-tail knowledge [26, 34]..."
-        ],
-        "abstract": "Despite their impressive performance on diverse tasks, large language models\n(LMs) still struggle with tasks requiring rich world knowledge, implying the\nlimitations of relying solely on their parameters to encode a wealth of world\nknowledge. This paper aims to understand LMs' strengths and limitations in\nmemorizing factual knowledge, by conducting large-scale knowledge probing\nexperiments of 10 models and 4 augmentation methods on PopQA, our new\nopen-domain QA dataset with 14k questions. We find that LMs struggle with less\npopular factual knowledge, and that scaling fails to appreciably improve\nmemorization of factual knowledge in the long tail. We then show that\nretrieval-augmented LMs largely outperform orders of magnitude larger LMs,\nwhile unassisted LMs remain competitive in questions about high-popularity\nentities. Based on those findings, we devise a simple, yet effective, method\nfor powerful and efficient retrieval-augmented LMs, which retrieves\nnon-parametric memories only when necessary. Experimental results show that\nthis significantly improves models' performance while reducing the inference\ncosts.",
-        "pdf_url": "http://arxiv.org/pdf/2212.10511v4"
+            "Pretraining with a larger batch size helps LLMs acquire more knowledge It is a common practice to pretrain LLMs with a very large batch size to leverage parallel computing.",
+            "It is a common practice to pretrain LLMs with a very large batch size to leverage parallel computing [49].",
+            "Recently, there has been a surge in interest in LLMs [9, 13, 21, 23, 49].",
+            "Pretraining with a larger batch size helps LLMs acquire more knowledge."
+        ]
     },
-    "47": {
-        "Title": "D4: Improving llm pretraining via document de-duplication and diversification",
-        "Authors": "Kushal Tirumala, Daniel Simig, Armen Aghajanyan, Ari S. Morcos",
-        "Counter": 4,
+    "2": {
+        "Title": "Gpt-4 technical report",
+        "Authors": "Josh Achiam, Steven Adler, Sandhini Agarwal, Lama Ahmad, Ilge Akkaya, Florencia Leoni Aleman, Diogo Almeida, Janko Altenschmidt, Sam Altman, Shyamal Anadkat, et al.",
+        "Counter": 3,
         "Context": [
-            "Recent pretraining corpora are thoroughly deduplicated [9, 28, 38, 43, 47, 48], as it is widely observed that data deduplication can improve model performance [1, 29, 42, 52].",
-            "Recent pretraining corpora are thoroughly deduplicated [9, 28, 38, 43, 47, 48], as it is widely observed that data deduplication can improve model performance [1, 29, 42, 52].",
-            "...the advantages of training LLMs with deduplicated training data, as deduplication tends to slow the forgetting of generalizing acquired factual knowledge.",
-            "Recent pretraining corpora are thoroughly deduplicated [9, 28, 38, 43, 47, 48], as it is widely observed that data deduplication can improve model performance [1, 29, 42, 52]."
-        ],
-        "abstract": "Over recent years, an increasing amount of compute and data has been poured\ninto training large language models (LLMs), usually by doing one-pass learning\non as many tokens as possible randomly selected from large-scale web corpora.\nWhile training on ever-larger portions of the internet leads to consistent\nperformance improvements, the size of these improvements diminishes with scale,\nand there has been little work exploring the effect of data selection on\npre-training and downstream performance beyond simple de-duplication methods\nsuch as MinHash. Here, we show that careful data selection (on top of\nde-duplicated data) via pre-trained model embeddings can speed up training (20%\nefficiency gains) and improves average downstream accuracy on 16 NLP tasks (up\nto 2%) at the 6.7B model scale. Furthermore, we show that repeating data\nintelligently consistently outperforms baseline training (while repeating\nrandom data performs worse than baseline training). Our results indicate that\nclever data selection can significantly improve LLM pre-training, calls into\nquestion the common practice of training for a single epoch on as much data as\npossible, and demonstrates a path to keep improving our models past the limits\nof randomly sampling web data.",
-        "pdf_url": "http://arxiv.org/pdf/2308.12284v1"
+            "An example of injected knowledge and corresponding probes is illustrated in Table 1. All instances for the injected knowledge and probes are generated by prompting GPT-4 [2] using the definitions from the ECBD dataset [35] as a template, and filtering out invalid cases.",
+            "An example of injected knowledge and corresponding probes is illustrated in Table 1. All instances for the injected knowledge and probes are generated by prompting GPT-4 [2] using the definitions from the ECBD dataset [35] as a template, and filtering out invalid cases.",
+            "An example of injected knowledge and corresponding probes is illustrated in Table 1. All instances for the injected knowledge and probes are generated by prompting GPT-4 [2] using the definitions from the ECBD dataset [35] as a template, and filtering out invalid cases."
+        ]
     },
-    "48": {
-        "Title": "Llama: Open and efficient foundation language models",
-        "Authors": "Hugo Touvron, Thibaut Lavril, Gautier Izacard, Xavier Martinet, Marie-Anne Lachaux, Timo-thée Lacroix, Baptiste Rozière, Naman Goyal, Eric Hambro, Faisal Azhar, et al.",
-        "Counter": 4,
+    "5": {
+        "Title": "Physics of language models: Part 3.2, knowledge manipulation",
+        "Authors": "Zeyuan Allen-Zhu, Yuanzhi Li",
+        "Counter": 3,
         "Context": [
-            "Recent pretraining corpora are thoroughly deduplicated [9, 28, 38, 43, 47, 48], as it is widely observed that data deduplication can improve model performance [1, 29, 42, 52].",
-            "Recent pretraining corpora are thoroughly deduplicated [9, 28, 38, 43, 47, 48], as it is widely observed that data deduplication can improve model performance [1, 29, 42, 52].",
-            "...the advantages of training LLMs with deduplicated training data, as deduplication tends to slow the forgetting of generalizing acquired factual knowledge.",
-            "Recent pretraining corpora are thoroughly deduplicated [9, 28, 38, 43, 47, 48], as it is widely observed that data deduplication can improve model performance [1, 29, 42, 52]."
-        ],
-        "abstract": "We introduce LLaMA, a collection of foundation language models ranging from\n7B to 65B parameters. We train our models on trillions of tokens, and show that\nit is possible to train state-of-the-art models using publicly available\ndatasets exclusively, without resorting to proprietary and inaccessible\ndatasets. In particular, LLaMA-13B outperforms GPT-3 (175B) on most benchmarks,\nand LLaMA-65B is competitive with the best models, Chinchilla-70B and\nPaLM-540B. We release all our models to the research community.",
-        "pdf_url": "http://arxiv.org/pdf/2302.13971v1"
+            "In addition, LLMs cannot manipulate knowledge from pretraining data effectively [5].",
+            "In addition, LLMs cannot manipulate knowledge from pretraining data effectively [5].",
+            "In addition, LLMs cannot manipulate knowledge from pretraining data effectively [5]."
+        ]
     },
     "6": {
         "Title": "A closer look at memorization in deep networks",
@@ -480,161 +270,287 @@
             "Memorization and forgetting are closely related to knowledge acquisition in neural networks [6].",
             "Memorization and forgetting are closely related to knowledge acquisition in neural networks [6].",
             "Memorization and forgetting are closely related to knowledge acquisition in neural networks [6]."
-        ],
-        "abstract": "We examine the role of memorization in deep learning, drawing connections to\ncapacity, generalization, and adversarial robustness. While deep networks are\ncapable of memorizing noise data, our results suggest that they tend to\nprioritize learning simple patterns first. In our experiments, we expose\nqualitative differences in gradient-based optimization of deep neural networks\n(DNNs) on noise vs. real data. We also demonstrate that for appropriately tuned\nexplicit regularization (e.g., dropout) we can degrade DNN training performance\non noise datasets without compromising generalization on real data. Our\nanalysis suggests that the notions of effective capacity which are dataset\nindependent are unlikely to explain the generalization performance of deep\nnetworks when trained with gradient based methods because training data itself\nplays an important role in determining the degree of memorization.",
-        "pdf_url": "http://arxiv.org/pdf/1706.05394v2"
+        ]
     },
-    "17": {
-        "Title": "Does learning require memorization? a short tale about a long tail",
-        "Authors": "Vitaly Feldman",
+    "8": {
+        "Title": "Pythia: A suite for analyzing large language models across training and scaling",
+        "Authors": "Stella Biderman, Hailey Schoelkopf, Quentin G. Anthony, Herbie Bradley, Kyle O’Brien, Eric Hallahan, Mohammad Aflah Khan, Shivanshu Purohit, USVSN Sai Prashanth, Edward Raff, Aviya Skowron, Lintang Sutawika, Oskar van der Wal",
         "Counter": 3,
         "Context": [
-            "In addition, [17] theoretically demonstrated that a specific degree of memorization is essential for attaining high performance.",
-            "In addition, [17] theoretically demonstrated that a specific degree of memorization is essential for attaining high performance.",
-            "In addition, [17] theoretically demonstrated that a specific degree of memorization is essential for attaining high performance."
-        ],
-        "abstract": "State-of-the-art results on image recognition tasks are achieved using\nover-parameterized learning algorithms that (nearly) perfectly fit the training\nset and are known to fit well even random labels. This tendency to memorize the\nlabels of the training data is not explained by existing theoretical analyses.\nMemorization of the training data also presents significant privacy risks when\nthe training data contains sensitive personal information and thus it is\nimportant to understand whether such memorization is necessary for accurate\nlearning.\n  We provide the first conceptual explanation and a theoretical model for this\nphenomenon. Specifically, we demonstrate that for natural data distributions\nmemorization of labels is necessary for achieving close-to-optimal\ngeneralization error. Crucially, even labels of outliers and noisy labels need\nto be memorized. The model is motivated and supported by the results of several\nrecent empirical works. In our model, data is sampled from a mixture of\nsubpopulations and our results show that memorization is necessary whenever the\ndistribution of subpopulation frequencies is long-tailed. Image and text data\nis known to be long-tailed and therefore our results establish a formal link\nbetween these empirical phenomena. Our results allow to quantify the cost of\nlimiting memorization in learning and explain the disparate effects that\nprivacy and model compression have on different subgroups.",
-        "pdf_url": "http://arxiv.org/pdf/1906.05271v4"
+            "...the acquisition of such knowledge will be reflected in the model’s top-k output sequence generation in a relatively earlier pretraining stage, as demonstrated in [8].",
+            "...the popularity of the knowledge in the pretraining data influences how quickly this knowledge begins to be ‘revealed’ in the generated sequences during pretraining, except for the knowledge in the long-tail whose low popularity makes the encounter interval longer than the learnability threshold. Also, as briefly mentioned in §4.2, we hypothesize that the reason why larger and more diverse pretraining data helps the model performance is that the model can acquire a broader range of factual knowledge (more knowledge will be presented with an interval shorter than the learnability threshold) since the skewness of the distribution of factual knowledge popularity is likely to be mitigated as the data becomes larger and more diverse.",
+            "...the acquisition of such knowledge will be reflected in the model’s top-k output sequence generation in a relatively earlier pretraining stage, as demonstrated in [8]."
+        ]
+    },
+    "13": {
+        "Title": "Palm: Scaling language modeling with pathways",
+        "Authors": "Aakanksha Chowdhery, Sharan Narang, Jacob Devlin, Maarten Bosma, Gaurav Mishra, Adam Roberts, Paul Barham, Hyung Won Chung, Charles Sutton, Sebastian Gehrmann, Parker Schuh, Kensen Shi, Sasha Tsvyashchenko, Joshua Maynez, Abhishek Rao, Parker Barnes, Yi Tay, Noam M. Shazeer, Vinodkumar Prabhakaran, Emily Reif, Nan Du, Benton C. Hutchinson, Reiner Pope, James Bradbury, Jacob Austin, Michael Isard, Guy Gur-Ari, Pengcheng Yin, Toju Duke, Anselm Levskaya, Sanjay Ghemawat, Sunipa Dev, Henryk Michalewski, Xavier García, Vedant Misra, Kevin Robinson, Liam Fedus, Denny Zhou, Daphne Ippolito, David Luan, Hyeontaek Lim, Barret Zoph, Alexander Spiridonov, Ryan Sepassi, David Dohan, Shivani Agrawal, Mark Omernick, Andrew M. Dai, Thanumalayan Sankaranarayana Pillai, Marie Pellat, Aitor Lewkowycz, Erica Moreira, Rewon Child, Oleksandr Polozov, Katherine Lee, Zongwei Zhou, Xuezhi Wang, Brennan Saeta, Mark Díaz, Orhan Firat, Michele Catasta, Jason Wei, Kathleen S. Meier-Hellstern, Douglas Eck, Jeff Dean, Slav Petrov, Noah Fiedel",
+        "Counter": 3,
+        "Context": [
+            "Pretraining with a larger batch size helps LLMs acquire more knowledge It is a common practice to pretrain LLMs with a very large batch size to leverage parallel computing.",
+            "It is a common practice to pretrain LLMs with a very large batch size to leverage parallel computing [13].",
+            "Pretraining with a larger batch size helps LLMs acquire more knowledge."
+        ]
+    },
+    "14": {
+        "Title": "Analyzing commonsense emergence in few-shot knowledge models",
+        "Authors": "Jeff Da, Ronan Le Bras, Ximing Lu, Yejin Choi, Antoine Bosselut",
+        "Counter": 3,
+        "Context": [
+            "Recent studies on LLMs have shown their ability to capture substantial factual knowledge from the pretraining data [14, 36, 40].",
+            "Recent studies on LLMs have shown their ability to capture substantial factual knowledge from the pretraining data [14, 36, 40].",
+            "Recent studies on LLMs have shown their ability to capture substantial factual knowledge from the pretraining data [14, 36, 40]."
+        ]
     },
     "19": {
         "Title": "Transformer feed-forward layers are key-value memories",
         "Authors": "Mor Geva, Roei Schuster, Jonathan Berant, Omer Levy",
         "Counter": 3,
         "Context": [
+            "[3], [15], [16], [19], [20], and [31] examined how language models learn and capture factual knowledge presented in training data.",
             "This x-intercept of R(p, t) is crucial for interpreting the behaviors of LLMs, as will be discussed in detail in § 4.4.",
-            "There is a power-law relationship between training steps and forgetting of acquired factual knowledge, in terms of both memorization and generalization.",
-            "We demonstrate the importance of understanding the factual knowledge acquisition dynamics of LLMs to understand the behavior of LLMs, opening up a promising avenue for future research."
-        ],
-        "abstract": "Feed-forward layers constitute two-thirds of a transformer model's\nparameters, yet their role in the network remains under-explored. We show that\nfeed-forward layers in transformer-based language models operate as key-value\nmemories, where each key correlates with textual patterns in the training\nexamples, and each value induces a distribution over the output vocabulary. Our\nexperiments show that the learned patterns are human-interpretable, and that\nlower layers tend to capture shallow patterns, while upper layers learn more\nsemantic ones. The values complement the keys' input patterns by inducing\noutput distributions that concentrate probability mass on tokens likely to\nappear immediately after each pattern, particularly in the upper layers.\nFinally, we demonstrate that the output of a feed-forward layer is a\ncomposition of its memories, which is subsequently refined throughout the\nmodel's layers via residual connections to produce the final output\ndistribution.",
-        "pdf_url": "http://arxiv.org/pdf/2012.14913v2"
+            "These patterns are consistent across all pretraining stages of OLMo-7B we investigate (§E.1)."
+        ]
+    },
+    "25": {
+        "Title": "Mistral 7b",
+        "Authors": "Albert Qiaochu Jiang, Alexandre Sablayrolles, Arthur Mensch, Chris Bamford, Devendra Singh Chaplot, Diego de Las Casas, Florian Bressand, Gianna Lengyel, Guillaume Lample, Lucile Saulnier, L’elio Renard Lavaud, Marie-Anne Lachaux, Pierre Stock, Teven Le Scao, Thibaut Lavril, Thomas Wang, Timothée Lacroix, William El Sayed",
+        "Counter": 3,
+        "Context": [
+            "Pretraining with a larger batch size helps LLMs acquire more knowledge It is a common practice to pretrain LLMs with a very large batch size to leverage parallel computing.",
+            "It is a common practice to pretrain LLMs with a very large batch size to leverage parallel computing [25].",
+            "Pretraining with a larger batch size helps LLMs acquire more knowledge."
+        ]
     },
     "28": {
         "Title": "The bigscience roots corpus: A 1.6 tb composite multilingual dataset",
         "Authors": "Hugo Laurençon, Lucile Saulnier, Thomas Wang, Christopher Akiki, Albert Villanova del Moral, Teven Le Scao, Leandro Von Werra, Chenghao Mou, Eduardo González Ponferrada, Huu Nguyen, et al.",
         "Counter": 3,
         "Context": [
-            "Recent pretraining corpora are thoroughly deduplicated [9, 28, 38, 43, 47, 48], as it is widely observed that data deduplication can improve model performance [1, 29, 42, 52].",
+            "Recent pretraining corpora are thoroughly deduplicated [9, 28, 38, 43, 47, 48], as it is widely observed that data deduplication can improve model performance.",
             "Recent pretraining corpora are thoroughly deduplicated [9, 28, 38, 43, 47, 48], as it is widely observed that data deduplication can improve model performance [1, 29, 42, 52].",
             "Recent pretraining corpora are thoroughly deduplicated [9, 28, 38, 43, 47, 48], as it is widely observed that data deduplication can improve model performance [1, 29, 42, 52]."
-        ],
-        "abstract": "As language models grow ever larger, the need for large-scale high-quality\ntext datasets has never been more pressing, especially in multilingual\nsettings. The BigScience workshop, a 1-year international and multidisciplinary\ninitiative, was formed with the goal of researching and training large language\nmodels as a values-driven undertaking, putting issues of ethics, harm, and\ngovernance in the foreground. This paper documents the data creation and\ncuration efforts undertaken by BigScience to assemble the Responsible\nOpen-science Open-collaboration Text Sources (ROOTS) corpus, a 1.6TB dataset\nspanning 59 languages that was used to train the 176-billion-parameter\nBigScience Large Open-science Open-access Multilingual (BLOOM) language model.\nWe further release a large initial subset of the corpus and analyses thereof,\nand hope to empower large-scale monolingual and multilingual modeling projects\nwith both the data and the processing tools, as well as stimulate research\naround this large multilingual corpus.",
-        "pdf_url": "http://arxiv.org/pdf/2303.03915v1"
+        ]
     },
-    "32": {
-        "Title": "Probing across time: What does RoBERTa know and when?",
-        "Authors": "Zeyu Liu, Yizhong Wang, Jungo Kasai, Hannaneh Hajishirzi, Noah A. Smith",
+    "30": {
+        "Title": "Starcoder: may the source be with you!",
+        "Authors": "Raymond Li, Loubna Ben allal, Yangtian Zi, Niklas Muennighoff, Denis Kocetkov, Chenghao Mou, Marc Marone, Christopher Akiki, Jia LI, Jenny Chim, Qian Liu, Evgenii Zheltonozhskii, Terry Yue Zhuo, Thomas Wang, Olivier Dehaene, Joel Lamy-Poirier, Joao Monteiro, Nicolas Gontier, Ming-Ho Yee, Logesh Kumar Umapathi, Jian Zhu, Ben Lipkin, Muhtasham Oblokulov, Zhiruo Wang, Rudra Murthy, Jason T Stillerman, Siva Sankalp Patel, Dmitry Abulkhanov, Marco Zocca, Manan Dey, Zhihan Zhang, Urvashi Bhattacharyya, Wenhao Yu, Sasha Luccioni, Paulo Villegas, Fedor Zhdanov, Tony Lee, Nadav Timor, Jennifer Ding, Claire S Schlesinger, Hailey Schoelkopf, Jan Ebert, Tri Dao, Mayank Mishra, Alex Gu, Carolyn Jane Anderson, Brendan Dolan-Gavitt, Danish Contractor, Siva Reddy, Daniel Fried, Dzmitry Bahdanau, Yacine Jernite, Carlos Muñoz Ferrandis, Sean Hughes, Thomas Wolf, Arjun Guha, Leandro Von Werra, Harm de Vries",
         "Counter": 3,
         "Context": [
-            "Several studies have investigated the training dynamics of LLMs, specifically how they evolve during training [12, 18, 22, 32, 33, 45, 51].",
-            "Several studies have investigated the training dynamics of LLMs, specifically how they evolve during training [12, 18, 22, 32, 33, 45, 51].",
-            "Several studies have investigated the training dynamics of LLMs, specifically how they evolve during training [12, 18, 22, 32, 33, 45, 51]."
-        ],
-        "abstract": "Models of language trained on very large corpora have been demonstrated\nuseful for NLP. As fixed artifacts, they have become the object of intense\nstudy, with many researchers \"probing\" the extent to which linguistic\nabstractions, factual and commonsense knowledge, and reasoning abilities they\nacquire and readily demonstrate. Building on this line of work, we consider a\nnew question: for types of knowledge a language model learns, when during\n(pre)training are they acquired? We plot probing performance across iterations,\nusing RoBERTa as a case study. Among our findings: linguistic knowledge is\nacquired fast, stably, and robustly across domains. Facts and commonsense are\nslower and more domain-sensitive. Reasoning abilities are, in general, not\nstably acquired. As new datasets, pretraining protocols, and probes emerge, we\nbelieve that probing-across-time analyses can help researchers understand the\ncomplex, intermingled learning that these models undergo and guide us toward\nmore efficient approaches that accomplish necessary learning faster.",
-        "pdf_url": "http://arxiv.org/pdf/2104.07885v2"
+            "Pretraining with a larger batch size helps LLMs acquire more knowledge It is a common practice to pretrain LLMs with a very large batch size to leverage parallel computing.",
+            "It is a common practice to pretrain LLMs with a very large batch size to leverage parallel computing [30].",
+            "It is a common practice to pretrain LLMs with a very large batch size to leverage parallel computing."
+        ]
     },
-    "1": {
-        "Title": "Semdedup: Data-efficient learning at web-scale through semantic deduplication",
-        "Authors": "Amro Abbas, Kushal Tirumala, Dániel Simig, Surya Ganguli, Ari S. Morcos",
-        "Counter": 2,
+    "35": {
+        "Title": "Entity cloze by date: What lms know about unseen entities",
+        "Authors": "Yasumasa Onoe, Michael J.Q. Zhang, Eunsol Choi, Greg Durrett",
+        "Counter": 3,
         "Context": [
-            "This can also be observed in Figure 2, as the gap of the increase of log probability immediately after encountering the injected knowledge is large between the duplication and paraphrase injection scenarios, but this gap diminishes at the end of the measurement.",
-            "Recent pretraining corpora are thoroughly deduplicated [9, 28, 38, 43, 47, 48], as it is widely observed that data deduplication can improve model performance [1, 29, 42, 52]."
-        ],
-        "abstract": "Progress in machine learning has been driven in large part by massive\nincreases in data. However, large web-scale datasets such as LAION are largely\nuncurated beyond searches for exact duplicates, potentially leaving much\nredundancy. Here, we introduce SemDeDup, a method which leverages embeddings\nfrom pre-trained models to identify and remove semantic duplicates: data pairs\nwhich are semantically similar, but not exactly identical. Removing semantic\nduplicates preserves performance and speeds up learning. Analyzing a subset of\nLAION, we show that SemDeDup can remove 50% of the data with minimal\nperformance loss, effectively halving training time. Moreover, performance\nincreases out of distribution. Also, analyzing language models trained on C4, a\npartially curated dataset, we show that SemDeDup improves over prior approaches\nwhile providing efficiency gains. SemDeDup provides an example of how simple\nways of leveraging quality embeddings can be used to make models learn faster\nwith less data.",
-        "pdf_url": "http://arxiv.org/pdf/2303.09540v3"
+            "An example of injected knowledge and corresponding probes is illustrated in Table 1. All instances for the injected knowledge and probes are generated by prompting GPT-4 [2] using the definitions from the ECBD dataset [35] as a template, and filtering out invalid cases.",
+            "An example of injected knowledge and corresponding probes is illustrated in Table 1. All instances for the injected knowledge and probes are generated by prompting GPT-4 [2] using the definitions from the ECBD dataset [35] as a template, and filtering out invalid cases.",
+            "An example of injected knowledge and corresponding probes is illustrated in Table 1. All instances for the injected knowledge and probes are generated by prompting GPT-4 [2] using the definitions from the ECBD dataset [35] as a template, and filtering out invalid cases."
+        ]
     },
-    "38": {
-        "Title": "Exploring the limits of transfer learning with a unified text-to-text transformer",
-        "Authors": "Colin Raffel, Noam Shazeer, Adam Roberts, Katherine Lee, Sharan Narang, Michael Matena, Yanqi Zhou, Wei Li, Peter J. Liu",
-        "Counter": 2,
+    "47": {
+        "Title": "D4: Improving llm pretraining via document de-duplication and diversification",
+        "Authors": "Kushal Tirumala, Daniel Simig, Armen Aghajanyan, Ari S. Morcos",
+        "Counter": 3,
         "Context": [
+            "Recent pretraining corpora are thoroughly deduplicated [9, 28, 38, 43, 47, 48], as it is widely observed that data deduplication can improve model performance.",
             "Recent pretraining corpora are thoroughly deduplicated [9, 28, 38, 43, 47, 48], as it is widely observed that data deduplication can improve model performance [1, 29, 42, 52].",
             "Recent pretraining corpora are thoroughly deduplicated [9, 28, 38, 43, 47, 48], as it is widely observed that data deduplication can improve model performance [1, 29, 42, 52]."
-        ],
-        "abstract": "Transfer learning, where a model is first pre-trained on a data-rich task\nbefore being fine-tuned on a downstream task, has emerged as a powerful\ntechnique in natural language processing (NLP). The effectiveness of transfer\nlearning has given rise to a diversity of approaches, methodology, and\npractice. In this paper, we explore the landscape of transfer learning\ntechniques for NLP by introducing a unified framework that converts all\ntext-based language problems into a text-to-text format. Our systematic study\ncompares pre-training objectives, architectures, unlabeled data sets, transfer\napproaches, and other factors on dozens of language understanding tasks. By\ncombining the insights from our exploration with scale and our new ``Colossal\nClean Crawled Corpus'', we achieve state-of-the-art results on many benchmarks\ncovering summarization, question answering, text classification, and more. To\nfacilitate future work on transfer learning for NLP, we release our data set,\npre-trained models, and code.",
-        "pdf_url": "http://arxiv.org/pdf/1910.10683v4"
+        ]
+    },
+    "50": {
+        "Title": "Emergent abilities of large language models",
+        "Authors": "Jason Wei, Yi Tay, Rishi Bommasani, Colin Raffel, Barret Zoph, Sebastian Borgeaud, Dani Yogatama, Maarten Bosma, Denny Zhou, Donald Metzler, et al.",
+        "Counter": 3,
+        "Context": [
+            "We suggest a plausible hypothesis based on further observations in §4.3. Specifically, we suggest that the high performance of LLMs trained with larger and more diverse datasets is not primarily due to an emergent ability from the sheer amount of tokens observed during training.",
+            "Specifically, we suggest that the high performance of LLMs trained with larger and more diverse datasets is not primarily due to an emergent ability from the sheer amount of tokens observed during training [50], but rather because the model encounters a wider variety of knowledge more times.",
+            "Specifically, we suggest that the high performance of LLMs trained with larger and more diverse datasets is not primarily due to an emergent ability from the sheer amount of tokens observed during training [50], but rather because the model encounters a wider variety of knowledge more times."
+        ]
+    },
+    "53": {
+        "Title": "Critical data size of language models from a grokking perspective",
+        "Authors": "Xuekai Zhu, Yao Fu, Bowen Zhou, Zhouhan Lin",
+        "Counter": 3,
+        "Context": [
+            "Recently, [53] explored the relationship between the data size and grokking [37].",
+            "Recently, [53] explored the relationship between the data size and grokking [37].",
+            "Recently, [53] explored the relationship between the data size and grokking [37]."
+        ]
+    },
+    "12": {
+        "Title": "Sudden drops in the loss: Syntax acquisition, phase transitions, and simplicity bias in MLMs",
+        "Authors": "Angelica Chen, Ravid Shwartz-Ziv, Kyunghyun Cho, Matthew L Leavitt, Naomi Saphra",
+        "Counter": 2,
+        "Context": [
+            "Several studies have investigated the training dynamics of LLMs, specifically how they evolve during training [12, 18, 22, 32, 33, 45, 51].",
+            "Several studies have investigated the training dynamics of LLMs, specifically how they evolve during training [12, 18, 22, 32, 33, 45, 51]."
+        ]
+    },
+    "18": {
+        "Title": "Does fine-tuning llms on new knowledge encourage hallucinations?",
+        "Authors": "Zorik Gekhman, Gal Yona, Roee Aharoni, Matan Eyal, Amir Feder, Roi Reichart, Jonathan Herzig",
+        "Counter": 2,
+        "Context": [
+            "[44] and [46] focused on the dynamics of memorization in language model pretraining.",
+            "Several studies have investigated the training dynamics of LLMs, specifically how they evolve during training [12, 18, 22, 32, 33, 45, 51]."
+        ]
+    },
+    "31": {
+        "Title": "How pre-trained language models capture factual knowledge? a causal-inspired analysis",
+        "Authors": "Shaobo Li, Xiaoguang Li, Lifeng Shang, Zhenhua Dong, Chengjie Sun, Bingquan Liu, Zhenzhou Ji, Xin Jiang, Qun Liu",
+        "Counter": 2,
+        "Context": [
+            "The distinctive behavior of the OLMo-1B early checkpoint suggests that pretraining on a certain number of tokens may be required for the model to acquire factual knowledge stably.",
+            "[3], [15], [16], [19], [20], and [31] examined how language models learn and capture factual knowledge presented in training data."
+        ]
+    },
+    "34": {
+        "Title": "When not to trust language models: Investigating effectiveness of parametric and non-parametric memories",
+        "Authors": "Alex Mallen, Akari Asai, Victor Zhong, Rajarshi Das, Hannaneh Hajishirzi, Daniel Khashabi",
+        "Counter": 2,
+        "Context": [
+            "...the failure to acquire long-tail knowledge [26, 34]...",
+            "However, recent investigations on LLMs have revealed that LLMs show poor acquisition of long-tail knowledge [26, 34]."
+        ]
     },
     "39": {
         "Title": "Anatomy of catastrophic forgetting: Hidden representations and task semantics",
         "Authors": "Vinay Venkatesh Ramasesh, Ethan Dyer, Maithra Raghu",
         "Counter": 2,
         "Context": [
-            "The exponential trend of forgetting has been reported in various aspects of LLM training, including memorization in pretraining [46] and task performances in continual learning [33, 39].",
+            "Training steps and the forgetting of acquired factual knowledge have a power-law relationship The exponential trend of forgetting has been reported in various aspects of LLM training, including memorization in pretraining [46] and task performances in continual learning [33, 39].",
             "The exponential trend of forgetting has been reported in various aspects of LLM training, including memorization in pretraining [46] and task performances in continual learning [33, 39]."
-        ],
-        "abstract": "A central challenge in developing versatile machine learning systems is\ncatastrophic forgetting: a model trained on tasks in sequence will suffer\nsignificant performance drops on earlier tasks. Despite the ubiquity of\ncatastrophic forgetting, there is limited understanding of the underlying\nprocess and its causes. In this paper, we address this important knowledge gap,\ninvestigating how forgetting affects representations in neural network models.\nThrough representational analysis techniques, we find that deeper layers are\ndisproportionately the source of forgetting. Supporting this, a study of\nmethods to mitigate forgetting illustrates that they act to stabilize deeper\nlayers. These insights enable the development of an analytic argument and\nempirical picture relating the degree of forgetting to representational\nsimilarity between tasks. Consistent with this picture, we observe maximal\nforgetting occurs for task sequences with intermediate similarity. We perform\nempirical studies on the standard split CIFAR-10 setup and also introduce a\nnovel CIFAR-100 based task approximating realistic input distribution shift.",
-        "pdf_url": "http://arxiv.org/pdf/2007.07400v1"
+        ]
+    },
+    "44": {
+        "Title": "Memorisation versus generalisation in pre-trained language models",
+        "Authors": "Michael Tänzer, Sebastian Ruder, Marek Rei",
+        "Counter": 2,
+        "Context": [
+            "[44] and [46] focused on the dynamics of memorization in language model pretraining.",
+            "[44] and [46] focused on the dynamics of memorization in language model pretraining."
+        ]
+    },
+    "48": {
+        "Title": "Llama: Open and efficient foundation language models",
+        "Authors": "Hugo Touvron, Thibaut Lavril, Gautier Izacard, Xavier Martinet, Marie-Anne Lachaux, Timo-thée Lacroix, Baptiste Rozière, Naman Goyal, Eric Hambro, Faisal Azhar, et al.",
+        "Counter": 2,
+        "Context": [
+            "Recent pretraining corpora are thoroughly deduplicated [9, 28, 38, 43, 47, 48], as it is widely observed that data deduplication can improve model performance [1, 29, 42, 52].",
+            "Recent pretraining corpora are thoroughly deduplicated [9, 28, 38, 43, 47, 48], as it is widely observed that data deduplication can improve model performance [1, 29, 42, 52]."
+        ]
+    },
+    "1": {
+        "Title": "Semdedup: Data-efficient learning at web-scale through semantic deduplication",
+        "Authors": "Amro Abbas, Kushal Tirumala, Dániel Simig, Surya Ganguli, Ari S. Morcos",
+        "Counter": 1,
+        "Context": [
+            "as it is widely observed that data deduplication can improve model performance [1, 29, 42, 52]."
+        ]
     },
     "3": {
         "Title": "Tracing knowledge in language models back to the training data",
         "Authors": "Ekin Akyürek, Tolga Bolukbasi, Frederick Liu, Binbin Xiong, Ian Tenney, Jacob Andreas, Kelvin Guu",
-        "Counter": 0,
-        "Context": [],
-        "abstract": "Language models (LMs) have been shown to memorize a great deal of factual\nknowledge contained in their training data. But when an LM generates an\nassertion, it is often difficult to determine where it learned this information\nand whether it is true. In this paper, we propose the problem of fact tracing:\nidentifying which training examples taught an LM to generate a particular\nfactual assertion. Prior work on training data attribution (TDA) may offer\neffective tools for identifying such examples, known as \"proponents\". We\npresent the first quantitative benchmark to evaluate this. We compare two\npopular families of TDA methods -- gradient-based and embedding-based -- and\nfind that much headroom remains. For example, both methods have lower\nproponent-retrieval precision than an information retrieval baseline (BM25)\nthat does not have access to the LM at all. We identify key challenges that may\nbe necessary for further improvement such as overcoming the problem of gradient\nsaturation, and also show how several nuanced implementation details of\nexisting neural TDA methods can significantly improve overall fact tracing\nperformance.",
-        "pdf_url": "http://arxiv.org/pdf/2205.11482v3"
+        "Counter": 1,
+        "Context": [
+            "[3], [15], [16], [19], [20], and [31] examined how language models learn and capture factual knowledge presented in training data."
+        ]
     },
-    "7": {
-        "Title": "Emergent and predictable memorization in large language models",
-        "Authors": "Stella Biderman, USVSN Sai Prashanth, Lintang Sutawika, Hailey Schoelkopf, Quentin G. Anthony, Shivanshu Purohit, Edward Raf",
-        "Counter": 0,
-        "Context": [],
-        "abstract": "Memorization, or the tendency of large language models (LLMs) to output\nentire sequences from their training data verbatim, is a key concern for safely\ndeploying language models. In particular, it is vital to minimize a model's\nmemorization of sensitive datapoints such as those containing personal\nidentifiable information (PII). The prevalence of such undesirable memorization\ncan pose issues for model trainers, and may even require discarding an\notherwise functional model. We therefore seek to predict which sequences will\nbe memorized before a large model's full train-time by extrapolating the\nmemorization behavior of lower-compute trial runs. We measure memorization of\nthe Pythia model suite and plot scaling laws for forecasting memorization,\nallowing us to provide equi-compute recommendations to maximize the reliability\n(recall) of such predictions. We additionally provide further novel discoveries\non the distribution of memorization scores across models and data. We release\nall code and data necessary to reproduce the results in this paper at\nhttps://github.com/EleutherAI/pythia",
-        "pdf_url": "http://arxiv.org/pdf/2304.11158v2"
+    "15": {
+        "Title": "Knowledge neurons in pretrained transformers",
+        "Authors": "Damai Dai, Li Dong, Yaru Hao, Zhifang Sui, Baobao Chang, Furu Wei",
+        "Counter": 1,
+        "Context": [
+            "[3], [15], [16], [19], [20], and [31] examined how language models learn and capture factual knowledge presented in training data."
+        ]
+    },
+    "16": {
+        "Title": "Measuring causal effects of data statistics on language model’s ’factual’ predictions",
+        "Authors": "Yanai Elazar, Nora Kassner, Shauli Ravfogel, Amir Feder, Abhilasha Ravichander, Marius Mosbach, Yonatan Belinkov, Hinrich Schutze, Yoav Goldberg",
+        "Counter": 1,
+        "Context": [
+            "[3], [15], [16], [19], [20], and [31] examined how language models learn and capture factual knowledge presented in training data."
+        ]
+    },
+    "17": {
+        "Title": "Does learning require memorization? a short tale about a long tail",
+        "Authors": "Vitaly Feldman",
+        "Counter": 1,
+        "Context": [
+            "In addition, [17] theoretically demonstrated that a specific degree of memorization is essential for attaining high performance."
+        ]
+    },
+    "20": {
+        "Title": "Dissecting recall of factual associations in auto-regressive language models",
+        "Authors": "Mor Geva, Jasmijn Bastings, Katja Filippova, Amir Globerson",
+        "Counter": 1,
+        "Context": [
+            "[3], [15], [16], [19], [20], and [31] examined how language models learn and capture factual knowledge presented in training data."
+        ]
+    },
+    "22": {
+        "Title": "Investigating learning dynamics of bert fine-tuning",
+        "Authors": "Yaru Hao, Li Dong, Furu Wei, Ke Xu",
+        "Counter": 1,
+        "Context": [
+            "Several studies have investigated the training dynamics of LLMs, specifically how they evolve during training [12, 18, 22, 32, 33, 45, 51]."
+        ]
+    },
+    "32": {
+        "Title": "Probing across time: What does RoBERTa know and when?",
+        "Authors": "Zeyu Liu, Yizhong Wang, Jungo Kasai, Hannaneh Hajishirzi, Noah A. Smith",
+        "Counter": 1,
+        "Context": [
+            "Several studies have investigated the training dynamics of LLMs, specifically how they evolve during training [12, 18, 22, 32, 33, 45, 51]."
+        ]
+    },
+    "38": {
+        "Title": "Exploring the limits of transfer learning with a unified text-to-text transformer",
+        "Authors": "Colin Raffel, Noam Shazeer, Adam Roberts, Katherine Lee, Sharan Narang, Michael Matena, Yanqi Zhou, Wei Li, Peter J. Liu",
+        "Counter": 1,
+        "Context": [
+            "Recent pretraining corpora are thoroughly deduplicated [9, 28, 38, 43, 47, 48], as it is widely observed that data deduplication can improve model performance [1, 29, 42, 52]."
+        ]
     },
     "11": {
         "Title": "Quantifying memorization across neural language models",
         "Authors": "Nicholas Carlini, Daphne Ippolito, Matthew Jagielski, Katherine Lee, Florian Tramèr, Chiyuan Zhang",
         "Counter": 0,
-        "Context": [],
-        "abstract": "Large language models (LMs) have been shown to memorize parts of their\ntraining data, and when prompted appropriately, they will emit the memorized\ntraining data verbatim. This is undesirable because memorization violates\nprivacy (exposing user data), degrades utility (repeated easy-to-memorize text\nis often low quality), and hurts fairness (some texts are memorized over\nothers).\n  We describe three log-linear relationships that quantify the degree to which\nLMs emit memorized training data. Memorization significantly grows as we\nincrease (1) the capacity of a model, (2) the number of times an example has\nbeen duplicated, and (3) the number of tokens of context used to prompt the\nmodel. Surprisingly, we find the situation becomes more complicated when\ngeneralizing these results across model families. On the whole, we find that\nmemorization in LMs is more prevalent than previously believed and will likely\nget worse as models continues to scale, at least without active mitigations.",
-        "pdf_url": "http://arxiv.org/pdf/2202.07646v3"
-    },
-    "15": {
-        "Title": "Knowledge neurons in pretrained transformers",
-        "Authors": "Damai Dai, Li Dong, Yaru Hao, Zhifang Sui, Baobao Chang, Furu Wei",
-        "Counter": 0,
-        "Context": [],
-        "abstract": "Large-scale pretrained language models are surprisingly good at recalling\nfactual knowledge presented in the training corpus. In this paper, we present\npreliminary studies on how factual knowledge is stored in pretrained\nTransformers by introducing the concept of knowledge neurons. Specifically, we\nexamine the fill-in-the-blank cloze task for BERT. Given a relational fact, we\npropose a knowledge attribution method to identify the neurons that express the\nfact. We find that the activation of such knowledge neurons is positively\ncorrelated to the expression of their corresponding facts. In our case studies,\nwe attempt to leverage knowledge neurons to edit (such as update, and erase)\nspecific factual knowledge without fine-tuning. Our results shed light on\nunderstanding the storage of knowledge within pretrained Transformers. The code\nis available at https://github.com/Hunter-DDM/knowledge-neurons.",
-        "pdf_url": "http://arxiv.org/pdf/2104.08696v2"
-    },
-    "20": {
-        "Title": "Dissecting recall of factual associations in auto-regressive language models",
-        "Authors": "Mor Geva, Jasmijn Bastings, Katja Filippova, Amir Globerson",
-        "Counter": 0,
-        "Context": [],
-        "abstract": "Transformer-based language models (LMs) are known to capture factual\nknowledge in their parameters. While previous work looked into where factual\nassociations are stored, only little is known about how they are retrieved\ninternally during inference. We investigate this question through the lens of\ninformation flow. Given a subject-relation query, we study how the model\naggregates information about the subject and relation to predict the correct\nattribute. With interventions on attention edges, we first identify two\ncritical points where information propagates to the prediction: one from the\nrelation positions followed by another from the subject positions. Next, by\nanalyzing the information at these points, we unveil a three-step internal\nmechanism for attribute extraction. First, the representation at the\nlast-subject position goes through an enrichment process, driven by the early\nMLP sublayers, to encode many subject-related attributes. Second, information\nfrom the relation propagates to the prediction. Third, the prediction\nrepresentation \"queries\" the enriched subject to extract the attribute. Perhaps\nsurprisingly, this extraction is typically done via attention heads, which\noften encode subject-attribute mappings in their parameters. Overall, our\nfindings introduce a comprehensive view of how factual associations are stored\nand extracted internally in LMs, facilitating future research on knowledge\nlocalization and editing.",
-        "pdf_url": "http://arxiv.org/pdf/2304.14767v3"
+        "Context": []
     },
     "24": {
         "Title": "The surprising simplicity of the early-time learning dynamics of neural networks",
         "Authors": "Wei Hu, Lechao Xiao, Ben Adlam, Jeffrey Pennington",
         "Counter": 0,
-        "Context": [],
-        "abstract": "Modern neural networks are often regarded as complex black-box functions\nwhose behavior is difficult to understand owing to their nonlinear dependence\non the data and the nonconvexity in their loss landscapes. In this work, we\nshow that these common perceptions can be completely false in the early phase\nof learning. In particular, we formally prove that, for a class of well-behaved\ninput distributions, the early-time learning dynamics of a two-layer\nfully-connected neural network can be mimicked by training a simple linear\nmodel on the inputs. We additionally argue that this surprising simplicity can\npersist in networks with more layers and with convolutional architecture, which\nwe verify empirically. Key to our analysis is to bound the spectral norm of the\ndifference between the Neural Tangent Kernel (NTK) at initialization and an\naffine transform of the data kernel; however, unlike many previous results\nutilizing the NTK, we do not require the network to have disproportionately\nlarge width, and the network is allowed to escape the kernel regime later in\ntraining.",
-        "pdf_url": "http://arxiv.org/pdf/2006.14599v1"
-    },
-    "31": {
-        "Title": "How pre-trained language models capture factual knowledge? a causal-inspired analysis",
-        "Authors": "Shaobo Li, Xiaoguang Li, Lifeng Shang, Zhenhua Dong, Chengjie Sun, Bingquan Liu, Zhenzhou Ji, Xin Jiang, Qun Liu",
-        "Counter": 0,
-        "Context": [],
-        "abstract": "Recently, there has been a trend to investigate the factual knowledge\ncaptured by Pre-trained Language Models (PLMs). Many works show the PLMs'\nability to fill in the missing factual words in cloze-style prompts such as\n\"Dante was born in [MASK].\" However, it is still a mystery how PLMs generate\nthe results correctly: relying on effective clues or shortcut patterns? We try\nto answer this question by a causal-inspired analysis that quantitatively\nmeasures and evaluates the word-level patterns that PLMs depend on to generate\nthe missing words. We check the words that have three typical associations with\nthe missing words: knowledge-dependent, positionally close, and highly\nco-occurred. Our analysis shows: (1) PLMs generate the missing factual words\nmore by the positionally close and highly co-occurred words than the\nknowledge-dependent words; (2) the dependence on the knowledge-dependent words\nis more effective than the positionally close and highly co-occurred words.\nAccordingly, we conclude that the PLMs capture the factual knowledge\nineffectively because of depending on the inadequate associations.",
-        "pdf_url": "http://arxiv.org/pdf/2203.16747v1"
+        "Context": []
     },
     "37": {
         "Title": "Grokking: Generalization beyond overfitting on small algorithmic datasets",
         "Authors": "Alethea Power, Yuri Burda, Harrison Edwards, Igor Babuschkin, Vedant Misra",
         "Counter": 0,
-        "Context": [],
-        "abstract": "In this paper we propose to study generalization of neural networks on small\nalgorithmically generated datasets. In this setting, questions about data\nefficiency, memorization, generalization, and speed of learning can be studied\nin great detail. In some situations we show that neural networks learn through\na process of \"grokking\" a pattern in the data, improving generalization\nperformance from random chance level to perfect generalization, and that this\nimprovement in generalization can happen well past the point of overfitting. We\nalso study generalization as a function of dataset size and find that smaller\ndatasets require increasing amounts of optimization for generalization. We\nargue that these datasets provide a fertile ground for studying a poorly\nunderstood aspect of deep learning: generalization of overparametrized neural\nnetworks beyond memorization of the finite training dataset.",
-        "pdf_url": "http://arxiv.org/pdf/2201.02177v1"
+        "Context": []
+    },
+    "42": {
+        "Title": "Noise-robust de-duplication at scale",
+        "Authors": "Emily Silcock, Luca D’Amico-Wong, Jinglin Yang, Melissa Dell",
+        "Counter": 0,
+        "Context": []
+    },
+    "45": {
+        "Title": "Emergent structures and training dynamics in large language models",
+        "Authors": "Ryan Teehan, Miruna Clinciu, Oleg Serikov, Eliza Szczechla, Natasha Seelam, Shachar Mirkin, Aaron Gokaslan",
+        "Counter": 0,
+        "Context": []
     },
     "51": {
         "Title": "Training trajectories of language models across scales",
         "Authors": "Mengzhou Xia, Mikel Artetxe, Chunting Zhou, Xi Victoria Lin, Ramakanth Pasunuru, Danqi Chen, Luke Zettlemoyer, Ves Stoyanov",
         "Counter": 0,
-        "Context": [],
-        "abstract": "Scaling up language models has led to unprecedented performance gains, but\nlittle is understood about how the training dynamics change as models get\nlarger. How do language models of different sizes learn during pre-training?\nWhy do larger language models demonstrate more desirable behaviors? In this\npaper, we analyze the intermediate training checkpoints of differently sized\nOPT models (Zhang et al.,2022)--from 125M to 175B parameters--on next-token\nprediction, sequence-level generation, and downstream tasks. We find that 1) at\na given perplexity and independent of model sizes, a similar subset of training\ntokens see the most significant reduction in loss, with the rest stagnating or\nshowing double-descent behavior; 2) early in training, all models learn to\nreduce the perplexity of grammatical sequences that contain hallucinations,\nwith small models halting at this suboptimal distribution and larger ones\neventually learning to assign these sequences lower probabilities; 3)\nperplexity is a strong predictor of in-context learning performance on 74\nmultiple-choice tasks from BIG-Bench, and this holds independent of the model\nsize. Together, these results show that perplexity is more predictive of model\nbehaviors than model size or training computation.",
-        "pdf_url": "http://arxiv.org/pdf/2212.09803v3"
+        "Context": []
     }
 }

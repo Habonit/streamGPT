@@ -3,7 +3,7 @@
     "essay_dir": "reference/240611813",
     "model": "gpt-4o-mini",
     "preprocess_threhsold": 25,
-    "reference_ratio": 0.2,
+    "reference_ratio": 0.1,
     "reference_condition": "- 인용 표시: 논문 본문에서 참고문헌이 **[숫자]** 형식 (`[5]`, `[27]` 등)으로 인용된 경우만 추출하세요",
     "result_dir": "result/240611813",
     "content_keys": {
@@ -36,41 +36,13 @@
             }
         },
         "5": {
-            "name": "Introduction",
+            "name": "Essay",
             "deliminators": {
                 "forward": "Introduction\n\n",
-                "backward": "Related Work\n\n"
-            }
-        },
-        "6": {
-            "name": "Related Work",
-            "deliminators": {
-                "forward": "Related Work\n\n",
-                "backward": "Experimental Setup\n\n"
-            }
-        },
-        "7": {
-            "name": "Experimental Setup",
-            "deliminators": {
-                "forward": "Experimental Setup\n\n",
-                "backward": "Results\n\n"
-            }
-        },
-        "8": {
-            "name": "Results",
-            "deliminators": {
-                "forward": "Results\n\n",
-                "backward": "Discussion and Conclusions\n\n"
-            }
-        },
-        "9": {
-            "name": "Discussion and Conclusions",
-            "deliminators": {
-                "forward": "Discussion and Conclusions\n\n",
                 "backward": "References\n\n"
             }
         },
-        "10": {
+        "6": {
             "name": "References",
             "deliminators": {
                 "forward": "References\n\n",

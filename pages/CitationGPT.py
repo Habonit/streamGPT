@@ -70,7 +70,7 @@ def file_exists(file_path):
     return os.path.isfile(file_path)
 
 def load_config():
-    config_path = "config.json"
+    config_path = "config/config.json"
     if Path(config_path).exists():
         with open(config_path, "r") as f:
             return json.load(f)
@@ -84,6 +84,12 @@ def load_config():
         "result_dir": "result",
         "content_keys": {}
     }
+
+def load_policy_config():
+    config_path = "config/config-policy.json"
+    if Path(config_path).exists():
+        with open(config_path, "r") as f:
+            return json.load(f)
 
 def save_config(config, path):
     with open(path, "w") as f:
@@ -159,7 +165,6 @@ for key, value in content_keys_dict.items():
 
 content_keys_df = pd.DataFrame(content_keys_list)
 edited_df = st.sidebar.data_editor(content_keys_df, num_rows="dynamic")
-
 new_content_keys = {}
 for i, row in edited_df.iterrows():
     new_content_keys[str(i+1)] = {
@@ -265,8 +270,8 @@ with analyze_essay_tab:
                     related_reference, elapsed_time = measure_time(
                         citation_linker._find_connection_from_reference,
                         reference_qna_template=reference_qna_template,
-                        research_progress_template=research_progress_template,
-                        processed_output=processed_output,
+                        # research_progress_template=research_progress_template,
+                        # processed_output=processed_output,
                         related_reference=related_reference
                     )
                     with open(citation_linker.result_dir / "reference_qna.json", 'w', encoding="utf-8") as f:
@@ -316,10 +321,10 @@ with basic_review_tab:
             reference_connection_dict[key] = {
                 "Title" : value_dict["Title"], 
                 "Index" : key,
-                "reference_connection" : value_dict["Summary"] + "\n\n### 접점 요약### \n\n" + value_dict["Summary_QnA"] }
+                "reference_connection" : value_dict["Summary"]}
 
         df = pd.DataFrame(data_dict).T
-        df["Counter"] = df["Counter"].apply(lambda x: round(x/5, 3))
+        df["Counter"] = df["Counter"].apply(lambda x: round(x/3, 3))
         max_value = df.iloc[0]["Counter"]
         df['Score'] = (df["Counter"] / max_value).round(2) 
 
@@ -377,7 +382,8 @@ with chatbot_tab:
     # arXiv ID 입력
     arxiv_id = st.text_input("📌arXiv 논문 ID 입력", value=config.get("arxiv_id", ""))
     arxiv_id = arxiv_id.replace('.', '')
-
+    policy_config = load_policy_config()
+    degree = policy_config['chatbot']
     # 챗봇 응답 정책 선택
     degree = st.selectbox('Chatbot Policy', ('high', 'middle', 'low'))
 
@@ -406,18 +412,18 @@ with chatbot_tab:
         st.stop()
 
     # 요약 텍스트 정리
-    merged_text = "\n\n".join(
-        f"{value_dict['Summary']} 인용 논문과의 접점 결론 {value_dict['Summary_QnA']}"
+    merged_text = "\n".join(
+        f"{value_dict['Summary']}"
         for value_dict in reference_qna.values()
     )
 
     # 챗봇 응답을 위한 프롬프트 생성
     if degree == "high":
         portion = len(basic_summary)
-        prompt_text = basic_summary + "\n\n" + merged_text[:portion*5]
+        prompt_text = basic_summary + "\n" + merged_text[:portion*5]
     elif degree == "middle":
         portion = len(basic_summary)
-        prompt_text = basic_summary + "\n\n" + merged_text[:portion*3]
+        prompt_text = basic_summary + "\n" + merged_text[:portion*3]
     else:
         st.warning("현재 'low' 정책은 지원되지 않습니다.")
         prompt_text = ""
@@ -427,7 +433,7 @@ with chatbot_tab:
 
     # ChatPromptTemplate 구성
     prompt = ChatPromptTemplate.from_messages([
-        ('system','''당신은 ai 논문에 대하여 수업하는 까칠한 교수님입니다. 
+        ('system','''당신은 ai 논문에 대하여 수업하는 교수님입니다. 
         아래는 AI를 공부하는 학생과 대화하는 상황을 설계하였습니다.
         세 가지 정보가 제공이 됩니다.
         1. 학생과 이전에 대화했던 내용.
@@ -469,27 +475,3 @@ with chatbot_tab:
         } | prompt | llm
         response = chain.invoke(message)
         send_message(response.content, 'ai')
-            # send_message(response, "ai")
-
-            
-    # with reference_review_tab:
-#     # 사용자 입력 (기본값: config['arxiv_id'])
-#     arxiv_id = st.text_input("📌 arXiv논문 ID 입력", value=config.get("arxiv_id", ""))
-#     arxiv_id = arxiv_id.replace('.','')
-#     # 버튼 클릭 시 JSON 파일 불러오기
-#     if st.button("🔍 참고문헌 확인"):
-
-
-#         if not reference_count or not reference_qna:
-#             st.error("📂 데이터 파일을 찾을 수 없습니다. arXiv ID를 확인해주세요.")
-#         else:
-            # 최대 citation count 구하기
-
-
-                
-
-        # # 파일이 하나도 없을 경우 경고 메시지
-        # if not any([basic_summary, reference_count, reference_qna]):
-        #     st.warning(f"⚠️ `{arxiv_id}`에 대한 분석 결과를 찾을 수 없습니다.")
-# if __name__ == "__main__":
-#     main()
