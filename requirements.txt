@@ -25,3 +25,6 @@ langchain-huggingface
 peft
 datasets
 wandb
+bitsandbytes 
+accelerate 
+transformers

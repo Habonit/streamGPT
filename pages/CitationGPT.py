@@ -23,6 +23,8 @@ from langchain.prompts import ChatPromptTemplate
 from langchain.schema.runnable import RunnablePassthrough, RunnableLambda
 from langchain.callbacks.base import BaseCallbackHandler
 
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
+
 sys.path.append(str(Path(__file__).resolve().parent.parent))
 from citationlinker import CitationLinker  
 from prompt import * 
@@ -491,18 +493,36 @@ with chatbot_tab:
             llm = ChatOpenAI(temperature=0.1, streaming=True)
 
         else:
-            # 로컬 모델에서 사용할 문장 생성 모델입니다.
-            model_id = 'Bllossom/llama-3.2-Korean-Bllossom-3B'
+            if not policy_config['chatbot']:
+                # 로컬 모델에서 사용할 문장 생성 모델입니다.
+                model_id = 'Bllossom/llama-3.2-Korean-Bllossom-3B'
 
-            tokenizer = AutoTokenizer.from_pretrained(model_id)
-            model = AutoModelForCausalLM.from_pretrained(
-                model_id,
-                torch_dtype=torch.bfloat16,
-            )
-            model = model.to('cuda')
+                tokenizer = AutoTokenizer.from_pretrained(model_id)
+                model = AutoModelForCausalLM.from_pretrained(
+                    model_id,
+                    torch_dtype=torch.bfloat16,
+                )
+                model = model.to('cuda')
 
-            custom_pipeline = KoreanLlamaPipeline(model, tokenizer)
-            llm = KoreanLlamaLangChainLLM(pipeline=custom_pipeline)
+                custom_pipeline = KoreanLlamaPipeline(model, tokenizer)
+                llm = KoreanLlamaLangChainLLM(pipeline=custom_pipeline)
+            else:
+                model_id = 'Bllossom/llama-3.2-Korean-Bllossom-3B'
+                quantization_config = BitsAndBytesConfig(
+                    load_in_4bit=True,
+                    bnb_4bit_compute_dtype=torch.bfloat16,
+                    bnb_4bit_use_double_quant=True,
+                    bnb_4bit_quant_type="nf4",
+                )
+                tokenizer = AutoTokenizer.from_pretrained(model_id)
+                model = AutoModelForCausalLM.from_pretrained(
+                    model_id,
+                    quantization_config=quantization_config,
+                    device_map="auto",
+                )
+
+                custom_pipeline = KoreanLlamaPipeline(model, tokenizer)
+                llm = KoreanLlamaLangChainLLM(pipeline=custom_pipeline)                
         st.session_state["model"] = llm
     else: 
         llm = st.session_state["model"]

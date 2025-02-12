@@ -1,3 +1,4 @@
 {
-    "chatbot":"low"
+    "chatbot":"low",
+    "quantization":true
 }
