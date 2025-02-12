@@ -385,7 +385,6 @@ with chatbot_tab:
     policy_config = load_policy_config()
     degree = policy_config['chatbot']
     # 챗봇 응답 정책 선택
-    degree = st.selectbox('Chatbot Policy', ('high', 'middle', 'low'))
 
     # 논문 데이터 로드
     basic_summary_path = Path("result") / arxiv_id / "basic_summary.json"
