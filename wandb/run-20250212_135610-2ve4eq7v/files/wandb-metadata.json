@@ -1,0 +1,42 @@
+{
+  "os":  "Linux-5.15.0-89-generic-x86_64-with-glibc2.35",
+  "python":  "CPython 3.10.12",
+  "startedAt":  "2025-02-12T13:56:10.608322Z",
+  "program":  "/workspace/streamGPT/week8_basic.ipynb",
+  "codePath":  "week8_basic.ipynb",
+  "git":  {
+    "remote":  "https://github.com/Habonit/streamGPT.git",
+    "commit":  "dd43773ed4d42700f9cb00254192c563b4a66667"
+  },
+  "email":  "khk172216@gmail.com",
+  "root":  "/workspace/streamGPT",
+  "host":  "3941ac43c63e",
+  "executable":  "/workspace/streamGPT/.venv/bin/python",
+  "codePathLocal":  "week8_basic.ipynb",
+  "cpu_count":  32,
+  "cpu_count_logical":  64,
+  "gpu":  "NVIDIA A100X",
+  "gpu_count":  1,
+  "disk":  {
+    "/":  {
+      "total":  "68719476736",
+      "used":  "22370582528"
+    }
+  },
+  "memory":  {
+    "total":  "540877434880"
+  },
+  "cpu":  {
+    "count":  32,
+    "countLogical":  64
+  },
+  "gpu_nvidia":  [
+    {
+      "name":  "NVIDIA A100X",
+      "memoryTotal":  "85899345920",
+      "cudaCores":  6912,
+      "architecture":  "Ampere"
+    }
+  ],
+  "cudaVersion":  "12.2"
+}

@@ -1,0 +1,14 @@
+1. Instruction 형태
+['Create an array of length 5 which contains all even numbers between 1 and 10.', 'Formulate an equation to calculate the height of a triangle given the angle, side lengths and opposite side length.', 'Write a replace method for a string class which replaces the given string with a given set of characters.']
+
+2. Input 형태
+['', '', 'string = "Hello World!"\nreplace_with = "Greetings!"']
+
+3. Output 형태
+['arr = [2, 4, 6, 8, 10]', 'Height of triangle = opposite side length * sin (angle) / side length', 'def replace(self, replace_with):\n    new_string = ""\n    for char in self:\n        if char == " ":\n            new_string += replace_with\n        else:\n            new_string += char\n    return new_string']
+/workspace/streamGPT/.venv/lib/python3.10/site-packages/transformers/training_args.py:1575: FutureWarning: `evaluation_strategy` is deprecated and will be removed in version 4.46 of 🤗 Transformers. Use `eval_strategy` instead
+  warnings.warn(
+/workspace/streamGPT/.venv/lib/python3.10/site-packages/trl/trainer/sft_trainer.py:359: UserWarning: You passed a dataset that is already processed (contains an `input_ids` field) together with a valid formatting function. Therefore `formatting_func` will be ignored. Either remove the `formatting_func` or pass a dataset that is not already processed.
+  warnings.warn(
+
+Max Alloc: 15.0 GB

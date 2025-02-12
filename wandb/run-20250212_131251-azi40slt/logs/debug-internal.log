@@ -1,0 +1,64 @@
+{"time":"2025-02-12T13:12:51.327265956Z","level":"INFO","msg":"stream: starting","core version":"0.19.6","symlink path":"/workspace/streamGPT/wandb/run-20250212_131251-azi40slt/logs/debug-core.log"}
+{"time":"2025-02-12T13:12:51.440000819Z","level":"INFO","msg":"created new stream","id":"azi40slt"}
+{"time":"2025-02-12T13:12:51.440049459Z","level":"INFO","msg":"stream: started","id":"azi40slt"}
+{"time":"2025-02-12T13:12:51.440072569Z","level":"INFO","msg":"writer: Do: started","stream_id":"azi40slt"}
+{"time":"2025-02-12T13:12:51.440136579Z","level":"INFO","msg":"handler: started","stream_id":"azi40slt"}
+{"time":"2025-02-12T13:12:51.440211538Z","level":"INFO","msg":"sender: started","stream_id":"azi40slt"}
+{"time":"2025-02-12T13:12:51.656273727Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-02-12T13:12:51.930212928Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:12:56.655080871Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:12:58.379763578Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:13:10.787913874Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:13:10.952479139Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:13:35.128246741Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:13:35.711807152Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:13:41.478469653Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:14:19.942595355Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:14:59.313432864Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:14:59.319025594Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:15:00.403108887Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:15:00.409865513Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:15:00.916236084Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:15:00.91996972Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:15:01.428891761Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:15:01.435018509Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:16:17.959252736Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:16:17.965454542Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:16:18.972766537Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:16:18.978137236Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:16:19.552003211Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:16:19.556630113Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:16:20.1913738Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:16:20.197236287Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:16:20.820903398Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:16:20.826230577Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:16:22.156672436Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:16:22.198101594Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:16:23.624142161Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:16:23.631847841Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:16:24.182161659Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:16:24.186459152Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:16:25.719673013Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:16:25.727624742Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:16:26.203597689Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:16:26.213321702Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:16:48.682757784Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:16:51.736360403Z","level":"ERROR","msg":"HTTP error","status":404,"method":"POST","url":"https://api.wandb.ai/files/khk172216/lora-llama-exp/azi40slt/file_stream"}
+{"time":"2025-02-12T13:16:51.736421383Z","level":"ERROR+4","msg":"filestream: fatal error: filestream: failed to upload: 404 Not Found path=files/khk172216/lora-llama-exp/azi40slt/file_stream: {\"error\":\"run lora-llama-exp/azi40slt not found while streaming file\"}"}
+{"time":"2025-02-12T13:16:52.510126791Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:16:52.543931399Z","level":"INFO","msg":"api: retrying HTTP error","status":409,"url":"https://api.wandb.ai/graphql","body":"{\"errors\":[{\"message\":\"run azi40slt was previously created and deleted; try a new run name\",\"path\":[\"upsertBucket\"]}],\"data\":{\"upsertBucket\":null}}"}
+{"time":"2025-02-12T13:16:54.639085821Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:16:54.760007963Z","level":"INFO","msg":"api: retrying HTTP error","status":409,"url":"https://api.wandb.ai/graphql","body":"{\"errors\":[{\"message\":\"run azi40slt was previously created and deleted; try a new run name\",\"path\":[\"upsertBucket\"]}],\"data\":{\"upsertBucket\":null}}"}
+{"time":"2025-02-12T13:16:55.541353762Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:16:58.416881511Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:16:58.676591074Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:16:58.9072387Z","level":"INFO","msg":"api: retrying HTTP error","status":409,"url":"https://api.wandb.ai/graphql","body":"{\"errors\":[{\"message\":\"run azi40slt was previously created and deleted; try a new run name\",\"path\":[\"upsertBucket\"]}],\"data\":{\"upsertBucket\":null}}"}
+{"time":"2025-02-12T13:17:08.345505538Z","level":"INFO","msg":"api: retrying HTTP error","status":409,"url":"https://api.wandb.ai/graphql","body":"{\"errors\":[{\"message\":\"run azi40slt was previously created and deleted; try a new run name\",\"path\":[\"upsertBucket\"]}],\"data\":{\"upsertBucket\":null}}"}
+{"time":"2025-02-12T13:17:13.347795341Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:17:14.031297006Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:17:19.085021263Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:17:26.104120355Z","level":"INFO","msg":"api: retrying HTTP error","status":409,"url":"https://api.wandb.ai/graphql","body":"{\"errors\":[{\"message\":\"run azi40slt was previously created and deleted; try a new run name\",\"path\":[\"upsertBucket\"]}],\"data\":{\"upsertBucket\":null}}"}
+{"time":"2025-02-12T13:17:56.563263281Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:17:58.236432336Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:18:05.820878177Z","level":"INFO","msg":"api: retrying HTTP error","status":409,"url":"https://api.wandb.ai/graphql","body":"{\"errors\":[{\"message\":\"run azi40slt was previously created and deleted; try a new run name\",\"path\":[\"upsertBucket\"]}],\"data\":{\"upsertBucket\":null}}"}
+{"time":"2025-02-12T13:19:05.863937804Z","level":"INFO","msg":"api: retrying HTTP error","status":409,"url":"https://api.wandb.ai/graphql","body":"{\"errors\":[{\"message\":\"run azi40slt was previously created and deleted; try a new run name\",\"path\":[\"upsertBucket\"]}],\"data\":{\"upsertBucket\":null}}"}

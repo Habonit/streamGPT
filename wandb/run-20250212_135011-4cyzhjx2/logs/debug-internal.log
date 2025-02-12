@@ -1,0 +1,48 @@
+{"time":"2025-02-12T13:50:11.895232207Z","level":"INFO","msg":"stream: starting","core version":"0.19.6","symlink path":"/workspace/streamGPT/wandb/run-20250212_135011-4cyzhjx2/logs/debug-core.log"}
+{"time":"2025-02-12T13:50:12.006870713Z","level":"INFO","msg":"created new stream","id":"4cyzhjx2"}
+{"time":"2025-02-12T13:50:12.006908423Z","level":"INFO","msg":"stream: started","id":"4cyzhjx2"}
+{"time":"2025-02-12T13:50:12.006981593Z","level":"INFO","msg":"writer: Do: started","stream_id":"4cyzhjx2"}
+{"time":"2025-02-12T13:50:12.007025853Z","level":"INFO","msg":"sender: started","stream_id":"4cyzhjx2"}
+{"time":"2025-02-12T13:50:12.007155982Z","level":"INFO","msg":"handler: started","stream_id":"4cyzhjx2"}
+{"time":"2025-02-12T13:50:12.343463166Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-02-12T13:50:12.621595594Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:50:16.764638473Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:50:18.846314045Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:50:33.433080136Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:50:35.5748073Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:50:50.313799997Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:50:50.927560031Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:51:12.288676366Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:51:12.294548836Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:51:15.722964768Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:51:15.766053412Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:51:19.731681763Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:51:19.736589697Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:51:23.435754772Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:51:23.478062689Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:51:25.858178171Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:51:25.863266014Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:51:26.59474958Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:51:26.600077012Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:51:31.609260363Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:51:32.914940384Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:51:37.402515559Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:51:37.406825415Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:51:46.907180031Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:51:47.288774567Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:53:59.663237465Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:54:02.906029008Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:54:03.728120421Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:54:04.792374292Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:54:05.003475546Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:54:05.253343747Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:54:05.467115592Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:54:06.148779538Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:54:06.345333901Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:55:24.179852215Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:55:24.386999189Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:55:24.389898878Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:55:24.631745391Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T13:55:25.54231321Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T13:55:32.427465221Z","level":"ERROR","msg":"HTTP error","status":404,"method":"POST","url":"https://api.wandb.ai/files/khk172216/lora-llama-exp/4cyzhjx2/file_stream"}
+{"time":"2025-02-12T13:55:32.427587901Z","level":"ERROR+4","msg":"filestream: fatal error: filestream: failed to upload: 404 Not Found path=files/khk172216/lora-llama-exp/4cyzhjx2/file_stream: {\"error\":\"run lora-llama-exp/4cyzhjx2 not found while streaming file\"}"}

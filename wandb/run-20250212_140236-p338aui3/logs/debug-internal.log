@@ -1,0 +1,28 @@
+{"time":"2025-02-12T14:02:37.000992799Z","level":"INFO","msg":"stream: starting","core version":"0.19.6","symlink path":"/workspace/streamGPT/wandb/run-20250212_140236-p338aui3/logs/debug-core.log"}
+{"time":"2025-02-12T14:02:37.11101665Z","level":"INFO","msg":"created new stream","id":"p338aui3"}
+{"time":"2025-02-12T14:02:37.11107316Z","level":"INFO","msg":"stream: started","id":"p338aui3"}
+{"time":"2025-02-12T14:02:37.11110473Z","level":"INFO","msg":"writer: Do: started","stream_id":"p338aui3"}
+{"time":"2025-02-12T14:02:37.11116837Z","level":"INFO","msg":"sender: started","stream_id":"p338aui3"}
+{"time":"2025-02-12T14:02:37.11115869Z","level":"INFO","msg":"handler: started","stream_id":"p338aui3"}
+{"time":"2025-02-12T14:02:37.334968618Z","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-02-12T14:02:38.132144998Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T14:02:38.325664504Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T14:02:39.057717585Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T14:02:39.260170189Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T14:02:39.467622315Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T14:02:39.66395088Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T14:02:40.235687678Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T14:02:40.434183386Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T14:04:00.333562754Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T14:04:00.551103153Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T14:04:00.554495041Z","level":"INFO","msg":"Pausing system monitor"}
+{"time":"2025-02-12T14:04:00.796633212Z","level":"INFO","msg":"Resuming system monitor"}
+{"time":"2025-02-12T14:04:00.800743578Z","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-02-12T14:04:00.801808464Z","level":"INFO","msg":"Stopped system monitor"}
+{"time":"2025-02-12T14:04:01.144832218Z","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-02-12T14:04:01.285642148Z","level":"INFO","msg":"handler: operation stats","stats":{}}
+{"time":"2025-02-12T14:04:02.297353211Z","level":"INFO","msg":"stream: closing","id":"p338aui3"}
+{"time":"2025-02-12T14:04:02.297402341Z","level":"INFO","msg":"handler: closed","stream_id":"p338aui3"}
+{"time":"2025-02-12T14:04:02.297421481Z","level":"INFO","msg":"writer: Close: closed","stream_id":"p338aui3"}
+{"time":"2025-02-12T14:04:02.297468171Z","level":"INFO","msg":"sender: closed","stream_id":"p338aui3"}
+{"time":"2025-02-12T14:04:02.29760305Z","level":"INFO","msg":"stream: closed","id":"p338aui3"}
