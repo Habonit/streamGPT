@@ -12,7 +12,6 @@ from konlpy.tag import Okt
 import spacy
 import seaborn as sns
 import matplotlib.ticker as mticker
-
 from langchain_openai import ChatOpenAI
 from langchain.document_loaders import TextLoader, PyPDFLoader, UnstructuredFileLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter, CharacterTextSplitter
@@ -116,12 +115,12 @@ def generate_wordcloud(text):
         font_path="font/NanumGothic-Regular.ttf",
         width=900,
         height=450,
-        max_words=100,  # 표시할 최대 단어 수
-        background_color="white",  # 배경색 설정
-        colormap="Set2",  # 컬러맵 적용
-        relative_scaling=0.3,  # 글자 크기 조정
-        contour_color="steelblue",  # 테두리 색상
-        contour_width=2  # 테두리 두께
+        max_words=100,  
+        background_color="white",  
+        colormap="Set2",  
+        relative_scaling=0.3,  
+        contour_color="steelblue",  
+        contour_width=2  
     ).generate(text)
 
     fig, ax = plt.subplots(figsize=(10, 5))
