@@ -1,0 +1,53 @@
+{
+    "arxiv_id": "2501.00663",
+    "essay_dir": "reference/250100663",
+    "model": "gpt-4o-mini",
+    "preprocess_threhsold": 25,
+    "reference_ratio": 0.1,
+    "reference_condition": "- 인용 표시: 아래처럼 [이름 et at 연도) 로 인용 되었음을 표시합니다.\n\n- 인용 예시: we evaluate pre-trained models on the downstream tasks\nin GenomicsBenchmarks (Grešová et al. 2023). W",
+    "result_dir": "result/250100663",
+    "content_keys": {
+        "1": {
+            "name": "Title",
+            "deliminators": {
+                "forward": null,
+                "backward": null
+            }
+        },
+        "2": {
+            "name": "Authors",
+            "deliminators": {
+                "forward": null,
+                "backward": null
+            }
+        },
+        "3": {
+            "name": "Submitted",
+            "deliminators": {
+                "forward": null,
+                "backward": null
+            }
+        },
+        "4": {
+            "name": "Abstract",
+            "deliminators": {
+                "forward": null,
+                "backward": null
+            }
+        },
+        "5": {
+            "name": "Introduction",
+            "deliminators": {
+                "forward": "Introduction\n\n",
+                "backward": "References\n\n"
+            }
+        },
+        "6": {
+            "name": "References",
+            "deliminators": {
+                "forward": "References\n\n",
+                "backward": "Related Work\n\n"
+            }
+        }
+    }
+}

@@ -202,8 +202,11 @@ class CitationLinker():
 
             for data in result:
                 for key, value_dict in data.items():
-                    processed_output["References"][key]['Counter'] += value_dict['Counter']
-                    processed_output["References"][key]['Context'].extend(value_dict['Context'])
+                    try:
+                        processed_output["References"][key]['Counter'] += value_dict['Counter']
+                        processed_output["References"][key]['Context'].extend(value_dict['Context'])
+                    except:
+                        pass
         return processed_output
     
     def _download_reference(self, processed_output, nums = 5):

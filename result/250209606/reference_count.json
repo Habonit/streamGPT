@@ -1,0 +1,253 @@
+{
+    "4": {
+        "Title": "Is chat-gpt transforming academics’ writing style?",
+        "Authors": "Mingmeng Geng and Roberto Trotta",
+        "Counter": 10,
+        "Context": [
+            "as noted by Geng and Trotta (2024).",
+            "In addition, the frequency of words like 'significant', specifically pointed out by Geng and Trotta (2024), continues to grow.",
+            "using the frequency of more common words (Geng and Trotta, 2024) to measure the impact of LLMs on a vast number of publications",
+            "For example, empirical studies from April 2024 observed that the frequency of certain words used in academic papers published in 2023 had changed and confirmed a strong correlation between these changes and the use of LLMs (Liang et al., 2024b; Geng and Trotta, 2024).",
+            "as noted by Geng and Trotta (2024).",
+            "In addition, the frequency of words like 'significant', specifically pointed out by Geng and Trotta (2024), continues to grow.",
+            "Using the frequency of more common words (Geng and Trotta, 2024) to measure the impact of LLMs on a vast number of publications will be more reliable, although this approach is less suitable for the precise detection of short texts.",
+            "The frequency of 'significant' and 'additionally' continues to grow, while that of 'is' and 'are' continues its declining trend, as noted by Geng and Trotta (2024).",
+            "In addition, the frequency of words like 'significant', specifically pointed out by Geng and Trotta (2024), continues to grow.",
+            "Using the frequency of more common words (Geng and Trotta, 2024) to measure the impact of LLMs on a vast number of publications will be more reliable, although this approach is less suitable for the precise detection of short texts."
+        ],
+        "abstract": null,
+        "pdf_url": null
+    },
+    "11": {
+        "Title": "Monitoring ai-modified content at scale: A case study on the impact of chatgpt on ai conference peer reviews",
+        "Authors": "Weixin Liang, Zachary Izzo, Yaohui Zhang, Haley Lepp, Hancheng Cao, Xuandong Zhao, Lingjiao Chen, Hao-tian Ye, Sheng Liu, Zhi Huang, et al.",
+        "Counter": 9,
+        "Context": [
+            "Empirical studies from April 2024 observed that the frequency of certain words used in academic papers published in 2023 had changed and confirmed a strong correlation between these changes and the use of LLMs (Liang et al., 2024b; Geng and Trotta, 2024).",
+            "which corresponds to the time when researchers identified these words in AI conference peer reviews (Liang et al., 2024a) and academic papers (Liang et al., 2024b).",
+            "Figure 2a shows the frequency of the 4 words highlighted by Liang et al. (2024b) and Figure 2b presents the frequency of the 6 words emphasized by Liang et al. (2024a).",
+            "Survey results also show that many researchers are utilizing LLMs in their work (Liao et al., 2024).",
+            "which corresponds to the time when researchers identified these words in AI conference peer reviews (Liang et al., 2024a) and academic papers (Liang et al., 2024b).",
+            "Figure 2a shows the frequency of the 4 words highlighted by Liang et al. (2024b) and Figure 2b presents the frequency of the 6 words emphasized by Liang et al. (2024a).",
+            "Empirical studies from April 2024 observed that the frequency of certain words used in academic papers published in 2023 had changed and confirmed a strong correlation between these changes and the use of LLMs (Liang et al., 2024b; Geng and Trotta, 2024)."
+        ],
+        "abstract": "We present an approach for estimating the fraction of text in a large corpus\nwhich is likely to be substantially modified or produced by a large language\nmodel (LLM). Our maximum likelihood model leverages expert-written and\nAI-generated reference texts to accurately and efficiently examine real-world\nLLM-use at the corpus level. We apply this approach to a case study of\nscientific peer review in AI conferences that took place after the release of\nChatGPT: ICLR 2024, NeurIPS 2023, CoRL 2023 and EMNLP 2023. Our results suggest\nthat between 6.5% and 16.9% of text submitted as peer reviews to these\nconferences could have been substantially modified by LLMs, i.e. beyond\nspell-checking or minor writing updates. The circumstances in which generated\ntext occurs offer insight into user behavior: the estimated fraction of\nLLM-generated text is higher in reviews which report lower confidence, were\nsubmitted close to the deadline, and from reviewers who are less likely to\nrespond to author rebuttals. We also observe corpus-level trends in generated\ntext which may be too subtle to detect at the individual level, and discuss the\nimplications of such trends on peer review. We call for future\ninterdisciplinary work to examine how LLM use is changing our information and\nknowledge practices.",
+        "pdf_url": "http://arxiv.org/pdf/2403.07183v2"
+    },
+    "16": {
+        "Title": "Human-ai co-evolution",
+        "Authors": "Dino Pedreschi, Luca Pappalardo, Emanuele Ferragina, Ricardo Baeza-Yates, Albert-László Barabási, Frank Dignum, Virginia Dignum, Tina Eliassi-Rad, Fosca Giannotti, János Kertész, et al.",
+        "Counter": 7,
+        "Context": [
+            "The coevolution of AI and humans has also been recognized by researchers (Pedreschi et al., 2024).",
+            "Humans and LLMs are coevolving and we can already conclude that, for this reason, the impact.",
+            "The coevolution of AI and humans has also been recognized by researchers (Pedreschi et al., 2024).",
+            "Humans and LLMs are coevolving and we can already conclude that, for this reason, the impact...",
+            "The coevolution of AI and humans has also been recognized by researchers (Pedreschi et al., 2024).",
+            "The frequency of some other words (e.g., 'intricate' and 'delve') associated with LLMs begins to decrease after March and April 2024, which corresponds to the time when researchers identified these words in AI conference peer reviews (Liang et al., 2024a) and academic papers (Liang et al., 2024b).",
+            "Humans and LLMs are coevolving and we can already conclude that, for this reason, the impact..."
+        ],
+        "abstract": "Substantial empirical research has shown that the level of individualism vs.\ncollectivism is one of the most critical and important determinants of societal\ntraits, such as economic growth, economic institutions and health conditions.\nBut the exact nature of this impact has thus far not been well understood in an\nanalytical setting. In this work, we develop one of the first theoretical\nmodels that analytically studies the impact of individualism-collectivism on\nthe society. We model the growth of an individual's welfare (wealth, resources\nand health) as depending not only on himself, but also on the level of\ncollectivism, i.e. the level of dependence on the rest of the individuals in\nthe society, which leads to a co-evolutionary setting. Based on our model, we\nare able to predict the impact of individualism-collectivism on various\nsocietal metrics, such as average welfare, average life-time, total population,\ncumulative welfare and average inequality. We analytically show that\nindividualism has a positive impact on average welfare and cumulative welfare,\nbut comes with the drawbacks of lower average life-time, lower total population\nand higher average inequality.",
+        "pdf_url": "http://arxiv.org/pdf/1411.5107v1"
+    },
+    "12": {
+        "Title": "Mapping the increasing use of llms in scientific papers",
+        "Authors": "Weixin Liang, Yaohui Zhang, Zhengxuan Wu, Haley Lepp, Wenlong Ji, Xuandong Zhao, Hancheng Cao, Sheng Liu, Siyu He, Zhi Huang, et al.",
+        "Counter": 4,
+        "Context": [
+            "The frequency of some other words (e.g., 'intricate' and 'delve') associated with LLMs begins to decrease after March and April 2024, which corresponds to the time when researchers identified these words in AI conference peer reviews (Liang et al., 2024a) and academic papers (Liang et al., 2024b).",
+            "Figure 1 illustrates the evolution in the frequency usage of some of the words that were singled out as favored by ChatGPT around April 2024.",
+            "Figure 2a shows the frequency of the 4 words highlighted by Liang et al. (2024b) and Figure 2b presents the frequency of the 6 words emphasized by Liang et al. (2024a).",
+            "A study published in December 2024 also observed a decline in the use of certain words, such as 'delve', in some selected arXiv papers (Leiter et al., 2024)."
+        ],
+        "abstract": "Scientific publishing lays the foundation of science by disseminating\nresearch findings, fostering collaboration, encouraging reproducibility, and\nensuring that scientific knowledge is accessible, verifiable, and built upon\nover time. Recently, there has been immense speculation about how many people\nare using large language models (LLMs) like ChatGPT in their academic writing,\nand to what extent this tool might have an effect on global scientific\npractices. However, we lack a precise measure of the proportion of academic\nwriting substantially modified or produced by LLMs. To address this gap, we\nconduct the first systematic, large-scale analysis across 950,965 papers\npublished between January 2020 and February 2024 on the arXiv, bioRxiv, and\nNature portfolio journals, using a population-level statistical framework to\nmeasure the prevalence of LLM-modified content over time. Our statistical\nestimation operates on the corpus level and is more robust than inference on\nindividual instances. Our findings reveal a steady increase in LLM usage, with\nthe largest and fastest growth observed in Computer Science papers (up to\n17.5%). In comparison, Mathematics papers and the Nature portfolio showed the\nleast LLM modification (up to 6.3%). Moreover, at an aggregate level, our\nanalysis reveals that higher levels of LLM-modification are associated with\npapers whose first authors post preprints more frequently, papers in more\ncrowded research areas, and papers of shorter lengths. Our findings suggests\nthat LLMs are being broadly used in scientific writings.",
+        "pdf_url": "http://arxiv.org/pdf/2404.01268v1"
+    },
+    "3": {
+        "Title": "The impact of large language models in academia: from writing to speaking",
+        "Authors": "Mingmeng Geng, Caixi Chen, Yanru Wu, Dongping Chen, Yao Wan, and Pan Zhou",
+        "Counter": 3,
+        "Context": [
+            "Researchers are constantly proposing new detection techniques, but the language and expressions of LLM users are also likely evolving due to their use of LLMs (Geng et al., 2024).",
+            "Researchers are constantly proposing new detection techniques, but the language and expressions of LLM users are also likely evolving due to their use of LLMs (Geng et al., 2024).",
+            "Changes in the words used in academic writing, as discussed above, serve as an excellent example of AI and human coevolution. Researchers are constantly proposing new detection techniques, but the language and expressions of LLM users are also likely evolving due to their use of LLMs (Geng et al., 2024)."
+        ],
+        "abstract": "Large language models (LLMs) are increasingly impacting human society,\nparticularly in textual information. Based on more than 30,000 papers and 1,000\npresentations from machine learning conferences, we examined and compared the\nwords used in writing and speaking, representing the first large-scale study of\nhow LLMs influence the two main modes of verbal communication and expression\nwithin the same group of people. Our empirical results show that LLM-style\nwords such as \"significant\" have been used more frequently in abstracts and\noral presentations. The impact on speaking is beginning to emerge and is likely\nto grow in the future, calling attention to the implicit influence and ripple\neffect of LLMs on human society.",
+        "pdf_url": "http://arxiv.org/pdf/2409.13686v2"
+    },
+    "7": {
+        "Title": "Benchmarking linguistic diversity of large language models",
+        "Authors": "Yanzhu Guo, Guokan Shang, and Chloé Clavel",
+        "Counter": 3,
+        "Context": [
+            "More researchers have now noticed issues with word usage and diversity in LLM-generated content (Kobak et al., 2024; Reviriego et al., 2024; Guo et al., 2024).",
+            "More researchers have now noticed issues with word usage and diversity in LLM-generated content (Kobak et al., 2024; Reviriego et al., 2024; Guo et al., 2024).",
+            "More researchers have now noticed issues with word usage and diversity in LLM-generated content (Kobak et al., 2024; Reviriego et al., 2024; Guo et al., 2024)."
+        ],
+        "abstract": "The development and evaluation of Large Language Models (LLMs) has primarily\nfocused on their task-solving capabilities, with recent models even surpassing\nhuman performance in some areas. However, this focus often neglects whether\nmachine-generated language matches the human level of diversity, in terms of\nvocabulary choice, syntactic construction, and expression of meaning, raising\nquestions about whether the fundamentals of language generation have been fully\naddressed. This paper emphasizes the importance of examining the preservation\nof human linguistic richness by language models, given the concerning surge in\nonline content produced or aided by LLMs. We propose a comprehensive framework\nfor evaluating LLMs from various linguistic diversity perspectives including\nlexical, syntactic, and semantic dimensions. Using this framework, we benchmark\nseveral state-of-the-art LLMs across all diversity dimensions, and conduct an\nin-depth case study for syntactic diversity. Finally, we analyze how different\ndevelopment and deployment choices impact the linguistic diversity of LLM\noutputs.",
+        "pdf_url": "http://arxiv.org/pdf/2412.10271v1"
+    },
+    "8": {
+        "Title": "Spotting llms with binoculars: Zero-shot detection of machine-generated text",
+        "Authors": "Abhimanyu Hans, Avi Schwarzschild, Valeriia Cherepanova, Hamid Kazemi, Aniruddha Saha, Micah Goldblum, Jonas Geiping, and Tom Goldstein",
+        "Counter": 3,
+        "Context": [
+            "Figure 5 presents the detection results based on Binoculars (Hans et al., 2024), one of the state-of-art MGT detectors, where a lower score indicates a greater probability that the text is machine-generated.",
+            "Figure 5 presents the detection results based on Binoculars (Hans et al., 2024), one of the state-of-art MGT detectors, where a lower score indicates a greater probability that the text is machine-generated.",
+            "Figure 5 presents the detection results based on Binoculars (Hans et al., 2024), one of the state-of-art MGT detectors, where a lower score indicates a greater probability that the text is machine-generated."
+        ]
+    },
+    "9": {
+        "Title": "Delving into chatgpt usage in academic writing through excess vocabulary",
+        "Authors": "Dmitry Kobak, Rita González-Márquez, Em˝oke-Ágnes Horvát, and Jan Lause",
+        "Counter": 3,
+        "Context": [
+            "More researchers have now noticed issues with word usage and diversity in LLM-generated content (Kobak et al., 2024; Reviriego et al., 2024; Guo et al., 2024).",
+            "More researchers have now noticed issues with word usage and diversity in LLM-generated content (Kobak et al., 2024; Reviriego et al., 2024; Guo et al., 2024).",
+            "More researchers have now noticed issues with word usage and diversity in LLM-generated content (Kobak et al., 2024; Reviriego et al., 2024; Guo et al., 2024)."
+        ]
+    },
+    "10": {
+        "Title": "Nllg quarterly arxiv report 09/24: What are the most influential current ai papers?",
+        "Authors": "Christoph Leiter, Jonas Belouadi, Yanran Chen, Ran Zhang, Daniil Larionov, Aida Kostikova, and Steffen Eger",
+        "Counter": 3,
+        "Context": [
+            "A study published in December 2024 also observed a decline in the use of certain words, such as 'delve', in some selected arXiv papers (Leiter et al., 2024).",
+            "A study published in December 2024 also observed a decline in the use of certain words, such as 'delve', in some selected arXiv papers (Leiter et al., 2024).",
+            "Therefore, fewer researchers should have noticed the relationship between these words and LLMs."
+        ]
+    },
+    "17": {
+        "Title": "Withdrarxiv: A large-scale dataset for retraction study",
+        "Authors": "Delip Rao, Jonathan Young, Thomas Dietterich, and Chris Callison-Burch",
+        "Counter": 3,
+        "Context": [
+            "Withdrawn arXiv papers data WithdrarXiv dataset (Rao et al., 2024), containing over 14,000 arXiv withdrawn papers up to September 2024.",
+            "Withdrawn arXiv papers data WithdrarXiv dataset (Rao et al., 2024), containing over 14,000 arXiv withdrawn papers up to September 2024.",
+            "Withdrawn arXiv papers data WithdrarXiv dataset (Rao et al., 2024), containing over 14,000 arXiv withdrawn papers up to September 2024."
+        ]
+    },
+    "18": {
+        "Title": "Playing with words: Comparing the vocabulary and lexical diversity of chatgpt and humans",
+        "Authors": "Pedro Reviriego, Javier Conde, Elena Merino-Gómez, Gonzalo Martínez, and José Alberto Hernández",
+        "Counter": 3,
+        "Context": [
+            "More researchers have now noticed issues with word usage and diversity in LLM-generated content (Kobak et al., 2024; Reviriego et al., 2024; Guo et al., 2024).",
+            "More researchers have now noticed issues with word usage and diversity in LLM-generated content (Kobak et al., 2024; Reviriego et al., 2024; Guo et al., 2024).",
+            "More researchers have now noticed issues with word usage and diversity in LLM-generated content (Kobak et al., 2024; Reviriego et al., 2024; Guo et al., 2024)."
+        ]
+    },
+    "19": {
+        "Title": "Can grammarly and chatgpt accelerate language change? ai-powered technologies and their impact on the english language: wordiness vs. conciseness",
+        "Authors": "Karolina Rudnicka",
+        "Counter": 3,
+        "Context": [
+            "Grammarly can sometimes achieve effects similar to those of ChatGPT (Rudnicka, 2023)",
+            "Grammarly can sometimes achieve effects similar to those of ChatGPT (Rudnicka, 2023), and the mix of human-written text and machine-generated text should be very common in academic writing.",
+            "Grammarly can sometimes achieve effects similar to those of ChatGPT (Rudnicka, 2023), and the mix of human-written text and machine-generated text should be very common in academic writing."
+        ]
+    },
+    "20": {
+        "Title": "People who frequently use chatgpt for writing tasks are accurate and robust detectors of ai-generated text",
+        "Authors": "Jenna Russell, Marzena Karpinska, and Mohit Iyyer",
+        "Counter": 3,
+        "Context": [
+            "people who frequently use ChatGPT for writing tasks can accurately distinguish AI-generated text (Russell et al., 2025)",
+            "According to recent studies, people who frequently use ChatGPT for writing tasks can accurately distinguish AI-generated text (Russell et al., 2025), which implies they are also able to foil MGT detectors.",
+            "According to recent studies, people who frequently use ChatGPT for writing tasks can accurately distinguish AI-generated text (Russell et al., 2025), which implies they are also able to foil MGT detectors."
+        ]
+    },
+    "21": {
+        "Title": "Can ai-generated text be reliably detected?",
+        "Authors": "Vinu Sankar Sadasivan, Aounon Kumar, Sriram Balasubramanian, Wenxiao Wang, and Soheil Feizi",
+        "Counter": 3,
+        "Context": [
+            "been questioned early on (Sadasivan et al., 2023; Weber-Wulff et al., 2023; Ghosal et al., 2023).",
+            "been questioned early on (Sadasivan et al., 2023; Weber-Wulff et al., 2023; Ghosal et al., 2023).",
+            "The effectiveness of MGT detectors is also related to the model of LLMs and the type of text (Liu et al., 2024), and their accuracy may also be exaggerated (Doughman et al., 2024)."
+        ]
+    },
+    "22": {
+        "Title": "The science of detecting llm-generated text",
+        "Authors": "Ruixiang Tang, Yu-Neng Chuang, and Xia Hu",
+        "Counter": 3,
+        "Context": [
+            "The detection of machine-generated text (MGT) has also attracted a lot of attention (Tang et al., 2024).",
+            "The detection of machine-generated text (MGT) has also attracted a lot of attention (Tang et al., 2024).",
+            "The detection of machine-generated text (MGT) has also attracted a lot of attention (Tang et al., 2024)."
+        ]
+    },
+    "24": {
+        "Title": "Testing of detection tools for ai-generated text",
+        "Authors": "Debora Weber-Wulff, Alla Anohina-Naumeca, Sonja Bjelobaba, Tomáš Folt`ynek, Jean Guerrero-Dib, Olu-mide Popoola, Petr Šigut, and Lorna Waddington",
+        "Counter": 3,
+        "Context": [
+            "The effectiveness of MGT detectors is also related to the model of LLMs and the type of text (Liu et al., 2024), and their accuracy may also be exaggerated (Doughman et al., 2024).",
+            "The effectiveness of MGT detectors is also related to the model of LLMs and the type of text (Liu et al., 2024), and their accuracy may also be exaggerated (Doughman et al., 2024).",
+            "Thus, examining and analyzing the ongoing evolution of word usage remains a useful and meaningful task."
+        ]
+    },
+    "13": {
+        "Title": "Llms as research tools: A large scale survey of researchers’ usage and perceptions",
+        "Authors": "Zhehui Liao, Maria Antoniak, Inyoung Cheong, Evie Yu-Yen Cheng, Ai-Heng Lee, Kyle Lo, Joseph Chee Chang, and Amy X Zhang",
+        "Counter": 2,
+        "Context": [
+            "Survey results also show that many researchers are utilizing LLMs in their work (Liao et al., 2024).",
+            "Survey results also show that many researchers are utilizing LLMs in their work (Liao et al., 2024)."
+        ]
+    },
+    "1": {
+        "Title": "Silvers-peak: Evading ai-generated text detectors using ho- moglyphs",
+        "Authors": "Aldan Creo and Shushanta Pudasaini",
+        "Counter": 0,
+        "Context": []
+    },
+    "2": {
+        "Title": "Exploring the limitations of detecting machine-generated text",
+        "Authors": "Osama Mohammed Afzal, Hawau Olamide Toyin, Shady Shehata, Preslav Nakov, and Zeerak Talat",
+        "Counter": 0,
+        "Context": []
+    },
+    "5": {
+        "Title": "Towards possibilities & impossibilities of ai-generated text detection: A survey",
+        "Authors": "Soumya Suvra Ghosal, Souradip Chakraborty, Jonas Geiping, Furong Huang, Dinesh Manocha, and Amrit Singh Bedi",
+        "Counter": 0,
+        "Context": []
+    },
+    "6": {
+        "Title": "Chatgpt\" contamination\": estimating the prevalence of llms in the scholarly literature",
+        "Authors": "Andrew Gray",
+        "Counter": 0,
+        "Context": []
+    },
+    "14": {
+        "Title": "Towards the relationship between aigc in manuscript writing and author profiles: evidence from preprints in llms",
+        "Authors": "Jialin Liu and Yi Bu",
+        "Counter": 0,
+        "Context": []
+    },
+    "15": {
+        "Title": "On the generalization ability of machine-generated text detectors",
+        "Authors": "Yule Liu, Zhiyuan Zhong, Yifan Liao, Zhen Sun, Jingyi Zheng, Jiaheng Wei, Qingyuan Gong, Fenghua Tong, Yang Chen, Yang Zhang, et al.",
+        "Counter": 0,
+        "Context": []
+    },
+    "23": {
+        "Title": "Stumbling blocks: Stress testing the robustness of machine-generated text detectors under attacks",
+        "Authors": "Yichen Wang, Shangbin Feng, Abe Bohan Hou, Xiao Pu, Chao Shen, Xiaoming Liu, Yulia Tsvetkov, and Tianxing He",
+        "Counter": 0,
+        "Context": []
+    },
+    "25": {
+        "Title": "Llm-as-a-coauthor: Can mixed human-written and machine-generated text be detected?",
+        "Authors": "Qihui Zhang, Chujie Gao, Dongping Chen, Yue Huang, Yixin Huang, Zhenyang Sun, Shilin Zhang, Weiye Li, Zhengyan Fu, Yao Wan, et al.",
+        "Counter": 0,
+        "Context": []
+    },
+    "26": {
+        "Title": "Detection vs. anti-detection: Is text generated by ai detectable?",
+        "Authors": "Yuehan Zhang, Yongqiang Ma, Jiawei Liu, Xiaozhong Liu, Xiaofeng Wang, and Wei Lu",
+        "Counter": 0,
+        "Context": []
+    }
+}

@@ -1,0 +1,53 @@
+{
+    "arxiv_id": "2502.09606",
+    "essay_dir": "reference/250209606",
+    "model": "gpt-4o-mini",
+    "preprocess_threhsold": 25,
+    "reference_ratio": 0.1,
+    "reference_condition": "- 인용 표시: 논문에서 (이름, et al, 연도) 형태로 인용이 되었습니다.\n\n- 예시: The coevolution of AI and humans has also been recognized by researchers (Pedreschi et al., 2024).",
+    "result_dir": "result/250209606",
+    "content_keys": {
+        "1": {
+            "name": "Title",
+            "deliminators": {
+                "forward": null,
+                "backward": null
+            }
+        },
+        "2": {
+            "name": "Authors",
+            "deliminators": {
+                "forward": null,
+                "backward": null
+            }
+        },
+        "3": {
+            "name": "Submitted",
+            "deliminators": {
+                "forward": null,
+                "backward": null
+            }
+        },
+        "4": {
+            "name": "Abstract",
+            "deliminators": {
+                "forward": null,
+                "backward": null
+            }
+        },
+        "5": {
+            "name": "Introduction",
+            "deliminators": {
+                "forward": "Abstract\n\n",
+                "backward": "References\n\n"
+            }
+        },
+        "6": {
+            "name": "References",
+            "deliminators": {
+                "forward": "References\n\n",
+                "backward": "Appendix\n\n"
+            }
+        }
+    }
+}

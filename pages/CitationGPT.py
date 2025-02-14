@@ -468,6 +468,10 @@ with chatbot_tab:
         st.error("📂 필수 데이터가 없습니다. 논문 ID를 확인하세요.")
         st.stop()
 
+    reference_text = ""
+    for i, (key, value_dict) in enumerate(reference_qna.items()):
+        reference_text += f"제목: {value_dict['Title']} \n 인용 순위: {i+1}순위"
+
     # 요약 텍스트 정리
     merged_text = "\n".join(
         f"{value_dict['Summary']}"
@@ -479,10 +483,10 @@ with chatbot_tab:
     # 챗봇 응답을 위한 프롬프트 생성
     if degree == "high":
         portion = len(basic_summary)
-        prompt_text = basic_summary + "\n" + merged_text[:portion*5]
+        prompt_text = "기본 요약문\n" + basic_summary + "참고문헌과의 접점\n" + merged_text + "인용 횟수 count\n" + reference_text
     elif degree == "middle":
         portion = len(basic_summary)
-        prompt_text = basic_summary + "\n" + merged_text[:portion*3]
+        prompt_text = basic_summary + "\n" + merged_text
     else:
         prompt_text = ""
 

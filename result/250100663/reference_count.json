@@ -1,0 +1,1228 @@
+{
+    "39": {
+        "Title": "Genomic benchmarks: a collection of datasets for genomic sequence classification",
+        "Authors": "Katarína Grešová, Vlastimil Martinek, David Čechák, Petr Šimeček, and Panagiotis Alexiou",
+        "Counter": 55,
+        "Context": [
+            "...in complex real-world tasks (e.g., language modeling (N. F. Liu et al. 2024), video understanding (C.-Y. Wu et al. 2019), long-term time series forecasting (H. Zhou et al. 2021))...",
+            "we perform experimental evaluations on language modeling, commonsense reasoning, recall-intensive, needle in haystack, time series forecasting, and DNA modeling tasks.",
+            "...efficient attention mechanisms by sparsifying the attention matrix (B. Chen et al. 2021; Choromanski et al. 2021; Dai et al. 2019), approximating the softmax (Arora et al. 2024), or developing kernel-based (linear) attentions (Aksenov et al. 2024; Kacham, Mirrokni, and P. Zhong 2024; Schlag, Irie, and Jürgen Schmidhuber 2021; S. Yang, B. Wang, Shen, et al. 2024).",
+            "An example of this can be LLMs that are shown to be memorizing their training data (Leybzon and Kervadec 2024; Schwarzschild et al. 2024; Staab et al. 2024).",
+            "To improve the above surprise metric (Equation 8), we break the surprise metric into (1) past surprise, which measures the surprise amount of a very recent past; and (2) momentary surprise, which measures the surprise of incoming data: S_t -1 Past Surprise - θ_t ∇ℓ (M_t -1; x_t) Momentary Surprise.",
+            "...by redistributing the attention weights more effectively (Han et al. 2024; Xiao et al. 2024).",
+            "we evaluate pre-trained models on the downstream tasks in GenomicsBenchmarks (Grešová et al. 2023).",
+            "In this design, sliding window attention is act as a precise short-term memory, while the neural memory module is acting as a fading memory for the model.",
+            "we use a similar architecture as H3 (D. Y. Fu et al. 2023), where we replace the the sequence model with our neural memory module (LMM).",
+            "As discussed in Section 1, we define learning a process for acquiring effective and useful memory.",
+            "we also compare with GPT4 (Achiam et al. 2023), Llama3 with RAG (Touvron et al. 2023), RecurrentGemma2-9B (Botev et al. 2024), and Mistral (Jiang et al. 2023) models, all of which are provided in the benchmark (Yuri Kuratov et al. 2024)",
+            "we use a harder task from BABILong benchmark (Yuri Kuratov et al. 2024), in which the model needs to reason across facts distributed in extremely long documents.",
+            "baseline results are reported by (Yuri Kuratov et al. 2024)",
+            "Table 4: Downstream evaluation of pre-trained DNA models on GenomicsBenchmarks (Grešová et al. 2023). We report top-1 classification accuracy (%).",
+            "we evaluate pre-trained models on the downstream tasks in GenomicsBenchmarks (Grešová et al. 2023).",
+            "we compare the performance of three represented variants of Titans in three aspects of (i) language modeling, (ii) commen-sense reasoning, and (iii) long context NIAH (BABILong) tasks.",
+            "we evaluate pre-trained models on the downstream tasks in GenomicsBenchmarks (Grešová et al. 2023).",
+            "In complex real-world tasks (e.g., language modeling (N. F. Liu et al. 2024), video understanding (C.-Y. Wu et al. 2019), long-term time series forecasting (H. Zhou et al. 2021)), the context window can become extremely large, making the applicability of Transformers challenging in these downstream tasks.",
+            "we argue that in an effective learning paradigm, similar to human brain, there are distinct yet interconnected modules, each of which is responsible for a component crucial to the learning process.",
+            "...we observe that our Titan architecture outperforms all modern recurrent models as well as their hybrid variants...",
+            "An example of this can be LLMs that are shown to be memorizing their training data (Leybzon and Kervadec 2024; Schwarzschild et al. 2024; Staab et al. 2024).",
+            "To improve the above surprise metric (Equation 8), we break the surprise metric into (1) past surprise, which measures the surprise amount of a very recent past; and (2) momentary surprise, which measures the surprise of incoming data.",
+            "we evaluate pre-trained models on the downstream tasks in GenomicsBenchmarks (Grešová et al. 2023).",
+            "we use a similar architecture as H3 (D. Y. Fu et al. 2023), where we replace the the sequence model with our neural memory module (LMM).",
+            "Comparing our neural memory module and TTT, which is also a gradient-based recurrent model can show us the importance of our weight decay as well as the momentum.",
+            "...we use a harder task from BABILong benchmark (Yuri Kuratov et al. 2024), in which the model needs to reason across facts distributed in extremely long documents.",
+            "we focus on different variants of our neural memory module, where 𝐿M = 1, 2, 3, 4.",
+            "Table 4: Downstream evaluation of pre-trained DNA models on GenomicsBenchmarks (Grešová et al. 2023). We report top-1 classification accuracy (%).",
+            "we evaluate pre-trained models on the downstream tasks in GenomicsBenchmarks (Grešová et al. 2023).",
+            "we compare the performance of three represented variants of Titans in three aspects of (i) language modeling, (ii) commen-sense reasoning, and (iii) long context NIAH (BABILong) tasks.",
+            "Comparing to modern recurrent models, it has more expressive memory update and storing mechanism. Using this memory, we present Titans architectures, and its three variants, in which we suggest to incorporate the memory module as (1) a context, (2) gating, and (3) a layer.",
+            "In complex real-world tasks (e.g., language modeling (N. F. Liu et al. 2024), video understanding (C.-Y. Wu et al. 2019), long-term time series forecasting (H. Zhou et al. 2021)), the context window can become extremely large, making the applicability of Transformers challenging in these downstream tasks.",
+            "to LSTMs (Jürgen Schmidhuber and Hochreiter 1997) and Transformers (Vaswani et al. 2017)–face challenges when dealing with generalization, length extrapolation, and/or reasoning.",
+            "we perform experimental evaluations on language modeling, commonsense reasoning, recall-intensive, needle in haystack, time series forecasting, and DNA modeling tasks.",
+            "resulting in a higher-throughput as terms (cid:205)𝑖 𝑗=1 𝜙 (𝐾𝑗 ) and (cid:205)𝑖 as identity matrix (Yutao Sun et al. 2023), the above formulation can also be written in a recurrent format:",
+            "we refer to GLA (S. Yang, B. Wang, Shen, et al. 2024), LRU (Orvieto et al. 2023), Griffin (De et al. 2024), xLSTM (Beck et al. 2024), and Mamba2 (Dao and Gu 2024), which the later is also connected to the discretized version of traditional state space models (Gu and Dao 2024).",
+            "Memory has always been one of the core parts of the neural network designs (Graves, Wayne, and Danihelka 2014; JH Schmidhuber 1992; Jürgen Schmidhuber and Hochreiter 1997; J. Zhang et al. 2024).",
+            "An example of this can be LLMs that are shown to be memorizing their training data (Leybzon and Kervadec 2024; Schwarzschild et al. 2024; Staab et al. 2024).",
+            "we evaluate pre-trained models on the downstream tasks in GenomicsBenchmarks (Grešová et al. 2023).",
+            "we evaluate pre-trained models on the downstream tasks in GenomicsBenchmarks (Grešová et al. 2023).",
+            "However, such simplifications (i.e., as the function of chunks) can be the interest of future work to training larger models in more efficient manner.",
+            "Our long-term memory can also be seen as a contextual memory, meaning that the output is fully depend on the context (Grešová et al. 2024).",
+            "we evaluate pre-trained models on the downstream tasks in GenomicsBenchmarks (Grešová et al. 2023).",
+            "we evaluate pre-trained models on the downstream tasks in GenomicsBenchmarks (Grešová et al. 2023).",
+            "the structure of heads are different (Grešová et al. 2024).",
+            "we use a similar architecture as H3 (D. Y. Fu et al. 2023), where we replace the the sequence model with our neural memory module (LMM).",
+            "we evaluate pre-trained models on the downstream tasks in GenomicsBenchmarks (Grešová et al. 2023).",
+            "In time series tasks, we compare with Mamba-based (Behrouz, Santacatterina, and Zabih 2024), Transformer-based (Y. Liu et al. 2023; Nie et al. 2022; Yunhao Zhang and Yan 2023), and linear models (Das et al. 2023; Z. Li et al. 2023; H. Wu et al. 2023; Zeng et al. 2023).",
+            "Interestingly, both MAG and MAC outperform MAL variant, which due to using the same modules, we attribute this to the architecture design of these models. This finding is particularly important as the current hybrid models (except Hymba (X. Dong et al. 2024)) in the literature are using MAL-style combination of recurrent models and attention.",
+            "we use a harder task from BABILong benchmark (Yuri Kuratov et al. 2024), in which the model needs to reason across facts distributed in extremely long documents.",
+            "we compare the small fine-tuned version of Titans (MAC) with: (i) the fine-tuned version of small models (almost the same number of parameters as Titans) such as Mamba (Gu and Dao 2024), RMT (Bulatov, Yury Kuratov, and Burtsev 2022)",
+            "Table 4: Downstream evaluation of pre-trained DNA models on GenomicsBenchmarks (Grešová et al. 2023). We report top-1 classification accuracy (%).",
+            "we evaluate pre-trained models on the downstream tasks in GenomicsBenchmarks (Grešová et al. 2023).",
+            "we compare the performance of three represented variants of Titans in three aspects of (i) language modeling, (ii) common-sense reasoning, and (iii) long context NIAH (BABILong) tasks.",
+            "Our experimental evaluation on diverse tasks tasks validate that Titans are more effective than Transformers and recent modern linear recurrent models, specifically for long context."
+        ],
+        "abstract": null,
+        "pdf_url": null
+    },
+    "107": {
+        "Title": "Attention is All you Need",
+        "Authors": "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N Gomez, Łukasz Kaiser, and Illia Polosukhin",
+        "Counter": 26,
+        "Context": [
+            "Transformers, pure attention-based architectures (Vaswani et al. 2017), have been firmly established as state-of-the-art models in sequence modeling...",
+            "most existing architectures–ranging from Hopfield Networks (Hopfield 1982) to LSTMs (Jürgen Schmidhuber and Hochreiter 1997) and Transformers (Vaswani et al. 2017)–face challenges when dealing with generalization, length extrapolation, and/or reasoning.",
+            "For example, the main difference between Transformers (Vaswani et al. 2017) and linear Transformers (Katharopoulos et al. 2020) is the memory structure as well as the memory updating step.",
+            "Titans outperforms Transformers with the same context window, and show competitive performance with Transformers that use the entire context.",
+            "Transformers (Vaswani et al. 2017) as the de facto backbone for many deep learning models are based on attention mechanism.",
+            "...the attention can be written as: 𝜙 (𝑄𝑖 )⊤𝜙 (𝐾𝑗 ) ℓ=1 𝜙 (𝑄𝑖 )⊤𝜙 (𝐾ℓ ) 𝜙 (𝑄𝑖 )⊤ (cid:205)𝑖 𝜙 (𝑄𝑖 )⊤ (cid:205)𝑖 j=1 𝜙 (𝐾𝑗 )𝑉𝑗 ℓ=1 𝜙 (𝐾ℓ ).",
+            "Given 𝑥𝑡, similar to Transformers (Vaswani et al. 2017), we use two linear layers to project 𝑥𝑡 into a key and value:",
+            "we also follow the recent architectures that use normalization and gating with a linear layer before the final output projection (Mehta et al. 2023).",
+            "we compare with Transformer++ (Touvron et al. 2023)",
+            "Titans outperform all baselines–i.e., Mamba2.8B (Gu and Dao 2024), RWKV-6-7B (Peng, Goldstein, et al. 2024), RecurrentGemma-9B (Botev et al. 2024), Gemma-9B (Team et al. 2024), Llama3.1-8B (Touvron et al. 2023), GPT-4, and GPT4o-mini (Achiam et al. 2023).",
+            "Transformers, pure attention-based architectures (Vaswani et al. 2017), have been firmly established as state-of-the-art models in sequence modeling, mainly due to their in-context learning and ability to learn at scale (Kaplan et al. 2020).",
+            "This, however, brings a contradictory fact about linear recurrent (or linear Transformers) models: On one hand, we use these linear models to enhance scalability and efficiency (linear vs. quadratic complexity)",
+            "most existing architectures–ranging from Hopfield Networks (Hopfield 1982) to LSTMs (Jürgen Schmidhuber and Hochreiter 1997) and Transformers (Vaswani et al. 2017)–face challenges when dealing with generalization, length extrapolation, and/or reasoning.",
+            "For example, the main difference between Transformers (Vaswani et al. 2017) and linear Transformers (Katharopoulos et al. 2020) is the memory structure as well as the memory updating step...",
+            "...Titans outperforms Transformers with the same context window...",
+            "Transformers (Vaswani et al. 2017) as the de facto backbone for many deep learning models are based on attention mechanism.",
+            "the softmax in standard attention is replaced with an alternative kernel function 𝜙 (., .)",
+            "Given 𝑥𝑡, similar to Transformers (Vaswani et al. 2017), we use two linear layers to project 𝑥𝑡 into a key and value:",
+            "compared to Transformer-based with memory models like RMT, Titans show better performance mainly due to their powerful memory.",
+            "Transformers, pure attention-based architectures (Vaswani et al. 2017), have been firmly established as state-of-the-art models in sequence modeling, mainly due to their in-context learning and ability to learn at scale.",
+            "most existing architectures–ranging from Hopfield Networks (Hopfield 1982) to LSTMs (Jürgen Schmidhuber and Hochreiter 1997) and Transformers (Vaswani et al. 2017)–face challenges when dealing with generalization, length extrapolation, and/or reasoning.",
+            "For example, the main difference between Transformers (Vaswani et al. 2017) and linear Transformers (Katharopoulos et al. 2020) is the memory structure as well as the memory updating step...",
+            "Modern Linear Models and Their Memory Perspective. As discussed earlier, one can define learning as a process for acquiring effective and useful memory.",
+            "Given 𝑥𝑡, similar to Transformers (Vaswani et al. 2017), we use two linear layers to project 𝑥𝑡 into a key and value:",
+            "Titans outperform all baselines–i.e., Mamba2.8B (Gu and Dao 2024), RWKV-6-7B (Peng, Goldstein, et al. 2024), RecurrentGemma-9B (Botev et al. 2024), Gemma-9B (Team et al. 2024), Llama3.1-8B (Touvron et al. 2023), GPT-4, and GPT4o-mini (Achiam et al. 2023).",
+            "Titans outperform all models even extremely large models like GPT4."
+        ],
+        "abstract": "The inference demand for LLMs has skyrocketed in recent months, and serving\nmodels with low latencies remains challenging due to the quadratic input length\ncomplexity of the attention layers. In this work, we investigate the effect of\ndropping MLP and attention layers at inference time on the performance of\nLlama-v2 models. We find that dropping dreeper attention layers only marginally\ndecreases performance but leads to the best speedups alongside dropping entire\nlayers. For example, removing 33\\% of attention layers in a 13B Llama2 model\nresults in a 1.8\\% drop in average performance over the OpenLLM benchmark. We\nalso observe that skipping layers except the latter layers reduces performances\nfor more layers skipped, except for skipping the attention layers.",
+        "pdf_url": "http://arxiv.org/pdf/2407.15516v1"
+    },
+    "40": {
+        "Title": "Mamba: Linear-Time Sequence Modeling with Selective State Spaces",
+        "Authors": "Albert Gu and Tri Dao",
+        "Counter": 17,
+        "Context": [
+            "As examples of such models, we refer to Mamba2 (Dao and Gu 2024)",
+            "we incorporate a 1D depthwise-separable convolution layer after each of the query, key, and value projections. Following the recent modern linear recurrent models (Gu and Dao 2024; S. Yang, Kautz, and Hatamizadeh 2024)",
+            "we compare with Mamba-based (Behrouz, Santacatterina, and Zabih 2024)",
+            "While some baselines also take advantage of gating mechanism, e.g., Mamba, Mamba2, and Gated DeltaNet, the superior performance of our neural memory module shows the importance of both our surprise mechanism and having deep and non-linear memory.",
+            "Compared to Mamba2, which has the gating (forgetting) mechanism, Titans have deep non-linear memory, resulting in better memory management.",
+            "Titans outperform all baselines–i.e., Mamba2.8B (Gu and Dao 2024), RWKV-6-7B (Peng, Goldstein, et al. 2024), RecurrentGemma-9B (Botev et al. 2024), Gemma-9B (Team et al. 2024), Llama3.1-8B (Touvron et al. 2023), GPT-4, and GPT4o-mini (Achiam et al. 2023).",
+            "we compare the small fine-tuned version of Titans (MAC) with: (i) the fine-tuned version of small models (almost the same number of parameters as Titans) such as Mamba (Gu and Dao 2024)",
+            "To enhance the parallelizable training and scaling, S. Yang, B. Wang, Yu Zhang, et al. (2024) present a fast paralellizable algorithm.",
+            "...this equation becomes a linear time-invariant system (LTI), which can be computed by a global convolution (Gu, Goel, and Re 2022).",
+            "we incorporate a 1D depthwise-separable convolution layer after each of the query, key, and value projections. While not significantly affect the performance, these 1D convolutions have shown performance improvement and are also computationally efficient.",
+            "...Titans outperform all baselines–i.e., Mamba2.8B (Gu and Dao 2024), RWKV-6-7B (Peng, Goldstein, et al. 2024)...",
+            "we compare the small fine-tuned version of Titans (MAC) with: (i) the fine-tuned version of small models (almost the same number of parameters as Titans) such as Mamba (Gu and Dao 2024)",
+            "To better handle the limited memory, we present a decaying mechanism that consider the proportion of memory size and the amount of data surprise, resulting in better memory management.",
+            "In this case, we are using the same value for each of 𝛼, 𝜃, and 𝜂 in each chunk. Accordingly, in Equation 17, we can store Θ using a single scaler.",
+            "we incorporate a 1D depthwise-separable convolution layer after each of the query, key, and value projections. While not significantly affect the performance, these 1D convolutions have shown performance improvement and are also computationally efficient.",
+            "Titans outperform all baselines–i.e., Mamba2.8B (Gu and Dao 2024), RWKV-6-7B (Peng, Goldstein, et al. 2024), RecurrentGemma-9B (Botev et al. 2024), Gemma-9B (Team et al. 2024), Llama3.1-8B (Touvron et al. 2023), GPT-4, and GPT4o-mini (Achiam et al. 2023).",
+            "we compare the small fine-tuned version of Titans (MAC) with: (i) the fine-tuned version of small models (almost the same number of parameters as Titans) such as Mamba (Gu and Dao 2024), RMT (Bulatov, Yury Kuratov, and Burtsev 2022)"
+        ],
+        "abstract": "Foundation models, now powering most of the exciting applications in deep\nlearning, are almost universally based on the Transformer architecture and its\ncore attention module. Many subquadratic-time architectures such as linear\nattention, gated convolution and recurrent models, and structured state space\nmodels (SSMs) have been developed to address Transformers' computational\ninefficiency on long sequences, but they have not performed as well as\nattention on important modalities such as language. We identify that a key\nweakness of such models is their inability to perform content-based reasoning,\nand make several improvements. First, simply letting the SSM parameters be\nfunctions of the input addresses their weakness with discrete modalities,\nallowing the model to selectively propagate or forget information along the\nsequence length dimension depending on the current token. Second, even though\nthis change prevents the use of efficient convolutions, we design a\nhardware-aware parallel algorithm in recurrent mode. We integrate these\nselective SSMs into a simplified end-to-end neural network architecture without\nattention or even MLP blocks (Mamba). Mamba enjoys fast inference (5$\\times$\nhigher throughput than Transformers) and linear scaling in sequence length, and\nits performance improves on real data up to million-length sequences. As a\ngeneral sequence model backbone, Mamba achieves state-of-the-art performance\nacross several modalities such as language, audio, and genomics. On language\nmodeling, our Mamba-3B model outperforms Transformers of the same size and\nmatches Transformers twice its size, both in pretraining and downstream\nevaluation.",
+        "pdf_url": "http://arxiv.org/pdf/2312.00752v2"
+    },
+    "1": {
+        "Title": "Gpt-4 technical report",
+        "Authors": "Josh Achiam, Steven Adler, Sandhini Agarwal, Lama Ahmad, Ilge Akkaya, Florencia Leoni Aleman, Diogo Almeida, Janko Altenschmidt, Sam Altman, Shyamal Anadkat, et al.",
+        "Counter": 15,
+        "Context": [
+            "we argue that in an effective learning paradigm, similar to human brain, there are distinct yet interconnected modules, each of which is responsible for a component crucial to the learning process.",
+            "we compare with GPT4 (Achiam et al. 2023)",
+            "extremely large models such as GPT-4 (Achiam et al. 2023)",
+            "Interestingly, Titans (MAL) are faster than baselines as well as the memory module.",
+            "we argue that in an effective learning paradigm, similar to human brain, there are distinct yet interconnected modules, each of which is responsible for a component crucial to the learning process.",
+            "Memory has always been one of the core parts of the neural network designs (Graves, Wayne, and Danihelka 2014; JH Schmidhuber 1992; Jürgen Schmidhuber and Hochreiter 1997; J. Zhang et al. 2024).",
+            "Note that, similar to meta-learning models (Nichol 2018; Zintgraf et al. 2019), training of the memory is in the inner-loop, and so parameters 𝑊𝐾 and 𝑊𝑉 are hyperparameters in the above loss function.",
+            "Attention with causal mask has implicit bias toward initial tokens in the sequence, and so attention weights are almost always highly active for initial tokens, resulting in performance damage. From the technical perspective, these learnable parameters at the start of the sequence can mitigate such effect by redistributing the attention weights more effectively (Han et al. 2024; Xiao et al. 2024).",
+            "we also compare with GPT4 (Achiam et al. 2023)",
+            "...Titans outperform all baselines–...GPT-4, and GPT4o-mini (Achiam et al. 2023)...",
+            "extremely large models like GPT-4 (Achiam et al. 2023)",
+            "each of which are missing: (1) a crucial component for learning process—such as short-term memory, long-term memory, meta-memory, attending to current context, etc.",
+            "An example of this can be LLMs that are shown to be memorizing their training data (Leybzon and Kervadec 2024; Schwarzschild et al. 2024; Staab et al. 2024).",
+            "Forgetting Mechanism. When dealing with very large sequences (e.g., millions of tokens), it is crucial to manage which past information should be forgotten–even with a deep or a very large matrix-valued memory.",
+            "extremely large models such as GPT-4 (Achiam et al. 2023), GPT4o-mini, Qwen2.5-72B (A. Yang et al. 2024), and Llama3.1-70B (Touvron et al. 2023)"
+        ],
+        "abstract": "This paper does not present a novel method. Instead, it delves into an\nessential, yet must-know baseline in light of the latest advancements in\nGenerative Artificial Intelligence (GenAI): the utilization of GPT-4 for visual\nunderstanding. Our study centers on the evaluation of GPT-4's linguistic and\nvisual capabilities in zero-shot visual recognition tasks: Firstly, we explore\nthe potential of its generated rich textual descriptions across various\ncategories to enhance recognition performance without any training. Secondly,\nwe evaluate GPT-4's visual proficiency in directly recognizing diverse visual\ncontent. We conducted extensive experiments to systematically evaluate GPT-4's\nperformance across images, videos, and point clouds, using 16 benchmark\ndatasets to measure top-1 and top-5 accuracy. Our findings show that GPT-4,\nenhanced with rich linguistic descriptions, significantly improves zero-shot\nrecognition, offering an average top-1 accuracy increase of 7% across all\ndatasets. GPT-4 excels in visual recognition, outshining OpenAI-CLIP's ViT-L\nand rivaling EVA-CLIP's ViT-E, particularly in video datasets HMDB-51 and\nUCF-101, where it leads by 22% and 9%, respectively. We hope this research\ncontributes valuable data points and experience for future studies. We release\nour code at https://github.com/whwu95/GPT4Vis.",
+        "pdf_url": "http://arxiv.org/pdf/2311.15732v2"
+    },
+    "82": {
+        "Title": "RWKV: Reinventing RNNs for the Transformer Era",
+        "Authors": "Bo Peng, Eric Alcaide, Quentin Gregory Anthony, Alon Albalak, Samuel Arcadinho, Stella Biderman, Huanqi Cao, Xin Cheng, Michael Nguyen Chung, Leon Derczynski, Xingjian Du, Matteo Grella, Kranthi Kiran GV, Xuzheng He, Haowen Hou, Przemyslaw Kazienko, Jan Kocon, Jiaming Kong, Bartłomiej Koptyra, Hayden Lau, Jiaju Lin, Krishna Sri Ipsit Mantri, Ferdinand Mom, Atsushi Saito, Guangyu Song, Xiangru Tang, Johan S. Wind, Stanisław Woźniak, Zhenyuan Zhang, Qinghua Zhou, Jian Zhu, and Rui-Jie Zhu",
+        "Counter": 12,
+        "Context": [
+            "Building upon tensorizing mini-batch gradient descent to use more matmul operations (Yu Sun et al. 2024), we present a fast and parallelizable algorithm to train our deep neural long-term memory.",
+            "...the hidden state of Recurrent Neural Networks (RNNs) as a memory unit, which the model aims to compress the information into.",
+            "This type of memory has been referred to as persistent or meta-memory in the literature (X. Dong et al. 2024; Sukhbaatar, Grave, et al. 2019).",
+            "we compare with Mistral (Jiang et al. 2023) models, all of which are provided in the benchmark (Yuri Kuratov et al. 2024)",
+            "Comparing the hybrid models, we found that all three variants of Titans (MAC, MAG, and MAL) outperform both Samba (Mamba + attention) and Gated DeltaNet-H2 (Gated DeltaNet + attention).",
+            "the hidden state of Recurrent Neural Networks (RNNs) as a memory unit",
+            "To enhance the parallelizable training and scaling, S. Yang, B. Wang, Yu Zhang, et al. (2024) present a fast paralellizable algorithm.",
+            "That is, we let 𝑥 ∈ R𝑁 ×𝑑in be the input, M ∈ R𝑑 is the memory unit, and y ∈ R𝑑in is the output, then the general form of the recurrent neural network is defined as:",
+            "To overcome the lack of long-term memory and to enable the model to learn, forget, and retrieve information, in this section, we present a neural long-term memory module.",
+            "We build upon the work of Yu Sun et al. (2024) that shows forward pass of a model optimizing with the mini-batch gradient descent.",
+            "In time series tasks, we compare with Mamba-based (Behrouz, Santacatterina, and Zabih 2024), Transformer-based (Y. Liu et al. 2023; Nie et al. 2022; Yunhao Zhang and Yan 2023), and linear models (Das et al. 2023; Z. Li et al. 2023; H. Wu et al. 2023; Zeng et al. 2023).",
+            "Titans outperform all baselines–i.e., Mamba2.8B (Gu and Dao 2024), RWKV-6-7B (Peng, Goldstein, et al. 2024), RecurrentGemma-9B (Botev et al. 2024), Gemma-9B (Team et al. 2024), Llama3.1-8B (Touvron et al. 2023), GPT-4, and GPT4o-mini (Achiam et al. 2023)."
+        ],
+        "abstract": "Transformers have revolutionized almost all natural language processing (NLP)\ntasks but suffer from memory and computational complexity that scales\nquadratically with sequence length. In contrast, recurrent neural networks\n(RNNs) exhibit linear scaling in memory and computational requirements but\nstruggle to match the same performance as Transformers due to limitations in\nparallelization and scalability. We propose a novel model architecture,\nReceptance Weighted Key Value (RWKV), that combines the efficient\nparallelizable training of transformers with the efficient inference of RNNs.\n  Our approach leverages a linear attention mechanism and allows us to\nformulate the model as either a Transformer or an RNN, thus parallelizing\ncomputations during training and maintains constant computational and memory\ncomplexity during inference. We scale our models as large as 14 billion\nparameters, by far the largest dense RNN ever trained, and find RWKV performs\non par with similarly sized Transformers, suggesting future work can leverage\nthis architecture to create more efficient models. This work presents a\nsignificant step towards reconciling trade-offs between computational\nefficiency and model performance in sequence processing tasks.",
+        "pdf_url": "http://arxiv.org/pdf/2305.13048v2"
+    },
+    "41": {
+        "Title": "Efficiently Modeling Long Sequences with Structured State Spaces",
+        "Authors": "Albert Gu, Karan Goel, and Christopher Re",
+        "Counter": 11,
+        "Context": [
+            "This decay mechanism is in fact the generalization of forgetting mechanism in modern recurrent models (Dao and Gu 2024; Gu and Dao 2024; S. Yang, Kautz, and Hatamizadeh 2024).",
+            "... this equation becomes a linear time-invariant system (LTI), which can be computed by a global convolution (Gu, Goel, and Re 2022).",
+            "we compare with Transformer-based (Y. Liu et al. 2023; Nie et al. 2022; Yunhao Zhang and Yan 2023)",
+            "we compare the small fine-tuned version of Titans (MAC) with: (ii) large models with Retrieval-Augmented Generation (RAG) (P. Lewis et al. 2020) such as Llama3.1- 8B (Touvron et al. 2023)",
+            "this decay mechanism is in fact the generalization of forgetting mechanism in modern recurrent models (Dao and Gu 2024; Gu and Dao 2024; S. Yang, Kautz, and Hatamizadeh 2024).",
+            "which allows efficient inference for linear attentions.",
+            "When using vector-valued or matrix-valued memory (De et al. 2024; Orvieto et al. 2023; S. Yang, B. Wang, Shen, et al. 2024), the memory module is compressing the past data and fit it into a line.",
+            "We show that this decay mechanism is in fact the generalization of forgetting mechanism in modern recurrent models (Dao and Gu 2024; Gu and Dao 2024; S. Yang, Kautz, and Hatamizadeh 2024).",
+            "Building upon tensorizing mini-batch gradient descent to use more matmul operations (Yu Sun et al. 2024), we present a fast and parallelizable algorithm to train our deep neural long-term memory.",
+            "When using vector-valued or matrix-valued memory (De et al. 2024; Orvieto et al. 2023; S. Yang, B. Wang, Shen, et al. 2024), the memory module is compressing the past data and fit it into a line.",
+            "Similarly we can make Equation 18 faster. That is, when 𝜂 and 𝜃 are learnable but time-invariant inside each chunk, this equation becomes a linear time-invariant system (LTI), which can be computed by a global convolution."
+        ],
+        "abstract": "A central goal of sequence modeling is designing a single principled model\nthat can address sequence data across a range of modalities and tasks,\nparticularly on long-range dependencies. Although conventional models including\nRNNs, CNNs, and Transformers have specialized variants for capturing long\ndependencies, they still struggle to scale to very long sequences of $10000$ or\nmore steps. A promising recent approach proposed modeling sequences by\nsimulating the fundamental state space model (SSM) \\( x'(t) = Ax(t) + Bu(t),\ny(t) = Cx(t) + Du(t) \\), and showed that for appropriate choices of the state\nmatrix \\( A \\), this system could handle long-range dependencies mathematically\nand empirically. However, this method has prohibitive computation and memory\nrequirements, rendering it infeasible as a general sequence modeling solution.\nWe propose the Structured State Space sequence model (S4) based on a new\nparameterization for the SSM, and show that it can be computed much more\nefficiently than prior approaches while preserving their theoretical strengths.\nOur technique involves conditioning \\( A \\) with a low-rank correction,\nallowing it to be diagonalized stably and reducing the SSM to the well-studied\ncomputation of a Cauchy kernel. S4 achieves strong empirical results across a\ndiverse range of established benchmarks, including (i) 91\\% accuracy on\nsequential CIFAR-10 with no data augmentation or auxiliary losses, on par with\na larger 2-D ResNet, (ii) substantially closing the gap to Transformers on\nimage and language modeling tasks, while performing generation $60\\times$\nfaster (iii) SoTA on every task from the Long Range Arena benchmark, including\nsolving the challenging Path-X task of length 16k that all prior work fails on,\nwhile being as efficient as all competitors.",
+        "pdf_url": "http://arxiv.org/pdf/2111.00396v3"
+    },
+    "2": {
+        "Title": "Linear Transformers with Learnable Kernel Functions are Better In-Context Models",
+        "Authors": "Yaroslav Aksenov, Nikita Balagansky, Sofia Maria Lo Cicero Vaina, Boris Shaposhnikov, Alexey Gorbatovski, and Daniil Gavrilov",
+        "Counter": 10,
+        "Context": [
+            "The idea of seeing linear layers as the key-value (associative) memory system backs to fast weight programs, in which dynamic fast programs are incorporated into recurrent neural networks to serve as writable memory (JH Schmidhuber 1992).",
+            "The two learning rules of Hebbian (Hebb 2005) and delta (Prados and Kak 1989) are the most popular learning rules for fast weight programs, which have been extensively explored in various studies (Irie, Schlag, et al. 2021; Munkhdalai, Sordoni, et al. 2019; Munkhdalai and H. Yu 2017; Schlag, Irie, and Jürgen Schmidhuber 2021; JH Schmidhuber 1992; S. Yang, Kautz, and Hatamizadeh 2024; S. Yang, B. Wang, Yu Zhang, et al. 2024).",
+            "Note that, similar to meta-learning models (Nichol 2018; Zintgraf et al. 2019), training of the memory is in the inner-loop, and so parameters 𝑊𝐾 and 𝑊𝑉 are hyperparameters in the above loss function.",
+            "Attention with causal mask has implicit bias toward initial tokens in the sequence, and so attention weights are almost always highly active for initial tokens, resulting in performance damage. From the technical perspective, these learnable parameters at the start of the sequence can mitigate such effect by redistributing the attention weights more effectively (Han et al. 2024; Xiao et al. 2024).",
+            "we compare with Transformer++ (Touvron et al. 2023)",
+            "we follow the training procedure of S. Yang, Kautz, and Hatamizadeh (2024)",
+            "the ability to actively learn from data and memorize the abstraction of past history.",
+            "Note that, similar to meta-learning models (Nichol 2018; Zintgraf et al. 2019), training of the memory is in the inner-loop, and so parameters 𝑊𝐾 and 𝑊𝑉 are hyperparameters in the above loss function.",
+            "Baseline results are reported by (Yuri Kuratov et al. 2024)."
+        ]
+    },
+    "19": {
+        "Title": "Rethinking Attention with Performers",
+        "Authors": "Krzysztof Marcin Choromanski, Valerii Likhosherstov, David Dohan, Xingyou Song, Andreea Gane, Tamas Sarlos, Peter Hawkins, Jared Quincy Davis, Afroz Mohiuddin, Lukasz Kaiser, David Benjamin Belanger, Lucy J Colwell, and Adrian Weller",
+        "Counter": 10,
+        "Context": [
+            "...the above formulation can also be written in a recurrent format: M𝑡 = M𝑡 −1 + 𝐾 ⊤ y𝑡 = 𝑄𝑡 M𝑡, which allows efficient inference for linear attentions.",
+            "efficient attention mechanisms by sparsifying the attention matrix (B. Chen et al. 2021; Choromanski et al. 2021; Dai et al. 2019)",
+            "each of which is responsible for a component crucial to the learning process.",
+            "Transformers (Vaswani et al. 2017) as the de facto backbone for many deep learning models are based on attention mechanism.",
+            "efficient attention mechanisms by sparsifying the attention matrix (B. Chen et al. 2021; Choromanski et al. 2021; Dai et al. 2019), approximating the softmax (Arora et al. 2024), or developing kernel-based (linear) attentions (Aksenov et al. 2024; Kacham, Mirrokni, and P. Zhong 2024; Schlag, Irie, and Jürgen Schmidhuber 2021; S. Yang, B. Wang, Shen, et al. 2024).",
+            "An example of this can be LLMs that are shown to be memorizing their training data (Leybzon and Kervadec 2024; Schwarzschild et al. 2024; Staab et al. 2024).",
+            "Next, attention performs on the sequence and decides what part of the information should store in the long-term memory.",
+            "we compare with Transformer++ (Touvron et al. 2023), RetNet (Yutao Sun et al. 2023), Gated Linear Attention (GLA) (S. Yang, B. Wang, Shen, et al. 2024), Mamba (Gu and Dao 2024), Mamba2 (Dao and Gu 2024), DeltaNet (S. Yang, B. Wang, Yu Zhang, et al. 2024), TTT (Yu Sun et al. 2024), and Gated DeltaNet (S. Yang, Kautz, and Hatamizadeh 2024).",
+            "In needle in haystack tasks, we also compare with GPT4 (Achiam et al. 2023), Llama3 with RAG (Touvron et al. 2023), RecurrentGemma2-9B (Botev et al. 2024), and Mistral (Jiang et al. 2023) models, all of which are provided in the benchmark (Yuri Kuratov et al. 2024).",
+            "Baseline results are reported by (Yuri Kuratov et al. 2024)."
+        ]
+    },
+    "5": {
+        "Title": "Simple linear attention language models balance the recall-throughput tradeoff",
+        "Authors": "Simran Arora, Sabri Eyuboglu, Michael Zhang, Aman Timalsina, Silas Alberti, James Zou, Atri Rudra, and Christopher Re",
+        "Counter": 9,
+        "Context": [
+            "To overcome the scalability issue of Transformers, recent studies aim to design different variants of linear Transformers (Kacham, Mirrokni, and P. Zhong 2024; Katharopoulos et al. 2020; S. Yang, B. Wang, Shen, et al. 2024)",
+            "As examples of such models, we refer to GLA (S. Yang, B. Wang, Shen, et al. 2024)",
+            "Gated Linear Attention (GLA) (S. Yang, B. Wang, Shen, et al. 2024)",
+            "In the training, we follow the training procedure of S. Yang, Kautz, and Hatamizadeh (2024)",
+            "we follow the same experimental setups from Nguyen et al. (2024), and re-use the reported results of baselines by Arora et al. (2024).",
+            "we compare with Mamba (Gu and Dao 2024)",
+            "we follow the same experimental setups from Nguyen et al. (2024), and re-use the reported results of baselines by Arora et al. (2024).",
+            "the ability to actively learn from data and memorize the abstraction of past history.",
+            "Baseline results are reported by (Yuri Kuratov et al. 2024)."
+        ]
+    },
+    "94": {
+        "Title": "Long Short-term Memory",
+        "Authors": "Jürgen Schmidhuber and Sepp Hochreiter",
+        "Counter": 9,
+        "Context": [
+            "most existing architectures–ranging from Hopfield Networks (Hopfield 1982) to LSTMs (Jürgen Schmidhuber and Hochreiter 1997) and Transformers (Vaswani et al. 2017)–face challenges when dealing with generalization, length extrapolation, and/or reasoning.",
+            "memory has been the inspiration for many seminal research in machine learning literature; e.g., Hopfield Networks (Hopfield 1982), LSTMs (Jürgen Schmidhuber and Hochreiter 1997), and Transformers (Vaswani et al. 2017).",
+            "The two learning rules of Hebbian (Hebb 2005) and delta (Prados and Kak 1989) are the most popular learning rules for fast weight programs, which have been extensively explored in various studies (Irie, Schlag, et al. 2021; Munkhdalai, Sordoni, et al. 2019; Munkhdalai and H. Yu 2017; Schlag, Irie, and Jürgen Schmidhuber 2021; JH Schmidhuber 1992; S. Yang, Kautz, and Hatamizadeh 2024; S. Yang, B. Wang, Yu Zhang, et al. 2024).",
+            "Aligning with the theoretical results that MLPs with at least two layers are strictly more expressive than linear models (Hornik, Stinchcombe, and White 1989), in Section 5.5, we show that deep memory modules are more effective in practice.",
+            "most existing architectures–ranging from Hopfield Networks (Hopfield 1982) to LSTMs (Jürgen Schmidhuber and Hochreiter 1997) and Transformers (Vaswani et al. 2017)–face challenges when dealing with generalization, length extrapolation, and/or reasoning.",
+            "accordingly, memory has been the inspiration for many seminal research in machine learning literature; e.g., Hopfield Networks (Hopfield 1982), LSTMs (Jürgen Schmidhuber and Hochreiter 1997), and Transformers (Vaswani et al. 2017).",
+            "most existing architectures–ranging from Hopfield Networks (Hopfield 1982) to LSTMs (Jürgen Schmidhuber and Hochreiter 1997) and Transformers (Vaswani et al. 2017)–face challenges when dealing with generalization, length extrapolation, and/or reasoning.",
+            "e.g., Hopfield Networks (Hopfield 1982), LSTMs (Jürgen Schmidhuber and Hochreiter 1997), and Transformers (Vaswani et al. 2017).",
+            "Aligning with the theoretical results that MLPs with at least two layers are strictly more expressive than linear models (Hornik, Stinchcombe, and White 1989), in Section 5.5, we show that deep memory modules are more effective in practice."
+        ]
+    },
+    "3": {
+        "Title": "Learning to learn by gradient descent by gradient descent",
+        "Authors": "Marcin Andrychowicz, Misha Denil, Sergio Gomez, Matthew W Hoffman, David Pfau, Tom Schaul, Brendan Shillingford, and Nando De Freitas",
+        "Counter": 8,
+        "Context": [
+            "By optimizing the above loss function in the inner-loop of our meta model (memory), the model learns how to memorize the mapping between keys and values at test time. Note that, similar to meta-learning models (Nichol 2018; Zintgraf et al. 2019), training of the memory is in the inner-loop, and so parameters 𝑊𝐾 and 𝑊𝑉 are hyperparameters in the above loss function.",
+            "We further discuss the connection of our architectures with recent models in Appendix C.",
+            "...is closely related to the gating mechanism in modern RNNs (Dao and Gu 2024; Orvieto et al. 2023).",
+            "we compare with RecurrentGemma2-9B (Botev et al. 2024)",
+            "the ability to actively learn from data and memorize the abstraction of past history.",
+            "An example of this can be LLMs that are shown to be memorizing their training data (Leybzon and Kervadec 2024; Schwarzschild et al. 2024; Staab et al. 2024).",
+            "Later in this section, we show that this weight decay mechanism is closely related to the gating mechanism in modern RNNs (Dao and Gu 2024; Orvieto et al. 2023).",
+            "Baseline results are reported by (Yuri Kuratov et al. 2024)."
+        ]
+    },
+    "7": {
+        "Title": "The Pitfalls of Memorization: When Memorization Hurts Generalization",
+        "Authors": "Reza Bayat, Mohammad Pezeshki, Elvis Dohmatob, David Lopez-Paz, and Pascal Vincent",
+        "Counter": 8,
+        "Context": [
+            "Memorization, however, has almost always been known as an undesirable phenomena in neural networks as it limits the model generalization (Bayat et al. 2024), causes privacy concerns (Staab et al. 2024), and so results in poor performance at test time.",
+            "Memorization, however, has almost always been known as an undesirable phenomena in neural networks as it limits the model generalization (Bayat et al. 2024), causes privacy concerns (Staab et al. 2024), and so results in poor performance at test time.",
+            "we compare with Llama3 with RAG (Touvron et al. 2023)",
+            "the ability to actively learn from data and memorize the abstraction of past history.",
+            "we observe that our Titan architecture outperforms all modern recurrent models as well as their hybrid variants.",
+            "To enhance the parallelizable training and scaling, S. Yang, B. Wang, Yu Zhang, et al. (2024) present a fast paralellizable algorithm.",
+            "We further discuss the connection of our architectures with recent models in Appendix C.",
+            "Memorization, however, has almost always been known as an undesirable phenomena in neural networks as it limits the model generalization (Bayat et al. 2024), causes privacy concerns (Staab et al. 2024), and so results in poor performance at test time."
+        ]
+    },
+    "105": {
+        "Title": "Llama: Open and efficient foundation language models",
+        "Authors": "Hugo Touvron, Thibaut Lavril, Gautier Izacard, Xavier Martinet, Marie-Anne Lachaux, Timothée Lacroix, Baptiste Rozière, Naman Goyal, Eric Hambro, Faisal Azhar, et al.",
+        "Counter": 8,
+        "Context": [
+            "Titans outperform all baselines–i.e., Mamba2.8B (Gu and Dao 2024), RWKV-6-7B (Peng, Goldstein, et al. 2024), RecurrentGemma-9B (Botev et al. 2024), Gemma-9B (Team et al. 2024), Llama3.1-8B (Touvron et al. 2023), GPT-4, and GPT4o-mini (Achiam et al. 2023).",
+            "Llama3.1- 8B (Touvron et al. 2023)",
+            "augmenting Llama3.1-8B model with RAG performs worse than Titans with about ×70 less parameters",
+            "...Titans outperform all baselines–...Llama3.1-8B (Touvron et al. 2023)...",
+            "Llama3.1- 8B (Touvron et al. 2023), and (iii) extremely large models such as GPT-4 (Achiam et al. 2023),",
+            "Titans outperform all baselines–i.e., Mamba2.8B (Gu and Dao 2024), RWKV-6-7B (Peng, Goldstein, et al. 2024), RecurrentGemma-9B (Botev et al. 2024), Gemma-9B (Team et al. 2024), Llama3.1-8B (Touvron et al. 2023), GPT-4, and GPT4o-mini (Achiam et al. 2023).",
+            "Baseline results are reported by (Yuri Kuratov et al. 2024)."
+        ]
+    },
+    "4": {
+        "Title": "Exploring length generalization in large language models",
+        "Authors": "Cem Anil, Yuhuai Wu, Anders Andreassen, Aitor Lewkowycz, Vedant Misra, Vinay Ramasesh, Ambrose Slone, Guy Gur-Ari, Ethan Dyer, and Behnam Neyshabur",
+        "Counter": 7,
+        "Context": [
+            "we can see our memory module is slightly slower than Mamba2 and Gated DeltaNet, mainly due to: (1) having deep memory and more expressive transition process (memory update), and (2) highly optimized kernel in the implementation of Mamba2.",
+            "To enhance the parallelizable training and scaling, S. Yang, B. Wang, Yu Zhang, et al. (2024) present a fast paralellizable algorithm.",
+            "we compare with Mamba-based (Behrouz, Santacatterina, and Zabih 2024)",
+            "we also use Mamba as a baseline for the model performance.",
+            "generalization, length extrapolation, and/or reasoning.",
+            "An example of this can be LLMs that are shown to be memorizing their training data (Leybzon and Kervadec 2024; Schwarzschild et al. 2024; Staab et al. 2024).",
+            "Baseline results are reported by (Yuri Kuratov et al. 2024)."
+        ]
+    },
+    "100": {
+        "Title": "Learning to (learn at test time): Rnns with expressive hidden states",
+        "Authors": "Yu Sun, Xinhao Li, Karan Dalal, Jiarui Xu, Arjun Vikram, Genghan Zhang, Yann Dubois, Xinlei Chen, Xiaolong Wang, Sanmi Koyejo, et al.",
+        "Counter": 7,
+        "Context": [
+            "From the meta learning or online learning perspective (Yu Sun et al. 2024), using a matrix-valued memory M = 𝑊 ∈ R𝑑in ×𝑑in is equivalent to optimize ℓ (𝑊𝑡 −1; 𝑥𝑡 ) = ∥𝑊𝑡 −1k𝑡 − v𝑡 ∥2 2.",
+            "we build upon the work of Yu Sun et al. (2024) that shows forward pass of a model optimizing with the mini-batch gradient descent (with constant learning rate) can be calculated using matmuls.",
+            "we present a fast and parallelizable algorithm to train our deep neural long-term memory.",
+            "the general form of the recurrent neural network is defined as: M𝑡 = 𝑓 (M𝑡 −1, 𝑥𝑡 )",
+            "On the other hand, we argue that deep memory modules (i.e., 𝐿M ≥ 2) .",
+            "We build upon the work of Yu Sun et al. (2024) that shows forward pass of a model optimizing with the mini-batch gradient descent (with constant learning rate) can be calculated using matmuls.",
+            "On the other hand, we argue that deep memory modules (i.e., 𝐿M ≥ 2)."
+        ]
+    },
+    "10": {
+        "Title": "Memory Layers at Scale",
+        "Authors": "Vincent-Pierre Berges, Barlas Oğuz, Daniel Haziza, Wen-tau Yih, Luke Zettlemoyer, and Gargi Gosh",
+        "Counter": 6,
+        "Context": [
+            "Recently, there has been a promising line of work to design such architectures (Berges et al. 2024; Cetin et al. 2024; J. Zhang et al. 2024), which incorporating them into our framework (i.e., replacing simple MLPs with such architectures) can be an interesting future work.",
+            "Recently, there has been a promising line of work to design such architectures (Berges et al. 2024; Cetin et al. 2024; J. Zhang et al. 2024), which incorporating them into our framework (i.e., replacing simple MLPs with such architectures) can be an interesting future work.",
+            "Titans outperform all models even extremely large models like GPT4.",
+            "the ability to actively learn from data and memorize the abstraction of past history.",
+            "Recently, there has been a promising line of work to design such architectures (Berges et al. 2024; Cetin et al. 2024; J. Zhang et al. 2024), which incorporating them into our framework (i.e., replacing simple MLPs with such architectures) can be an interesting future work.",
+            "we compare with Transformer++ (Touvron et al. 2023), RetNet (Yutao Sun et al. 2023), Gated Linear Attention (GLA) (S. Yang, B. Wang, Shen, et al. 2024), Mamba (Gu and Dao 2024), Mamba2 (Dao and Gu 2024), DeltaNet (S. Yang, B. Wang, Yu Zhang, et al. 2024), TTT (Yu Sun et al. 2024), and Gated DeltaNet (S. Yang, Kautz, and Hatamizadeh 2024)."
+        ]
+    },
+    "48": {
+        "Title": "RULER: What’s the Real Context Size of Your Long-Context Language Models?",
+        "Authors": "Cheng-Ping Hsieh, Simeng Sun, Samuel Kriman, Shantanu Acharya, Dima Rekesh, Fei Jia, and Boris Ginsburg",
+        "Counter": 6,
+        "Context": [
+            "Scaling a model to longer context window is not always equivalent to being effective for very long sequences (Hsieh et al. 2024).",
+            "In this part, we use Single NIAH (S-NIAH) task from RULER benchmark (Hsieh et al. 2024) and evaluate Titans and baselines on sequences with length 2K, 4K, 8K, and 16K.",
+            "Scaling a model to longer context window is not always equivalent to being effective for very long sequences (Hsieh et al. 2024).",
+            "In this part, we use Single NIAH (S-NIAH) task from RULER benchmark (Hsieh et al. 2024) and evaluate Titans and baselines on sequences with length 2K, 4K, 8K, and 16K.",
+            "Scaling a model to longer context window is not always equivalent to being effective for very long sequences (Hsieh et al. 2024).",
+            "we use Single NIAH (S-NIAH) task from RULER benchmark (Hsieh et al. 2024) and evaluate Titans and baselines on sequences with length 2K, 4K, 8K, and 16K."
+        ]
+    },
+    "61": {
+        "Title": "Learning, Forgetting, Remembering: Insights From Tracking LLM Memorization During Training",
+        "Authors": "Danny Leybzon and Corentin Kervadec",
+        "Counter": 5,
+        "Context": [
+            "Moreover, the memorization of the training data might not be helpful at test time, in which the data might be out-of-distribution.",
+            "Memorization, however, has almost always been known as an undesirable phenomena in neural networks as it limits the model generalization (Bayat et al. 2024), causes privacy concerns (Staab et al. 2024), and so results in poor performance at test time.",
+            "Therefore, a simple idea is to train a neural network and expect it to memorize its training data.",
+            "An example of this can be LLMs that are shown to be memorizing their training data (Leybzon and Kervadec 2024; Schwarzschild et al. 2024; Staab et al. 2024).",
+            "Memorization, however, has almost always been known as an undesirable phenomena in neural networks as it limits the model generalization (Bayat et al. 2024), causes privacy concerns (Staab et al. 2024), and so results in poor performance at test time."
+        ]
+    },
+    "91": {
+        "Title": "Linear transformers are secretly fast weight programmers",
+        "Authors": "Imanol Schlag, Kazuki Irie, and Jürgen Schmidhuber",
+        "Counter": 5,
+        "Context": [
+            "Despite efficiency and the ability to scale to longer context, linear Transformers do not show competitive performance compared to Transformers as the kernel trick makes the model a linear recurrent network, in which the data is compressed into a matrix-valued states (Katharopoulos et al. 2020).",
+            "On one hand, we use these linear models to enhance scalability and efficiency (linear vs. quadratic complexity), whose advantages is appeared for very long context; On the other hand, a very long context cannot be properly compressed in a small vector-valued or matrix-valued states (S. Wang 2024).",
+            "where softmax is replaced by a kernel function in the attention (see §2.1 for details), resulting in a significant drop in memory consumption.",
+            "Despite efficiency and the ability to scale to longer context, linear Transformers do not show competitive performance compared to Transformers as the kernel trick makes the model a linear recurrent network.",
+            "...the critical difference lies in the structure of the memory, where linear RNNs (vs. linear Transformers) use a vector-valued memory (vs. matrix-valued memory)."
+        ]
+    },
+    "22": {
+        "Title": "What are the differences between long-term, short-term, and working memory?",
+        "Authors": "Nelson Cowan",
+        "Counter": 4,
+        "Context": [
+            "we argue that in an effective learning paradigm, similar to human brain, there are distinct yet interconnected modules, each of which is responsible for a component crucial to the learning process.",
+            "Memory is a fundamental mental process and is an inseparable component of human learning (Terry 2017). Without a properly functioning memory system, humans and animals would be restricted to basic reflexes and stereotyped behaviors.",
+            "Memory is a fundamental mental process and is an inseparable component of human learning (Cowan 2008).",
+            "Revisiting our understanding of human memory, it is neither a unitary process nor it serves a single function (Cowan 2008)."
+        ]
+    },
+    "55": {
+        "Title": "Scaling laws for neural language models",
+        "Authors": "Jared Kaplan, Sam McCandlish, Tom Henighan, Tom B Brown, Benjamin Chess, Rewon Child, Scott Gray, Alec Radford, Jeffrey Wu, and Dario Amodei",
+        "Counter": 4,
+        "Context": [
+            "...mainly due to their in-context learning and ability to learn at scale (Kaplan et al. 2020).",
+            "The primary building blocks of Transformers–attention modules—function as associative memory blocks (Bietti et al. 2024), where they learn to store key-value associations and retrieve them by computing pairwise similarity between queries (i.e., search signals) and keys (i.e., contexts).",
+            "Baseline results are reported by (Yuri Kuratov et al. 2024).",
+            "The primary building blocks of Transformers–attention modules—function as associative memory blocks (Bietti et al. 2024), where they learn to store key-value associations and retrieve them by computing pairwise similarity between queries (i.e., search signals) and keys (i.e., contexts)."
+        ]
+    },
+    "80": {
+        "Title": "The FineWeb Datasets: Decanting the Web for the Finest Text Data at Scale",
+        "Authors": "Guilherme Penedo, Hynek Kydlíček, Loubna Ben allal, Anton Lozhkov, Margaret Mitchell, Colin Raffel, Leandro Von Werra, and Thomas Wolf",
+        "Counter": 4,
+        "Context": [
+            "While the first three are trained on 15B tokens sampled from FineWeb-Edu dataset (Penedo et al. 2024), the last one is trained on 30B tokens from the same dataset.",
+            "While the first three are trained on 15B tokens sampled from FineWeb-Edu dataset (Penedo et al. 2024), the last one is trained on 30B tokens from the same dataset.",
+            "We also evaluate its performance in time series forecasting tasks. To this end, we use Simba framework (Patro and Agneeswaran 2024) for time series forecasting, and",
+            "While the first three are trained on 15B tokens sampled from FineWeb-Edu dataset (Penedo et al. 2024), the last one is trained on 30B tokens from the same dataset."
+        ]
+    },
+    "98": {
+        "Title": "Augmenting self-attention with persistent memory",
+        "Authors": "Sainbayar Sukhbaatar, Edouard Grave, Guillaume Lample, Herve Jegou, and Armand Joulin",
+        "Counter": 4,
+        "Context": [
+            "The persistent memory weights are expected to have the same functionality, meaning that using them in the first part of the sequence leads to having input-independent attention weights (Sukhbaatar, Grave, et al. 2019).",
+            "This type of memory has been referred to as persistent or meta-memory in the literature (X. Dong et al. 2024; Sukhbaatar, Grave, et al. 2019).",
+            "This type of memory has been referred to as persistent or meta-memory in the literature (Sukhbaatar, Grave, et al. 2019).",
+            "Sukhbaatar, Grave, et al. (2019) showed that replacing the ReLU in fully connected layers with Softmax can results in an attention-like weights."
+        ]
+    },
+    "130": {
+        "Title": "Informer: Beyond efficient transformer for long sequence time-series forecasting",
+        "Authors": "Haoyi Zhou, Shanghang Zhang, Jieqi Peng, Shuai Zhang, Jianxin Li, Hui Xiong, and Wancai Zhang",
+        "Counter": 4,
+        "Context": [
+            "...in complex real-world tasks (e.g., language modeling (N. F. Liu et al. 2024), video understanding (C.-Y. Wu et al. 2019), long-term time series forecasting (H. Zhou et al. 2021))...",
+            "We report the results on common time series forecasting benchmark datasets–ETT, ECL, Traffic, and Weather (H. Zhou et al. 2021).",
+            "We report the results on common time series forecasting benchmark datasets–ETT, ECL, Traffic, and Weather (H. Zhou et al. 2021).",
+            "In complex real-world tasks (e.g., language modeling (N. F. Liu et al. 2024), video understanding (C.-Y. Wu et al. 2019), long-term time series forecasting (H. Zhou et al. 2021)), the context window can become extremely large, making the applicability of Transformers challenging in these downstream tasks."
+        ]
+    },
+    "6": {
+        "Title": "Neural machine translation by jointly learning to align and translate",
+        "Authors": "Dzmitry Bahdanau",
+        "Counter": 3,
+        "Context": [
+            "we compare with Gated DeltaNet (S. Yang, Kautz, and Hatamizadeh 2024)",
+            "the ability to actively learn from data and memorize the abstraction of past history.",
+            "We further discuss the connection of our architectures with recent models in Appendix C."
+        ]
+    },
+    "8": {
+        "Title": "xLSTM: Extended Long Short-Term Memory",
+        "Authors": "Maximilian Beck, Korbinian Pöppel, Markus Spanring, Andreas Auer, Oleksandra Prudnikova, Michael Kopp, Günter Klambauer, Johannes Brandstetter, and Sepp Hochreiter",
+        "Counter": 3,
+        "Context": [
+            "As examples of such models, we refer to xLSTM (Beck et al. 2024)",
+            "we compare with Mistral (Jiang et al. 2023)",
+            "the ability to actively learn from data and memorize the abstraction of past history."
+        ]
+    },
+    "11": {
+        "Title": "Birth of a transformer: A memory viewpoint",
+        "Authors": "Alberto Bietti, Vivien Cabannes, Diane Bouchacourt, Herve Jegou, and Leon Bottou",
+        "Counter": 3,
+        "Context": [
+            "...the primary building blocks of Transformers–attention modules—function as associative memory blocks (Bietti et al. 2024)...",
+            "the ability to actively learn from data and memorize the abstraction of past history.",
+            "Finally, very recently, S. Yang, Kautz, and Hatamizadeh (2024) improved the DeltaNets by adding a forget gate."
+        ]
+    },
+    "17": {
+        "Title": "An Evolved Universal Transformer Memory",
+        "Authors": "Edoardo Cetin, Qi Sun, Tianyu Zhao, and Yujin Tang",
+        "Counter": 3,
+        "Context": [
+            "When using vector-valued or matrix-valued memory (De et al. 2024; Orvieto et al. 2023; S. Yang, B. Wang, Shen, et al. 2024), the memory module is compressing the past data and fit it into a line.",
+            "However, our formulation and architectural design opens a new research direction to design neural architectures that are more effective and efficient in memorization of data.",
+            "However, our formulation and architectural design opens a new research direction to design neural architectures that are more effective and efficient in memorization of data."
+        ]
+    },
+    "28": {
+        "Title": "Griffin: Mixing gated linear recurrences with local attention for efficient language models",
+        "Authors": "Soham De, Samuel L Smith, Anushan Fernando, Aleksandar Botev, George Cristian-Muraru, Albert Gu, Ruba Haroun, Leonard Berrada, Yutian Chen, Srivatsan Srinivasan, et al.",
+        "Counter": 3,
+        "Context": [
+            "As examples of such models, we refer to Griffin (De et al. 2024)",
+            "Comparing our neural memory module and TTT, which is also a gradient-based recurrent model can show us the importance of our weight decay as well as the momentum.",
+            "we compare the performance of three represented variants of Titans in three aspects of (i) language modeling, (ii) common-sense reasoning, and (iii) long context NIAH (BABILong) tasks."
+        ]
+    },
+    "30": {
+        "Title": "Hymba: A Hybrid-head Architecture for Small Language Models",
+        "Authors": "Xin Dong, Yonggan Fu, Shizhe Diao, Wonmin Byeon, Zijia Chen, Ameya Sunil Mahabaleshwarkar, Shih-Yang Liu, Matthijs Van Keirsbilck, Min-Hung Chen, Yoshi Suhara, et al.",
+        "Counter": 3,
+        "Context": [
+            "In our experiments, we normalize the outputs 𝑦 and M ( ˜𝑥) using learnable vector-valued weights, followed by a non-linearity 𝜎 (.). The overall attention mask of this design is shown in Figure 3b.",
+            "This architecture design can also be seen as a multi-head architecture where the structure of heads are different (X. Dong et al. 2024).",
+            "This finding is particularly important as the current hybrid models (except Hymba (X. Dong et al. 2024)) in the literature are using MAL-style combination of recurrent models and attention."
+        ]
+    },
+    "31": {
+        "Title": "Sigmoid-weighted linear units for neural network function approximation in reinforcement learning",
+        "Authors": "Stefan Elfwing, Eiji Uchibe, and Kenji Doya",
+        "Counter": 3,
+        "Context": [
+            "we use SiLU(.) activation (Elfwing, Uchibe, and Doya 2018) as the non-linear activation for computing query, key, and values and normalize queries and keys using ℓ2-norm.",
+            "we use SiLU(.) activation (Elfwing, Uchibe, and Doya 2018) as the non-linear activation for computing query, key, and values and normalize queries and keys using ℓ2-norm.",
+            "we use SiLU(.) activation (Elfwing, Uchibe, and Doya 2018) as the non-linear activation for computing query, key, and values and normalize queries and keys using ℓ2-norm."
+        ]
+    },
+    "66": {
+        "Title": "The structure of value: Accounting for taste",
+        "Authors": "George Mandler",
+        "Counter": 3,
+        "Context": [
+            "Inspired by human long-term memory system (Mandler 2014), we design this memory module so an event that violates the expectations (being surprising) is more memorable.",
+            "Inspired by human long-term memory system (Mandler 2014), we design this memory module so an event that violates the expectations (being surprising) is more memorable.",
+            "Inspired by human long-term memory system (Mandler 2014), we design this memory module so an event that violates the expectations (being surprising) is more memorable."
+        ]
+    },
+    "69": {
+        "Title": "The Illusion of State in State-Space Models",
+        "Authors": "William Merrill, Jackson Petty, and Ashish Sabharwal",
+        "Counter": 3,
+        "Context": [
+            "diagonal linear recurrent models, and DeltaNet, all of which are limited to TC0 (Merrill, Petty, and Sabharwal 2024), Titans are capable of solving problems beyond TC 0.",
+            "Contrary to Transformers, diagonal linear recurrent models, and DeltaNet, all of which are limited to TC0 (Merrill, Petty, and Sabharwal 2024), Titans are capable of solving problems beyond TC 0.",
+            "Titans are capable of solving problems beyond TC 0, meaning that Titans are theoretically more expressive than Transformers and most modern linear recurrent models in state tracking tasks."
+        ]
+    },
+    "76": {
+        "Title": "Learning and memory",
+        "Authors": "Hideyuki Okano, Tomoo Hirano, and Evan Balaban",
+        "Counter": 3,
+        "Context": [
+            "Taking inspiration from the common definitions of memory and learning in neuropsychology literature (Okano, Hirano, and Balaban 2000), most existing architectures consider memory as a neural update caused by an input.",
+            "Taking inspiration from the common definitions of memory and learning in neuropsychology literature (Okano, Hirano, and Balaban 2000), most existing architectures consider memory as a neural update caused by an input, and define learning as a process for acquiring effective and useful memory, given an objective.",
+            "Taking inspiration from the common definitions of memory and learning in neuropsychology literature (Okano, Hirano, and Balaban 2000), most existing architectures consider memory as a neural update caused by an input."
+        ]
+    },
+    "96": {
+        "Title": "Simplified State Space Layers for Sequence Modeling",
+        "Authors": "Jimmy T.H. Smith, Andrew Warrington, and Scott Linderman",
+        "Counter": 3,
+        "Context": [
+            "we can use parallel associative scan (J. T. Smith, Warrington, and Linderman 2023) to calculate 𝑆𝑡 s in this chunk.",
+            "we can use parallel associative scan (J. T. Smith, Warrington, and Linderman 2023) to calculate 𝑆𝑡 s in this chunk.",
+            "Accordingly, we can use parallel associative scan (J. T. Smith, Warrington, and Linderman 2023) to calculate 𝑆𝑡 s in this chunk."
+        ]
+    },
+    "114": {
+        "Title": "A learning algorithm for continually running fully recurrent neural networks",
+        "Authors": "Ronald J Williams and David Zipser",
+        "Counter": 3,
+        "Context": [
+            "Recurrent Neural Networks (RNNs) (Williams and Zipser 1989) can be defined as models with a vector-valued memory module M (also called hidden state) with two main steps: Given a new input 𝑥𝑡 at time 𝑡, the model updates the memory.",
+            "Recurrent Neural Networks (RNNs) (Williams and Zipser 1989) can be defined as models with a vector-valued memory module M (also called hidden state) with two main steps: Given a new input 𝑥𝑡 at time 𝑡, the model (1) updates the memory using a function 𝑓 (M𝑡 −1, 𝑥𝑡 ) (with compression); and (2) retrieves the corresponding memory of input using a function 𝑔(M𝑡, 𝑥𝑡 ) (see §2.1 for details).",
+            "Recurrent Neural Networks (RNNs) (Williams and Zipser 1989) can be defined as models with a vector-valued memory module M (also called hidden state) with two main steps."
+        ]
+    },
+    "116": {
+        "Title": "Long-term feature banks for detailed video understanding",
+        "Authors": "Chao-Yuan Wu, Christoph Feichtenhofer, Haoqi Fan, Kaiming He, Philipp Krahenbuhl, and Ross Girshick",
+        "Counter": 3,
+        "Context": [
+            "...in complex real-world tasks (e.g., language modeling (N. F. Liu et al. 2024), video understanding (C.-Y. Wu et al. 2019), long-term time series forecasting (H. Zhou et al. 2021))...",
+            "In complex real-world tasks (e.g., language modeling (N. F. Liu et al. 2024), video understanding (C.-Y. Wu et al. 2019), long-term time series forecasting (H. Zhou et al. 2021)), the context window can become extremely large, making the applicability of Transformers challenging in these downstream tasks.",
+            "In complex real-world tasks (e.g., language modeling (N. F. Liu et al. 2024), video understanding (C.-Y. Wu et al. 2019), long-term time series forecasting (H. Zhou et al. 2021)), the context window can become extremely large, making the applicability of Transformers challenging in these downstream tasks."
+        ]
+    },
+    "121": {
+        "Title": "Gated Delta Networks: Improving Mamba2 with Delta Rule",
+        "Authors": "Songlin Yang, Jan Kautz, and Ali Hatamizadeh",
+        "Counter": 3,
+        "Context": [
+            "In complex real-world tasks (e.g., language modeling (N. F. Liu et al. 2024), video understanding (C.-Y. Wu et al. 2019), long-term time series forecasting (H. Zhou et al. 2021)), the context window can become extremely large, making the applicability of Transformers challenging in these downstream tasks.",
+            "We also follow the recent architectures that use normalization and gating with a linear layer before the final output projection (Mehta et al. 2023).",
+            "we also follow the recent architectures that use normalization and gating with a linear layer before the final output projection (Mehta et al. 2023)."
+        ]
+    },
+    "9": {
+        "Title": "Mambamixer: Efficient selective state space models with dual token and channel selection",
+        "Authors": "Ali Behrouz, Michele Santacatterina, and Ramin Zabih",
+        "Counter": 2,
+        "Context": [
+            "we compare with linear models (Das et al. 2023)",
+            "the ability to actively learn from data and memorize the abstraction of past history."
+        ]
+    },
+    "12": {
+        "Title": "Piqa: Reasoning about physical commonsense in natural language",
+        "Authors": "Yonatan Bisk, Rowan Zellers, Jianfeng Gao, Yejin Choi, et al.",
+        "Counter": 2,
+        "Context": [
+            "the ability to actively learn from data and memorize the abstraction of past history.",
+            "All these models, however, are based on momentary surprise, missing the token flow in the sequences."
+        ]
+    },
+    "18": {
+        "Title": "Scatterbrain: Unifying sparse and low-rank attention",
+        "Authors": "Beidi Chen, Tri Dao, Eric Winsor, Zhao Song, Atri Rudra, and Christopher Ré",
+        "Counter": 2,
+        "Context": [
+            "To enhance the parallelizable training and scaling, S. Yang, B. Wang, Yu Zhang, et al. (2024) present a fast paralellizable algorithm.",
+            "we propose three different variants of Titans (Han et al. 2024; Xiao et al. 2024)."
+        ]
+    },
+    "45": {
+        "Title": "The organization of behavior: A neuropsychological theory",
+        "Authors": "Donald Olding Hebb",
+        "Counter": 2,
+        "Context": [
+            "Memory is a fundamental mental process and is an inseparable component of human learning (Terry 2017). Without a properly functioning memory system, humans and animals would be restricted to basic reflexes and stereotyped behaviors.",
+            "The idea of seeing linear layers as the key-value (associative) memory system backs to fast weight programs, in which dynamic fast programs are incorporated into recurrent neural networks to serve as writable memory (JH Schmidhuber 1992)."
+        ]
+    },
+    "54": {
+        "Title": "PolySketchFormer: Fast Transformers via Sketching Polynomial Kernels",
+        "Authors": "Praneeth Kacham, Vahab Mirrokni, and Peilin Zhong",
+        "Counter": 2,
+        "Context": [
+            "To overcome the scalability issue of Transformers, recent studies aim to design different variants of linear Transformers (Kacham, Mirrokni, and P. Zhong 2024)",
+            "To overcome the scalability issue of Transformers, recent studies aim to design different variants of linear Transformers (Kacham, Mirrokni, and P. Zhong 2024; Katharopoulos et al. 2020; S. Yang, B. Wang, Shen, et al. 2024), where softmax is replaced by a kernel function in the attention."
+        ]
+    },
+    "56": {
+        "Title": "Transformers are rnns: Fast autoregressive transformers with linear attention",
+        "Authors": "Angelos Katharopoulos, Apoorv Vyas, Nikolaos Pappas, and François Fleuret",
+        "Counter": 2,
+        "Context": [
+            "Despite efficiency and the ability to scale to longer context, linear Transformers do not show competitive performance compared to Transformers as the kernel trick makes the model a linear recurrent network, in which the data is compressed into a matrix-valued states (Katharopoulos et al. 2020).",
+            "On the other hand, a very long context cannot be properly compressed in a small vector-valued or matrix-valued states (S. Wang 2024)."
+        ]
+    },
+    "58": {
+        "Title": "BABILong: Testing the Limits of LLMs with Long Context Reasoning-in-a-Haystack",
+        "Authors": "Yuri Kuratov, Aydar Bulatov, Petr Anokhin, Ivan Rodkin, Dmitry Igorevich Sorokin, Artyom Sorokin, and Mikhail Burtsev",
+        "Counter": 2,
+        "Context": [
+            "This finding is particularly important as the current hybrid models (except Hymba (X. Dong et al. 2024)) in the literature are using MAL-style combination of recurrent models and attention.",
+            "we find that MAC and MAG have close performance in language modeling and common-sense reasoning tasks, while MAC achieve significantly better performance in long-context NIAH."
+        ]
+    },
+    "77": {
+        "Title": "Resurrecting recurrent neural networks for long sequences",
+        "Authors": "Antonio Orvieto, Samuel L Smith, Albert Gu, Anushan Fernando, Caglar Gulcehre, Razvan Pascanu, and Soham De",
+        "Counter": 2,
+        "Context": [
+            "As examples of such models, we refer to LRU (Orvieto et al. 2023)",
+            "As examples of such models, we refer to GLA (S. Yang, B. Wang, Shen, et al. 2024), LRU (Orvieto et al. 2023), Griffin (De et al. 2024), xLSTM (Beck et al. 2024), and Mamba2 (Dao and Gu 2024)."
+        ]
+    },
+    "79": {
+        "Title": "SiMBA: Simplified Mamba-Based Architecture for Vision and Multivariate Time series",
+        "Authors": "Badri N. Patro and Vijay S. Agneeswaran",
+        "Counter": 2,
+        "Context": [
+            "To this end, we use Simba framework (Patro and Agneeswaran 2024) for time series forecasting, and",
+            "To this end, we use Simba framework (Patro and Agneeswaran 2024) for time series forecasting, and"
+        ]
+    },
+    "97": {
+        "Title": "Beyond Memorization: Violating Privacy via Inference with Large Language Models",
+        "Authors": "Robin Staab, Mark Vero, Mislav Balunovic, and Martin Vechev",
+        "Counter": 2,
+        "Context": [
+            "...causes privacy concerns (Staab et al. 2024)...",
+            "Memorization, however, has almost always been known as an undesirable phenomena in neural networks as it limits the model generalization (Bayat et al. 2024), causes privacy concerns (Staab et al. 2024), and so results in poor performance at test time."
+        ]
+    },
+    "108": {
+        "Title": "LongSSM: On the Length Extension of State-space Models in Language Modelling",
+        "Authors": "Shida Wang",
+        "Counter": 2,
+        "Context": [
+            "This, however, brings a contradictory fact about linear recurrent (or linear Transformers) models: On one hand, we use these linear models to enhance scalability and efficiency (linear vs. quadratic complexity), whose advantages is appeared for very long context.",
+            "whose advantages is appeared for very long context; On the other hand, a very long context cannot be properly compressed in a small vector-valued or matrix-valued states (S. Wang 2024)."
+        ]
+    },
+    "118": {
+        "Title": "Memformer: A memory-augmented transformer for sequence modeling",
+        "Authors": "Qingyang Wu, Zhenzhong Lan, Kun Qian, Jing Gu, Alborz Geramifard, and Zhou Yu",
+        "Counter": 2,
+        "Context": [
+            "In complex real-world tasks (e.g., language modeling (N. F. Liu et al. 2024), video understanding (C.-Y. Wu et al. 2019), long-term time series forecasting (H. Zhou et al. 2021)), the context window can become extremely large, making the applicability of Transformers challenging in these downstream tasks.",
+            "Titans outperform all baselines–i.e., Mamba2.8B (Gu and Dao 2024), RWKV-6-7B (Peng, Goldstein, et al. 2024), RecurrentGemma-9B (Botev et al. 2024), Gemma-9B (Team et al. 2024), Llama3.1-8B (Touvron et al. 2023), GPT-4, and GPT4o-mini (Achiam et al. 2023)."
+        ]
+    },
+    "13": {
+        "Title": "RecurrentGemma: Moving Past Transformers for Efficient Open Language Models",
+        "Authors": "Aleksandar Botev, Soham De, Samuel L Smith, Anushan Fernando, George-Cristian Muraru, Ruba Haroun, Leonard Berrada, Razvan Pascanu, Pier Giuseppe Sessa, Robert Dadashi, et al.",
+        "Counter": 1,
+        "Context": [
+            "...Titans outperform all baselines–...RecurrentGemma-9B (Botev et al. 2024)..."
+        ]
+    },
+    "14": {
+        "Title": "Local learning algorithms",
+        "Authors": "Léon Bottou and Vladimir Vapnik",
+        "Counter": 1,
+        "Context": [
+            "To enhance the parallelizable training and scaling, S. Yang, B. Wang, Yu Zhang, et al. (2024) present a fast paralellizable algorithm."
+        ]
+    },
+    "15": {
+        "Title": "Scaling transformer to 1m tokens and beyond with rmt",
+        "Authors": "Aydar Bulatov, Yuri Kuratov, Yermek Kapushev, and Mikhail S Burtsev",
+        "Counter": 1,
+        "Context": [
+            "Compared to TTT, our Neural Memory can better handle the memory capacity by using momentum and also the forgetting mechanism (i.e., weight decay)."
+        ]
+    },
+    "20": {
+        "Title": "BoolQ: Exploring the Surprising Difficulty of Natural Yes/No Questions",
+        "Authors": "Christopher Clark, Kenton Lee, Ming-Wei Chang, Tom Kwiatkowski, Michael Collins, and Kristina Toutanova",
+        "Counter": 1,
+        "Context": [
+            "the results of Titans and baselines are reported in Figure 6b."
+        ]
+    },
+    "21": {
+        "Title": "Think you have solved question answering? try arc, the ai2 reasoning challenge",
+        "Authors": "Peter Clark, Isaac Cowhey, Oren Etzioni, Tushar Khot, Ashish Sabharwal, Carissa Schoenick, and Oyvind Tafjord",
+        "Counter": 1,
+        "Context": [
+            "Baseline results are reported by (Yuri Kuratov et al. 2024)."
+        ]
+    },
+    "24": {
+        "Title": "FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning",
+        "Authors": "Tri Dao",
+        "Counter": 1,
+        "Context": [
+            "To improve the memory consumption and throughput of softmax attention for longer sequences, various studies focused on I/O aware implementations of attention (Dao 2024; Dao, D. Fu, et al. 2022)."
+        ]
+    },
+    "25": {
+        "Title": "FlashAttention: Fast and Memory-Efficient Exact Attention with IO-Awareness",
+        "Authors": "Tri Dao, Dan Fu, Stefano Ermon, Atri Rudra, and Christopher Ré",
+        "Counter": 1,
+        "Context": [
+            "...various studies focused on I/O aware implementations of attention (Dao 2024; Dao, D. Fu, et al. 2022)"
+        ]
+    },
+    "27": {
+        "Title": "Long-term Forecasting with TiDE: Time-series Dense Encoder",
+        "Authors": "Abhimanyu Das, Weihao Kong, Andrew Leach, Shaan K Mathur, Rajat Sen, and Rose Yu",
+        "Counter": 1,
+        "Context": [
+            "...by redistributing the attention weights more effectively (Han et al. 2024; Xiao et al. 2024)."
+        ]
+    },
+    "36": {
+        "Title": "Learning to forget: Continual prediction with LSTM",
+        "Authors": "Felix A Gers, Jürgen Schmidhuber, and Fred Cummins",
+        "Counter": 1,
+        "Context": [
+            "Memory has always been one of the core parts of the neural network designs (Graves, Wayne, and Danihelka 2014; JH Schmidhuber 1992; Jürgen Schmidhuber and Hochreiter 1997; J. Zhang et al. 2024)."
+        ]
+    },
+    "38": {
+        "Title": "LSTM: A search space odyssey",
+        "Authors": "Klaus Greff, Rupesh K Srivastava, Jan Koutník, Bas R Steunebrink, and Jürgen Schmidhuber",
+        "Counter": 1,
+        "Context": [
+            "most existing architectures–ranging from Hopfield Networks (Hopfield 1982) to LSTMs (Jürgen Schmidhuber and Hochreiter 1997) and Transformers (Vaswani et al. 2017)–face challenges when dealing with generalization, length extrapolation, and/or reasoning."
+        ]
+    },
+    "42": {
+        "Title": "LM-Infinite: Zero-Shot Extreme Length Generalization for Large Language Models",
+        "Authors": "Chi Han, Qifan Wang, Hao Peng, Wenhan Xiong, Yu Chen, Heng Ji, and Sinong Wang",
+        "Counter": 1,
+        "Context": [
+            "we compare with linear models (Das et al. 2023; Z. Li et al. 2023; H. Wu et al. 2023; Zeng et al. 2023)"
+        ]
+    },
+    "47": {
+        "Title": "Multilayer feedforward networks are universal approximators",
+        "Authors": "Kurt Hornik, Maxwell Stinchcombe, and Halbert White",
+        "Counter": 1,
+        "Context": [
+            "Aligning with the theoretical results that MLPs with at least two layers are strictly more expressive than linear models (Hornik, Stinchcombe, and White 1989), in Section 5.5, we show that deep memory modules are more effective in practice."
+        ]
+    },
+    "53": {
+        "Title": "Mistral 7B",
+        "Authors": "Albert Q Jiang, Alexandre Sablayrolles, Arthur Mensch, Chris Bamford, Devendra Singh Chaplot, Diego de las Casas, Florian Bressand, Gianna Lengyel, Guillaume Lample, Lucile Saulnier, et al.",
+        "Counter": 1,
+        "Context": [
+            "Titans outperform all baselines–i.e., Mamba2.8B (Gu and Dao 2024), RWKV-6-7B (Peng, Goldstein, et al. 2024), RecurrentGemma-9B (Botev et al. 2024), Gemma-9B (Team et al. 2024), Llama3.1-8B (Touvron et al. 2023), GPT-4, and GPT4o-mini (Achiam et al. 2023)."
+        ]
+    },
+    "85": {
+        "Title": "Exploring Transformer Extrapolation",
+        "Authors": "Zhen Qin, Yiran Zhong, and Hui Deng",
+        "Counter": 1,
+        "Context": [
+            "all of which are inseparable parts of many hard real-world tasks."
+        ]
+    },
+    "87": {
+        "Title": "Associative recurrent memory transformer",
+        "Authors": "Ivan Rodkin, Yuri Kuratov, Aydar Bulatov, and Mikhail Burtsev",
+        "Counter": 1,
+        "Context": [
+            "Titans outperform all baselines–i.e., Mamba2.8B (Gu and Dao 2024), RWKV-6-7B (Peng, Goldstein, et al. 2024), RecurrentGemma-9B (Botev et al. 2024), Gemma-9B (Team et al. 2024), Llama3.1-8B (Touvron et al. 2023), GPT-4, and GPT4o-mini (Achiam et al. 2023)."
+        ]
+    },
+    "88": {
+        "Title": "Efficient content-based sparse attention with routing transformers",
+        "Authors": "Aurko Roy, Mohammad Saffar, Ashish Vaswani, and David Grangier",
+        "Counter": 1,
+        "Context": [
+            "In the training, we follow the training procedure of S. Yang, Kautz, and Hatamizadeh (2024), and use LLama 2 tokenizer with a vocabulary size of 32K and use training length of 4K tokens."
+        ]
+    },
+    "89": {
+        "Title": "Winogrande: An adversarial winograd schema challenge at scale",
+        "Authors": "Keisuke Sakaguchi, Ronan Le Bras, Chandra Bhagavatula, and Yejin Choi",
+        "Counter": 1,
+        "Context": [
+            "The two learning rules of Hebbian (Hebb 2005) and delta (Prados and Kak 1989) are the most popular learning rules for fast weight programs."
+        ]
+    },
+    "95": {
+        "Title": "Rethinking llm memorization through the lens of adversarial compression",
+        "Authors": "Avi Schwarzschild, Zhili Feng, Pratyush Maini, Zachary C Lipton, and J Zico Kolter",
+        "Counter": 1,
+        "Context": [
+            "Moreover, the memorization of the training data might not be helpful at test time, in which the data might be out-of-distribution."
+        ]
+    },
+    "99": {
+        "Title": "End-to-end memory networks",
+        "Authors": "Sainbayar Sukhbaatar, Jason Weston, Rob Fergus, et al.",
+        "Counter": 1,
+        "Context": [
+            "An effective memory system, however, also needs input-independent parameters to store the abstraction of the task knowledge."
+        ]
+    },
+    "101": {
+        "Title": "Retentive network: A successor to transformer for large language models",
+        "Authors": "Yutao Sun, Li Dong, Shaohan Huang, Shuming Ma, Yuqing Xia, Jilong Xue, Jianyong Wang, and Furu Wei",
+        "Counter": 1,
+        "Context": [
+            "Using a matrix-valued memory M = 𝑊 ∈ R𝑑in ×𝑑in is equivalent to optimize ℓ (𝑊𝑡 −1; 𝑥𝑡 ) = ∥𝑊𝑡 −1k𝑡 − v𝑡 ∥2 2, which is an online linear regression objective."
+        ]
+    },
+    "102": {
+        "Title": "Gemma: Open models based on gemini research and technology",
+        "Authors": "Gemma Team, Thomas Mesnard, Cassidy Hardin, Robert Dadashi, Surya Bhupatiraju, Shreya Pathak, Laurent Sifre, Morgane Rivière, Mihir Sanjay Kale, Juliette Love, et al.",
+        "Counter": 1,
+        "Context": [
+            "Titans outperform all baselines–i.e., Mamba2.8B (Gu and Dao 2024), RWKV-6-7B (Peng, Goldstein, et al. 2024), RecurrentGemma-9B (Botev et al. 2024), Gemma-9B (Team et al. 2024), Llama3.1-8B (Touvron et al. 2023), GPT-4, and GPT4o-mini (Achiam et al. 2023)."
+        ]
+    },
+    "104": {
+        "Title": "On the resurgence of recurrent models for long sequences: Survey and research opportunities in the transformer era",
+        "Authors": "Matteo Tiezzi, Michele Casoni, Alessandro Betti, Tommaso Guidi, Marco Gori, and Stefano Melacci",
+        "Counter": 1,
+        "Context": [
+            "For example, it can update the memory without affecting the past abstraction by letting 𝛼𝑡 → 0, and can clear the entire memory by letting 𝛼𝑡 → 1. Later in this section, we show that this weight decay mechanism is closely related to the gating mechanism in modern RNNs (Dao and Gu 2024; Orvieto et al. 2023)."
+        ]
+    },
+    "110": {
+        "Title": "Towards LifeSpan Cognitive Systems",
+        "Authors": "Yu Wang, Chi Han, Tongtong Wu, Xiaoxin He, Wangchunshu Zhou, Nafis Sadeq, Xiusi Chen, Zexue He, Wei Wang, Gholamreza Haffari, et al.",
+        "Counter": 1,
+        "Context": [
+            "Titans outperform all baselines–i.e., Mamba2.8B (Gu and Dao 2024), RWKV-6-7B (Peng, Goldstein, et al. 2024), RecurrentGemma-9B (Botev et al. 2024), Gemma-9B (Team et al. 2024), Llama3.1-8B (Touvron et al. 2023), GPT-4, and GPT4o-mini (Achiam et al. 2023)."
+        ]
+    },
+    "113": {
+        "Title": "Adaptive switching circuits",
+        "Authors": "Bernard Widrow and Marcian E Hoff",
+        "Counter": 1,
+        "Context": [
+            "Widrow and Hoff (1988) presented Delta Rule, in which before adding a memory (i.e., a pair of key and value), the model first removes its past value."
+        ]
+    },
+    "115": {
+        "Title": "Systems of memory in the human brain",
+        "Authors": "Daniel B Willingham",
+        "Counter": 1,
+        "Context": [
+            "In fact, memory is a confederation of systems–e.g., short-term, working, and long-term memory–each serving a different function with different neural structures..."
+        ]
+    },
+    "117": {
+        "Title": "Temporal 2D-Variation Modeling for General Time Series Analysis",
+        "Authors": "Haixu Wu, Tengge Hu, Yong Liu, Hang Zhou, Jianmin Wang, and Mingsheng Long",
+        "Counter": 1,
+        "Context": [
+            "In complex real-world tasks (e.g., language modeling (N. F. Liu et al. 2024), video understanding (C.-Y. Wu et al. 2019), long-term time series forecasting (H. Zhou et al. 2021)), the context window can become extremely large, making the applicability of Transformers challenging in these downstream tasks."
+        ]
+    },
+    "120": {
+        "Title": "Qwen2.5 Technical Report",
+        "Authors": "An Yang, Baosong Yang, Beichen Zhang, Binyuan Hui, Bo Zheng, Bowen Yu, Chengyuan Li, Dayiheng Liu, Fei Huang, Haoran Wei, et al.",
+        "Counter": 1,
+        "Context": [
+            "extremely large models such as GPT-4 (Achiam et al. 2023), GPT4o-mini, Qwen2.5-72B (A. Yang et al. 2024), and Llama3.1-70B (Touvron et al. 2023)"
+        ]
+    },
+    "123": {
+        "Title": "Parallelizing Linear Transformers with the Delta Rule over Sequence Length",
+        "Authors": "Songlin Yang, Bailin Wang, Yu Zhang, Yikang Shen, and Yoon Kim",
+        "Counter": 1,
+        "Context": [
+            "In complex real-world tasks (e.g., language modeling (N. F. Liu et al. 2024), video understanding (C.-Y. Wu et al. 2019), long-term time series forecasting (H. Zhou et al. 2021)), the context window can become extremely large, making the applicability of Transformers challenging in these downstream tasks."
+        ]
+    },
+    "124": {
+        "Title": "Hybrid State Space Realizations of Foundation Models with Eidetic and Fading Memory",
+        "Authors": "Luca Zancato, Arjun Seshadri, Yonatan Dukler, Aditya Golatkar, Yantao Shen, Benjamin Bowman, Matthew Trager, Alessandro Achille, and Stefano Soatto",
+        "Counter": 1,
+        "Context": [
+            "In complex real-world tasks (e.g., language modeling (N. F. Liu et al. 2024), video understanding (C.-Y. Wu et al. 2019), long-term time series forecasting (H. Zhou et al. 2021)), the context window can become extremely large, making the applicability of Transformers challenging in these downstream tasks."
+        ]
+    },
+    "126": {
+        "Title": "Are transformers effective for time series forecasting?",
+        "Authors": "Ailing Zeng, Muxi Chen, Lei Zhang, and Qiang Xu",
+        "Counter": 1,
+        "Context": [
+            "In complex real-world tasks (e.g., language modeling (N. F. Liu et al. 2024), video understanding (C.-Y. Wu et al. 2019), long-term time series forecasting (H. Zhou et al. 2021)), the context window can become extremely large, making the applicability of Transformers challenging in these downstream tasks."
+        ]
+    },
+    "16": {
+        "Title": "Recurrent memory transformer",
+        "Authors": "Aydar Bulatov, Yury Kuratov, and Mikhail Burtsev",
+        "Counter": 0,
+        "Context": []
+    },
+    "23": {
+        "Title": "Transformer-XL: Attentive Language Models beyond a Fixed-Length Context",
+        "Authors": "Zihang Dai, Zhilin Yang, Yiming Yang, Jaime G. Carbonell, Quoc Viet Le, and Ruslan Salakhutdinov",
+        "Counter": 0,
+        "Context": []
+    },
+    "26": {
+        "Title": "Transformers are SSMs: Generalized models and efficient algorithms through structured state space duality",
+        "Authors": "Tri Dao and Albert Gu",
+        "Counter": 0,
+        "Context": []
+    },
+    "29": {
+        "Title": "Flex Attention: A Programming Model for Generating Optimized Attention Kernels",
+        "Authors": "Juechu Dong, Boyuan Feng, Driss Guessous, Yanbo Liang, and Horace He",
+        "Counter": 0,
+        "Context": []
+    },
+    "32": {
+        "Title": "Learn to remember: Transformer with recurrent memory for document-level machine translation",
+        "Authors": "Yukun Feng, Feng Li, Ziang Song, Boyuan Zheng, and Philipp Koehn",
+        "Counter": 0,
+        "Context": []
+    },
+    "33": {
+        "Title": "Hungry Hungry Hippos: Towards Language Modeling with State Space Models",
+        "Authors": "Daniel Y Fu, Tri Dao, Khaled Kamal Saab, Armin W Thomas, Atri Rudra, and Christopher Re",
+        "Counter": 0,
+        "Context": []
+    },
+    "34": {
+        "Title": "Test-time training with masked autoencoders",
+        "Authors": "Yossi Gandelsman, Yu Sun, Xinlei Chen, and Alexei Efros",
+        "Counter": 0,
+        "Context": []
+    },
+    "35": {
+        "Title": "The pile: An 800gb dataset of diverse text for language modeling",
+        "Authors": "Leo Gao, Stella Biderman, Sid Black, Laurence Golding, Travis Hoppe, Charles Foster, Jason Phang, Horace He, Anish Thite, Noa Nabeshima, et al.",
+        "Counter": 0,
+        "Context": []
+    },
+    "37": {
+        "Title": "Neural Turing Machines",
+        "Authors": "Alex Graves, Greg Wayne, and Ivo Danihelka",
+        "Counter": 0,
+        "Context": []
+    },
+    "43": {
+        "Title": "Liquid Structural State-Space Models",
+        "Authors": "Ramin Hasani, Mathias Lechner, Tsun-Hsuan Wang, Makram Chahine, Alexander Amini, and Daniela Rus",
+        "Counter": 0,
+        "Context": []
+    },
+    "44": {
+        "Title": "CAMELoT: Towards Large Language Models with Training-Free Consolidated Associative Memory",
+        "Authors": "Zexue He, Leonid Karlinsky, Donghyun Kim, Julian McAuley, Dmitry Krotov, and Rogerio Feris",
+        "Counter": 0,
+        "Context": []
+    },
+    "46": {
+        "Title": "Neural networks and physical systems with emergent collective computational abilities.",
+        "Authors": "John J Hopfield",
+        "Counter": 0,
+        "Context": []
+    },
+    "49": {
+        "Title": "Block-recurrent transformers",
+        "Authors": "DeLesley Hutchins, Imanol Schlag, Yuhuai Wu, Ethan Dyer, and Behnam Neyshabur",
+        "Counter": 0,
+        "Context": []
+    },
+    "50": {
+        "Title": "The dual form of neural networks revisited: Connecting test time predictions to training patterns via spotlights of attention",
+        "Authors": "Kazuki Irie, Róbert Csordás, and Jürgen Schmidhuber",
+        "Counter": 0,
+        "Context": []
+    },
+    "51": {
+        "Title": "Going beyond linear transformers with recurrent fast weight programmers",
+        "Authors": "Kazuki Irie, Imanol Schlag, Róbert Csordás, and Jürgen Schmidhuber",
+        "Counter": 0,
+        "Context": []
+    },
+    "52": {
+        "Title": "Online domain adaptation of a pre-trained cascade of classifiers",
+        "Authors": "Vidit Jain and Erik Learned-Miller",
+        "Counter": 0,
+        "Context": []
+    },
+    "57": {
+        "Title": "Generalization through Memorization: Nearest Neighbor Language Models",
+        "Authors": "Urvashi Khandelwal, Omer Levy, Dan Jurafsky, Luke Zettlemoyer, and Mike Lewis",
+        "Counter": 0,
+        "Context": []
+    },
+    "59": {
+        "Title": "Self-attentive associative memory",
+        "Authors": "Hung Le, Truyen Tran, and Svetha Venkatesh",
+        "Counter": 0,
+        "Context": []
+    },
+    "60": {
+        "Title": "Retrieval-augmented generation for knowledge-intensive nlp tasks",
+        "Authors": "Patrick Lewis, Ethan Perez, Aleksandra Piktus, Fabio Petroni, Vladimir Karpukhin, Naman Goyal, Heinrich Küttler, Mike Lewis, Wen-tau Yih, Tim Rocktäschel, et al.",
+        "Counter": 0,
+        "Context": []
+    },
+    "62": {
+        "Title": "Revisiting long-term time series forecasting: An investigation on linear mapping",
+        "Authors": "Zhe Li, Shiyi Qi, Yiduo Li, and Zenglin Xu",
+        "Counter": 0,
+        "Context": []
+    },
+    "63": {
+        "Title": "Longhorn: State space models are amortized online learners",
+        "Authors": "Bo Liu, Rui Wang, Lemeng Wu, Yihao Feng, Peter Stone, and Qiang Liu",
+        "Counter": 0,
+        "Context": []
+    },
+    "64": {
+        "Title": "Lost in the middle: How language models use long contexts",
+        "Authors": "Nelson F Liu, Kevin Lin, John Hewitt, Ashwin Paranjape, Michele Bevilacqua, Fabio Petroni, and Percy Liang",
+        "Counter": 0,
+        "Context": []
+    },
+    "65": {
+        "Title": "itransformer: Inverted transformers are effective for time series forecasting",
+        "Authors": "Yong Liu, Tengge Hu, Haoran Zhang, Haixu Wu, Shiyu Wang, Lintao Ma, and Mingsheng Long",
+        "Counter": 0,
+        "Context": []
+    },
+    "67": {
+        "Title": "Long Range Language Modeling via Gated State Spaces",
+        "Authors": "Harsh Mehta, Ankit Gupta, Ashok Cutkosky, and Behnam Neyshabur",
+        "Counter": 0,
+        "Context": []
+    },
+    "68": {
+        "Title": "Pointer Sentinel Mixture Models",
+        "Authors": "Stephen Merity, Caiming Xiong, James Bradbury, and Richard Socher",
+        "Counter": 0,
+        "Context": []
+    },
+    "70": {
+        "Title": "Leave no context behind: Efficient infinite context transformers with infini-attention",
+        "Authors": "Tsendsuren Munkhdalai, Manaal Faruqui, and Siddharth Gopal",
+        "Counter": 0,
+        "Context": []
+    },
+    "71": {
+        "Title": "Metalearned neural memory",
+        "Authors": "Tsendsuren Munkhdalai, Alessandro Sordoni, Tong Wang, and Adam Trischler",
+        "Counter": 0,
+        "Context": []
+    },
+    "72": {
+        "Title": "Neural semantic encoders",
+        "Authors": "Tsendsuren Munkhdalai and Hong Yu",
+        "Counter": 0,
+        "Context": []
+    },
+    "73": {
+        "Title": "Hyenadna: Long-range genomic sequence modeling at single nucleotide resolution",
+        "Authors": "Eric Nguyen, Michael Poli, Marjan Faizi, Armin Thomas, Michael Wornow, Callum Birch-Sykes, Stefano Massaroli, Aman Patel, Clayton Rabideau, Yoshua Bengio, et al.",
+        "Counter": 0,
+        "Context": []
+    },
+    "74": {
+        "Title": "On first-order meta-learning algorithms",
+        "Authors": "A Nichol",
+        "Counter": 0,
+        "Context": []
+    },
+    "75": {
+        "Title": "A time series is worth 64 words: Long-term forecasting with transformers",
+        "Authors": "Yuqi Nie, Nam H Nguyen, Phanwadee Sinthong, and Jayant Kalagnanam",
+        "Counter": 0,
+        "Context": []
+    },
+    "78": {
+        "Title": "The LAMBADA dataset: Word prediction requiring a broad discourse context",
+        "Authors": "Denis Paperno, Germán Kruszewski, Angeliki Lazaridou, Ngoc Quan Pham, Raffaella Bernardi, Sandro Pezzelle, Marco Baroni, Gemma Boleda, and Raquel Fernández",
+        "Counter": 0,
+        "Context": []
+    },
+    "81": {
+        "Title": "RWKV-LM",
+        "Authors": "Bo Peng",
+        "Counter": 0,
+        "Context": []
+    },
+    "83": {
+        "Title": "Eagle and finch: Rwkv with matrix-valued states and dynamic recurrence",
+        "Authors": "Bo Peng, Daniel Goldstein, Quentin Anthony, Alon Albalak, Eric Alcaide, Stella Biderman, Eugene Cheah, Xingjian Du, Teddy Ferdinan, Haowen Hou, et al.",
+        "Counter": 0,
+        "Context": []
+    },
+    "84": {
+        "Title": "Neural network capacity using delta rule",
+        "Authors": "DL Prados and SC Kak",
+        "Counter": 0,
+        "Context": []
+    },
+    "86": {
+        "Title": "Samba: Simple Hybrid State Space Models for Efficient Unlimited Context Language Modeling",
+        "Authors": "Liliang Ren, Yang Liu, Yadong Lu, Yelong Shen, Chen Liang, and Weizhu Chen",
+        "Counter": 0,
+        "Context": []
+    },
+    "90": {
+        "Title": "Social IQa: Commonsense Reasoning about Social Interactions",
+        "Authors": "Maarten Sap, Hannah Rashkin, Derek Chen, Ronan Le Bras, and Yejin Choi",
+        "Counter": 0,
+        "Context": []
+    },
+    "92": {
+        "Title": "Learning to control fast-weight memories: An alternative to recurrent nets",
+        "Authors": "JH Schmidhuber",
+        "Counter": 0,
+        "Context": []
+    },
+    "93": {
+        "Title": "Reducing the ratio between learning complexity and number of time varying variables in fully recurrent nets",
+        "Authors": "Jürgen Schmidhuber",
+        "Counter": 0,
+        "Context": []
+    },
+    "103": {
+        "Title": "Learning and memory: Basic principles, processes, and procedures",
+        "Authors": "W Scott Terry",
+        "Counter": 0,
+        "Context": []
+    },
+    "106": {
+        "Title": "The unreasonable effectiveness of the forget gate",
+        "Authors": "Jos Van Der Westhuizen and Joan Lasenby",
+        "Counter": 0,
+        "Context": []
+    },
+    "109": {
+        "Title": "MEMORYLLM: Towards Self-Updatable Large Language Models",
+        "Authors": "Yu Wang, Yifan Gao, Xiusi Chen, Haoming Jiang, Shiyang Li, Jingfeng Yang, Qingyu Yin, Zheng Li, Xian Li, Bing Yin, Jingbo Shang, and Julian McAuley",
+        "Counter": 0,
+        "Context": []
+    },
+    "111": {
+        "Title": "R-transformer: Recurrent neural network enhanced transformer",
+        "Authors": "Zhiwei Wang, Yao Ma, Zitao Liu, and Jiliang Tang",
+        "Counter": 0,
+        "Context": []
+    },
+    "112": {
+        "Title": "Memory networks",
+        "Authors": "Jason Weston, Sumit Chopra, and Antoine Bordes",
+        "Counter": 0,
+        "Context": []
+    },
+    "119": {
+        "Title": "Efficient Streaming Language Models with Attention Sinks",
+        "Authors": "Guangxuan Xiao, Yuandong Tian, Beidi Chen, Song Han, and Mike Lewis",
+        "Counter": 0,
+        "Context": []
+    },
+    "122": {
+        "Title": "Gated Linear Attention Transformers with Hardware-Efficient Training",
+        "Authors": "Songlin Yang, Bailin Wang, Yikang Shen, Rameswar Panda, and Yoon Kim",
+        "Counter": 0,
+        "Context": []
+    },
+    "125": {
+        "Title": "HellaSwag: Can a Machine Really Finish Your Sentence?",
+        "Authors": "Rowan Zellers, Ari Holtzman, Yonatan Bisk, Ali Farhadi, and Yejin Choi",
+        "Counter": 0,
+        "Context": []
+    },
+    "127": {
+        "Title": "SVM-KNN: Discriminative nearest neighbor classification for visual category recognition",
+        "Authors": "Hao Zhang, Alexander C Berg, Michael Maire, and Jitendra Malik",
+        "Counter": 0,
+        "Context": []
+    },
+    "128": {
+        "Title": "Memory Mosaics",
+        "Authors": "Jianyu Zhang, Niklas Nolte, Ranajoy Sadhukhan, Beidi Chen, and Léon Bottou",
+        "Counter": 0,
+        "Context": []
+    },
+    "129": {
+        "Title": "Crossformer: Transformer utilizing cross-dimension dependency for multivariate time series forecasting",
+        "Authors": "Yunhao Zhang and Junchi Yan",
+        "Counter": 0,
+        "Context": []
+    },
+    "131": {
+        "Title": "Fast context adaptation via meta-learning",
+        "Authors": "Luisa Zintgraf, Kyriacos Shiarli, Vitaly Kurin, Katja Hofmann, and Shimon Whiteson",
+        "Counter": 0,
+        "Context": []
+    }
+}
